@@ -16,9 +16,14 @@ Exemplos de parâmetros de execução:
 
 Parâmetros de extração de características:
 
+- *-sha256* >> extrair SHA256 do APK
+- *-nome* >> extrair nome do APK
+- *-pkg* >> extrair permissões do APK
+- *-api* >> extrair a versão de API do APK
+- *-api-min* >> extrair a versão mínima de API suportada pelo APK
 - *-perm* >> extrair permissões do APK
 - *-int* >> extrair intenções do APK
-- *-api* >> extrair API Calls do APK
+- *-apicall* >> extrair API Calls do APK
 - *-act* >> extrair atividades do APK
 - *-prov* >> extrair provedores do APK
 - *-recep* >> extrair receptores do APK
