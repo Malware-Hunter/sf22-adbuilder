@@ -2,7 +2,7 @@
 
 MotoDroidBuilder: implementação completa e totalmente integrada da ferramenta. Todas as etapas e "firulas" devem estar incorporadas na ferramenta.
 
-Exemplos de parâmetros de execução:
+### Exemplos de parâmetros de execução:
 
 - tool.py --extract-features-only arquivo.APK
 - tool.py --download --extract-features SHA256_do_APK
@@ -14,7 +14,7 @@ Exemplos de parâmetros de execução:
 
 - tool.py --extract-all-features arquivo.APK
 
-Parâmetros de extração de características:
+### Exemplos de parâmetros de extração de características:
 
 - *-sha256* >> extrair SHA256 do APK
 - *-nome* >> extrair nome do APK
