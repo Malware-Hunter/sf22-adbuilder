@@ -4,7 +4,7 @@ MotoDroidBuilder: implementação completa e totalmente integrada da ferramenta.
 
 ### Exemplos de parâmetros de execução:
 
-- tool.py --extract-features-only arquivo.APK
+- tool.py --extract-features-only arquivo.APK  ||  tool.py --extract-all-features arquivo.APK
 - tool.py --download --extract-features SHA256_do_APK
 - tool.py --download --extract-features --labelling-virustotal SHA256_do_APK
 - tool.py --download --extract-features --labelling-all SHA256_do_APK
@@ -12,7 +12,6 @@ MotoDroidBuilder: implementação completa e totalmente integrada da ferramenta.
 - tool.py --build-dataset-only arquivo_APK1.csv arquivo_APK2.csv ... arquivo_APKn.csv
 - tool.py --all SHA256_do_APK
 
-- tool.py --extract-all-features arquivo.APK
 
 ### Exemplos de parâmetros de extração de características:
 
@@ -31,5 +30,11 @@ MotoDroidBuilder: implementação completa e totalmente integrada da ferramenta.
 - *-op* >> extrair opcodes do APK
 - *-all* >> extrair todas as características do APK
 
-*OBS:* *Se mais de um parâmetro for adicionado, e.g., -perm -int -api, serão extraídas as respectivas características (e.g., permissões, intenções e chamadas de API).*
-*Se o parâmetro -all for adicionado, então todas as características serão extraídas do APK em questão.*
+*OBS_1:* *Se mais de um parâmetro for adicionado, e.g., -perm -int -api, serão extraídas as respectivas características (e.g., permissões, intenções e chamadas de API).*
+
+*OBS_2:* *Se o parâmetro -all for adicionado, então todas as características serão extraídas do APK em questão.*
+
+#### Dúvidas
+
+* Permitir a opção para excluir ou não o APK?
+* Opção para incluir as chamadas de API cruas?
