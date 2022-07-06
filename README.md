@@ -16,8 +16,10 @@ MotoDroidBuilder: implementação completa e totalmente integrada da ferramenta.
         -   tempo de extração dos APKs;
         -   uso de CPU;
         -   consumo de memória RAM;
+    -   um arquivo JSON para cada APK contendo os resultados da análise do VirusTotal;
     -   um arquivo de texto para cada APK contendo chamadas de API (extração crua);
     -   um arquivo CSV para cada APK contendo todas as características;
+    -   um arquivo CSV para cada APK contendo os dados tratados e adequados para integrar ao *dataset* final;
     -   o *dataset* final (i.e., resultado final da ferramenta que contém a união de todos os CSVs de APKs);
 
 3) ser capaz de oferecer opções de especificação para o usuário.
