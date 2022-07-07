@@ -32,7 +32,7 @@
 
 ### Atividades Pendentes
 
-- Estruturação de pastas neste repositório (Lucas e Joner);
+- Estruturação de pastas neste repositório, em andamento... (Lucas e Joner);
 - Criar parâmetros de execução para a ferramenta (Lucas e Nicolas) com *argparse*;
 - Integrar etapa de download na ferramenta (Lucas);
 
