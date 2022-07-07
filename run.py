@@ -1,17 +1,14 @@
 import argparse
-from xmlrpc.client import Boolean
+import os
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--download', type=Boolean, default=False, help='Etapa que realiza o download dos APKs desejados.')
-    #parser.add_argument('--list', '-ls', type=str, help='Lista que contém o(s) sha256 do(s) APK(s).')
-    #parser.add_argument('--n_processes', '-np', type=int, default=1, help='Número de processos que serão executados. Por padrão o valor é setado em 1.')
+    parser.add_argument('--download', type=str, default=False, help='Recebe a lista contendo os sha256 dos APKs para download. A lista.txt precisa estar no diretório 1_Download.')
+    parser.add_argument('--n_processes', '-np', type=int, default=1, help='Número de processos que serão executados. Por padrão o valor é setado em 1.')
     args = parser.parse_args()
     
+    # se o download for True, então o programa vai fazer o download dos APKs
     if args.download:
-        # Realiza o download dos APKs desejados.
-        # Acessar a pasta 1_Download.
-        # Executar o script ./run_download.sh passando os dois parâmetros.
-        print("Etapa de download dos APKs.")
+        os.system('cd 1_Download && ./run_download.sh {} {}'.format(args.download, args.n_processes))
 
 main()
