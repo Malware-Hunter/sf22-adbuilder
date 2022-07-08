@@ -32,9 +32,12 @@
 
 ### Atividades Pendentes
 
-- Estruturação de pastas neste repositório, em andamento... (Lucas e Joner);
-- Criar parâmetros de execução para a ferramenta (Lucas, Joner e Nicolas) com *argparse*;
-- Integrar etapa de download na ferramenta (Lucas);
+- Mover arquivos de saída para uma sub-pasta; (Lucas ou Nicolas)
+- Criar parâmetros de execução para a ferramenta com *argparse*; (em andamento... Lucas)
+- Integrar etapa de extração de características na ferramenta; (Lucas)
+- Integrar etapa da rotulação do VirusTotal na ferramenta; (Lucas e Joner)
+- Integrar etapa da construção do *dataset* na ferramenta; (Lucas)
 
 ### Atividades Realizadas
-- planejar as primeiras atividades;
+- Estruturação de pastas neste repositório; (Lucas)
+- Integrar etapa de download na ferramenta; (Lucas)

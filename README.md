@@ -6,7 +6,7 @@ MotoDroidBuilder: implementação completa e totalmente integrada da ferramenta.
 
 1) ser capaz de executar as etapas (todas ou individualmente) do processo de construção de um *dataset*:
     -   Download do APK;
-    -   Extração de características;
+    -   Extração de características (+ Tratamento e validação das mesmas);
     -   Rotulação dos APKs;
     -   Construção do *dataset* (+ Sanitização do *dataset*);
 
