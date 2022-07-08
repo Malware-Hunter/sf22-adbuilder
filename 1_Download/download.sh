@@ -8,16 +8,16 @@ do
 	echo "Download finalizado!!!"
 done < "$1"
 
-echo "Movendo arquivos stats_logs para Logs"
-for i in stats*
-do
-	mv $i Logs
-done
-echo "Finalizado!!!"
+#echo "Movendo arquivos stats_logs para Logs"
+#for i in stats*
+#do
+#	mv $i Logs
+#done
+#echo "Finalizado!!!"
 
-echo "Removendo arquivos moto_*"
-for i in moto_*
-do
-	rm $i
-done
-echo "Finalizado!!!"
+#echo "Removendo arquivos moto_*"
+#for i in moto_*
+#do
+#	rm $i
+#done
+#echo "Finalizado!!!"

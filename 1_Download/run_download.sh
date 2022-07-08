@@ -1,7 +1,5 @@
 #!/bin/bash
 [ "$1" ] &&  [ -f "$1" ] && [ "$2" ] || { echo "Uso: $0 <sha256.txt>"; exit;}
-mkdir APKs
-mkdir Logs
 LINHAS=$(wc -l $1 | cut -d' ' -f1)
 TAMANHO=$(($LINHAS/$2))
 split -l $TAMANHO "$1" moto_
