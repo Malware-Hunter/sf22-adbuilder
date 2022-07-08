@@ -42,9 +42,12 @@ MotoDroidBuilder: implementação completa e totalmente integrada da ferramenta.
 
 ### Teste
 
-Você poderá testar a ferramenta. Atualmente, a etapa de download está integrada na ferramenta e pronta para utilização. Você pode executar o código com o seguinte comando:
+Você poderá testar a ferramenta. 
+
+Atualmente, a etapa de download está integrada na ferramenta e pronta para utilização. Você pode executar o código com o seguinte comando:
 
 - tool.py --download lista.txt -np 1
 
-O parâmetro *--download* recebe uma lista.txt contendo os sha256 dos APKs que se deseja baixar.
-O parâmetro *-np* recebe um número inteiro informando a quantidade de processos (núcleos da máquina) serão utilizados para realizar essa etapa de download.
+O parâmetro *--download* recebe uma lista.txt contendo os sha256 dos APKs que se deseja baixar. Esta lista precisa estar no diretório **1_Download**.
+
+O parâmetro *-np* recebe um número inteiro informando a quantidade de processos (núcleos da máquina) que serão utilizados para realizar essa etapa de download. Se não for definido esse parâmetro, o valor será setado em 1 processo, por padrão.
