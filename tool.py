@@ -10,8 +10,8 @@ def main():
     
     # se o download for True, então o programa vai fazer o download dos APKs
     if args.download:
-        os.system('cd 1_Download && ./run_download.sh {} {}'.format(args.download, args.n_processes))
+        os.system('cd 1_Download && ./run_download.sh {} {}'.format(args.download, args.num_processes))
         # se o extract-features for True, então o programa vai extrair as características dos APKs
-        if args.extract_features:
-            os.system('cd 2_Extract_Features && ./run_extract_features.sh {} {}'.format(args.extract_features, args.n_processes))
+        #if args.extract_features:
+        #   os.system('cd 2_Extract_Features && ./run_extracttion.sh {}'.format(args.extract_features))
 main()

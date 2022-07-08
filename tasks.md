@@ -32,7 +32,8 @@
 
 ### Atividades Pendentes
 
-- Mover arquivos de saída para uma sub-pasta; (Lucas ou Nicolas)
+- Organizar e padronizar diretório temporário para arquivos de saída;
+- Verificar com o Joner e tomar conhecimento sobre as execuções do VirusTotal.
 - Criar parâmetros de execução para a ferramenta com *argparse*; (em andamento... Lucas)
 - Integrar etapa de extração de características na ferramenta; (Lucas)
 - Integrar etapa da rotulação do VirusTotal na ferramenta; (Lucas e Joner)
@@ -41,3 +42,4 @@
 ### Atividades Realizadas
 - Estruturação de pastas neste repositório; (Lucas)
 - Integrar etapa de download na ferramenta; (Lucas)
+- Mover arquivos de saída de download para uma sub-pasta; (Lucas)
