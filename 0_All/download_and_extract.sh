@@ -13,7 +13,7 @@ do
 	done
 	echo "Extração finalizada!!!"
 	#mv $SHA256.apk ../5_Temp/1_APKs
-	#mv $SHA256.csv ../5_Temp/3_CSVs
+	#mv $SHA256.csv ./CSVs
 	mv $SHA256\_API_Calls_original.zip ../5_Temp/4_API_Calls
 done < "$1"
 

@@ -32,6 +32,7 @@
 
 ### Atividades Pendentes
 
+- Pedir ajudar ao professor Diego para passar tarefas;
 - Fazer a lista ser recebida por parâmetro a partir de qualquer lugar; (Nicolas)
 - Verificar com o Joner e tomar conhecimento sobre as execuções do VirusTotal; (Lucas)
 - Integrar etapa da rotulação do VirusTotal na ferramenta; (Lucas e Joner)
