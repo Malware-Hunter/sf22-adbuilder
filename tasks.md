@@ -32,14 +32,17 @@
 
 ### Atividades Pendentes
 
-- Organizar e padronizar diretório temporário para arquivos de saída;
-- Verificar com o Joner e tomar conhecimento sobre as execuções do VirusTotal.
-- Criar parâmetros de execução para a ferramenta com *argparse*; (em andamento... Lucas)
-- Integrar etapa de extração de características na ferramenta; (Lucas)
+- Fazer a lista ser recebida por parâmetro a partir de qualquer lugar; (Nicolas)
+- Verificar com o Joner e tomar conhecimento sobre as execuções do VirusTotal; (Lucas)
 - Integrar etapa da rotulação do VirusTotal na ferramenta; (Lucas e Joner)
-- Integrar etapa da construção do *dataset* na ferramenta; (Lucas)
+- Integrar etapa da construção do *dataset* na ferramenta; (em andamento... Lucas)
+    - Fazer a etapa geração (comando 2) esperar a etapa download/extração (comando 1) terminar para executar.
+- Integrar etapa completa da construção do *dataset* (--all); (em andamento... Lucas)
 
 ### Atividades Realizadas
 - Estruturação de pastas neste repositório; (Lucas)
 - Integrar etapa de download na ferramenta; (Lucas)
-- Mover arquivos de saída de download para uma sub-pasta; (Lucas)
+- Integrar etapa de extração de características na ferramenta; (Lucas)
+- Integrar etapa de download/extração na ferramenta; (Lucas)
+- Mover arquivos de saída de download e extração para uma sub-pasta; (Lucas)
+- Organizar e padronizar diretório temporário para arquivos de saída; (Lucas)

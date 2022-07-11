@@ -31,13 +31,22 @@ MotoDroidBuilder: implementação completa e totalmente integrada da ferramenta.
 
 ### Exemplos de parâmetros de execução:
 
-- tool.py --extract-features-only arquivo.APK  ||  tool.py --extract-all-features arquivo.APK
+- tool.py --extract-features-only arquivo.APK
 - tool.py --download --extract-features SHA256_do_APK
 - tool.py --download --extract-features --labelling-virustotal SHA256_do_APK
 - tool.py --download --extract-features --labelling-all SHA256_do_APK
 - tool.py --download --extract-features --labelling-all --build-dataset SHA256_do_APK
 - tool.py --build-dataset-only arquivo_APK1.csv arquivo_APK2.csv ... arquivo_APKn.csv
 - tool.py --all SHA256_do_APK
+
+
+### Parâmetros adicionados
+
+- tool.py --download sha256.txt -np (num_processes)
+- tool.py --download sha256.txt -np (num_processes) --extract-features all
+- tool.py --extract_features_only sha256.txt -np (num_processes) (não está extraindo as características dos APKs contidos na pasta selecionada)
+- tool.py --all sha256.txt (falta juntar a etapa de download/extração com a geração)
+
 
 
 ### Teste
