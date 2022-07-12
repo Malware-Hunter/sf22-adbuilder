@@ -45,8 +45,7 @@ MotoDroidBuilder: implementação completa e totalmente integrada da ferramenta.
 - tool.py --download sha256.txt -np (num_processes)
 - tool.py --download sha256.txt -np (num_processes) --extract-features all
 - tool.py --extract_features_only sha256.txt -np (num_processes) (não está extraindo as características dos APKs contidos na pasta selecionada)
-- tool.py --all sha256.txt (falta juntar a etapa de download/extração com a geração)
-
+- tool.py --all sha256.txt -np (num_processes) (falta juntar a etapa de rotulação com o VirusTotal)
 
 
 ### Teste

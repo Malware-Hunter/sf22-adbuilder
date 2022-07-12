@@ -5,6 +5,6 @@ do
 	echo -n "Realizando o download do json $SHA256 ... "
 	curl  --request GET --url "https://www.virustotal.com/api/v3/files/"$SHA256 --header  'x-apikey:'$2 > $SHA256".json" &
 
-	wait $!
+	sleep 20
 	echo "Download finalizado!!!"
 done < "$1"

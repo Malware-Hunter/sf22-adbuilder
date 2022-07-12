@@ -6,9 +6,9 @@ TAMANHO=$(($LINHAS/$2))
 split -l $TAMANHO "$1" moto_
 for arquivo in moto_*
 do
-    ./download_and_extract.sh "$arquivo"
+    ./download_and_extract.sh "$arquivo" &
 done
-wait $!
+wait
 # etapa de rotulação de APKs com VirusTotal???
 
 # etapa de geração do dataset
@@ -27,3 +27,14 @@ mv Clean ../5_Temp/5_Geration/
 mv CSVs ../5_Temp/5_Geration/
 mv Final ../5_Temp/5_Geration/
 echo "MotoDroid dataset gerado com sucesso!!!"
+
+# run processes and store pids in array
+#for i in $n_procs; do
+#    ./procs[${i}] &
+#    pids[${i}]=$!
+#done
+
+# wait for all pids
+#for pid in ${pids[*]}; do
+#    wait $pid
+#done
