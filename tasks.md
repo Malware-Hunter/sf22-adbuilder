@@ -32,12 +32,8 @@
 
 ### Atividades Pendentes
 
-- Verificar quais API Keys do VT estão disponíveis (Nicolas);
 - Fazer a lista ser recebida por parâmetro a partir de qualquer lugar; (Nicolas)
-- Verificar com o Joner e tomar conhecimento sobre as execuções do VirusTotal; (Lucas)
 - Integrar etapa da rotulação do VirusTotal na ferramenta; (Lucas e Joner)
-- Integrar etapa da construção do *dataset* na ferramenta; (em andamento... Lucas)
-    - Fazer a etapa geração (comando 2) esperar a etapa download/extração (comando 1) terminar para executar.
 - Integrar etapa completa da construção do *dataset* (--all); (em andamento... Lucas)
 
 ### Atividades Realizadas
@@ -47,3 +43,6 @@
 - Integrar etapa de download/extração na ferramenta; (Lucas)
 - Mover arquivos de saída de download e extração para uma sub-pasta; (Lucas)
 - Organizar e padronizar diretório temporário para arquivos de saída; (Lucas)
+- Verificar quais API Keys do VT estão disponíveis (Nicolas);
+- Automatizae e executar análises do VirusTotal (Lucas);
+- Integrar etapa da construção do *dataset* na ferramenta; (Lucas)
