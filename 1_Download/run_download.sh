@@ -1,9 +1,19 @@
 #!/bin/bash
-[ "$1" ] &&  [ -f "$1" ] && [ "$2" ] || { echo "Uso: $0 <sha256.txt>"; exit;}
-LINHAS=$(wc -l $1 | cut -d' ' -f1)
+atual="$PWD"
+input="$1"
+file_name="$(basename $input)"
+path_file="$(dirname $input)"
+cd $path_file
+cp $file_name $atual
+cd $atual
+
+[ "$file_name" ] &&  [ -f "$file_name" ] && [ "$2" ] || { echo "Uso: $0 <sha256.txt>"; exit;}
+LINHAS=$(wc -l $file_name | cut -d' ' -f1)
 TAMANHO=$(($LINHAS/$2))
-split -l $TAMANHO "$1" moto_
+split -l $TAMANHO "$file_name" moto_
 for arquivo in moto_*
 do
-    ./download.sh "$arquivo" &
+    ./download.sh "$arquivo" 
 done
+
+rm $file_name
