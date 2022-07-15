@@ -15,8 +15,8 @@ import zipfile as zp
 def parseArgs():
     parser = argparse.ArgumentParser(description='A program modifying an APK to load Ronin shared library.')
     parser.add_argument('--apk', dest='apk', required=True, help='Path to the APK file to be analysed')
-    parser.add_argument('--logs', dest='logs', required=True, help='Path to the log dir')
-    parser.add_argument('--output', dest='output', required=True, help='Path to the building queue')
+    parser.add_argument('--logdir', dest='logdir', required=True, help='Path to the log dir')
+    parser.add_argument('--outdir', dest='outdir', required=True, help='Path to the building queue')
     return parser.parse_args()
 
 def apk_extract_features(args):
@@ -130,7 +130,7 @@ def apk_extract_features(args):
 	#Utilizamos a funcao abaixo para obter os metodos que sao chamados pelo app
     def get_api_calls(cg):
         # criar arquivo txt para armazenar os metodos sem o tratamento (metodos crus)
-        with open(args.output + '/' + sha256+"_API_Calls_original.txt", "w") as file:
+        with open(args.outdir + '/' + sha256+"_API_Calls_original.txt", "w") as file:
             # percorerr vetor contendo as API Calls
             for node in cg.nodes:
                 # armazena no txt os metodos crus
@@ -161,11 +161,11 @@ def apk_extract_features(args):
                                     if split[0] not in treatments:
                                         treatments.append(split[0])
         # criar arquivo zip
-        zipfile = zp.ZipFile(args.output + '/' + sha256+"_API_Calls_original.zip", "w", zp.ZIP_LZMA)
-        zipfile.write(args.output + '/' + sha256+"_API_Calls_original.txt")
+        zipfile = zp.ZipFile(args.outdir + '/' + sha256+"_API_Calls_original.zip", "w", zp.ZIP_LZMA)
+        zipfile.write(args.outdir + '/' + sha256+"_API_Calls_original.txt")
         zipfile.close()
         # remover txt
-        os.remove(args.output + '/' + sha256+"_API_Calls_original.txt")
+        os.remove(args.outdir + '/' + sha256+"_API_Calls_original.txt")
 
         return treatments  
 	  
@@ -208,7 +208,7 @@ def apk_extract_features(args):
     data=[sha256,nome,pacote,API, minSdkVersion,permissoes,intents_full,activity,service,receiver,provider,opcodes_full,apicalls_full]
     # cria um dataframe
     df = pd.DataFrame([data], columns=['SHA256','NOME','PACOTE','API','API_MIN','PERMISSOES','INTENTS','ACTIVITYS','SERVICES','RECEIVER','PROVIDER','OPCODES','APICALLS'])
-    df.to_csv(args.output + '/' + str(sha256)+'.csv', index = False, encoding="utf-8-sig")
+    df.to_csv(args.outdir + '/' + str(sha256)+'.csv', index = False, encoding="utf-8-sig")
 
     # remover APK utilizado
     remove_APK(args.apk)
