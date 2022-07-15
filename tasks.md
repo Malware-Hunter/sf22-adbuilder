@@ -32,9 +32,9 @@
 
 ### Atividades Pendentes
 
-- Fazer a lista ser recebida por parâmetro a partir de qualquer lugar; (Nicolas)
-- Integrar etapa da rotulação do VirusTotal na ferramenta; (Lucas e Joner)
-- Integrar etapa completa da construção do *dataset* (--all); (em andamento... Lucas)
+- Resolver *quote exceed* das análises do Virus Total; (Lucas e Nicolas)
+- Integrar etapa da rotulação do VirusTotal na ferramenta; (Lucas)
+- Integrar etapa completa da construção do *dataset* (--all); (Lucas)
 
 ### Atividades Realizadas
 - Estruturação de pastas neste repositório; (Lucas)
@@ -46,3 +46,4 @@
 - Verificar quais API Keys do VT estão disponíveis (Nicolas);
 - Automatizae e executar análises do VirusTotal (Lucas);
 - Integrar etapa da construção do *dataset* na ferramenta; (Lucas)
+- Reestruturação do repositório e códigos; (Diego)
