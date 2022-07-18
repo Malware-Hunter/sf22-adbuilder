@@ -31,10 +31,16 @@
     - Documentar dependências necessárias.
 
 ### Atividades Pendentes
+ **PRIORIDADE**
+- Integrar etapa da rotulação do VirusTotal na ferramenta: (Lucas... em andamento)
+    - Sincronizar etapa de *labelling* com *building*;
+    - Permitir a lista de API Keys ser recebida de qualquer lugar.
+- Integrar etapa da construção do *dataset*: (Lucas... em andamento)
+    - Sincronizar *run_verify.sh* (*extraction* e *building*).
 
-- Resolver *quote exceed* das análises do Virus Total; (Lucas e Nicolas)
-- Integrar etapa da rotulação do VirusTotal na ferramenta; (Lucas)
-- Integrar etapa completa da construção do *dataset* (--all); (Lucas)
+**PRIORIDADE MENOR**
+- Terminar desenho do diagrama do processo da ferramenta (Lucas e Nicolas)
+- Resolver *quote exceed* das análises do Virus Total? (Nicolas)
 
 ### Atividades Realizadas
 - Estruturação de pastas neste repositório; (Lucas)
@@ -47,3 +53,4 @@
 - Automatizae e executar análises do VirusTotal (Lucas);
 - Integrar etapa da construção do *dataset* na ferramenta; (Lucas)
 - Reestruturação do repositório e códigos; (Diego)
+- Escrita textual do passo a passo do processo da ferramenta; (Lucas)
