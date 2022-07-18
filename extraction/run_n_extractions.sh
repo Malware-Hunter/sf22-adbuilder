@@ -6,6 +6,7 @@ EXTRACTION_QUEUE=$2
 BUILDING_QUEUE=$3
 CONTADOR=1
 LOG_DIR=$4
+
 [ -d $LOG_DIR ] || { mkdir -p $LOG_DIR; }
 N_PARALLEL_EXTRACTORS=$1
 TS=$(date +%Y%m%d%H%M%S)
@@ -15,4 +16,3 @@ do
     bash -x ./extraction/run_apk_extraction.sh $EXTRACTION_QUEUE $BUILDING_QUEUE $LOG_DIR/stats-$TS-$CONTADOR &> $LOG_DIR/extraction-$TS-$CONTADOR.log &
     CONTADOR=$((CONTADOR+1))
 done
-

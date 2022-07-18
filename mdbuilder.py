@@ -15,11 +15,14 @@ def create_queues(_queues):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--download', type=str, default=False, help='TXT file with a list of APKs SHA256 to download.')
-    parser.add_argument('--n_download_queues', type=int, default=1, help='Number of parallel queues for download.')
+    parser.add_argument('--n_download_queues', '-npd', type=int, default=1, help='Number of parallel queues for download.')
     parser.add_argument('--feature_extraction', help='APK feature extraction.', action="store_true")
-    parser.add_argument('--n_feature_extraction_queues', type=int, default=1, help='Number of parallel queues for feature extraction.')
-    parser.add_argument('--labelling', help='Virus Total labelling.', action="store_true")
-    parser.add_argument('--n_labelling_queues', type=int, default=1, help='Number of parallel queues for labelling.')
+    parser.add_argument('--n_feature_extraction_queues', '-npe', type=int, default=1, help='Number of parallel queues for feature extraction.')
+    parser.add_argument('--labelling', help='Virus Total labelling. TXT file with a list of APKs SHA256 to download.', type=str, default=False)
+    parser.add_argument('--n_labelling_queues', '-npl', type=int, default=1, help='Number of parallel queues for labelling.')
+    parser.add_argument('--building', help='Building the dataset.', action="store_true")
+    parser.add_argument('--building_only', help='Only Building the dataset.', action="store_true")
+
 
     args = parser.parse_args()
     
@@ -37,9 +40,14 @@ def main():
 
     if args.download and args.n_download_queues:
         os.system('./download/run_n_downloads.sh {} {} {} {} {}'.format(args.download, queues['download'], args.n_download_queues, queues['extraction'], logs['download']))
+    if args.download and args.n_download_queues and args.building:
+        os.system('./download/run_n_downloads.sh {} {} {} {} {}'.format(args.download, queues['download'], args.n_download_queues, queues['extraction'], logs['download']))
+        os.system('./extraction/run_verify.sh {} {}'.format(args.download, queues['building']))
     if args.labelling and args.n_labelling_queues:
-        os.system('./labelling/run_n_labellings.sh {} {} {} {} {}'.format(args.labelling, queues['labelling'], args.n_labelling_queues, queues['building'], logs['extraction']))
+        os.system('./labelling/run_n_labellings.sh {} {} {} {}'.format(args.labelling, queues['labelling'], queues['building'], logs['labelling']))
     if args.feature_extraction and args.n_feature_extraction_queues: 
         os.system('./extraction/run_n_extractions.sh {} {} {} {}'.format(args.n_feature_extraction_queues, queues['extraction'], queues['building'], logs['extraction']))    
+    if args.building_only:
+        os.system('./building/run_building.sh {} {} {} {}'.format(queues['labelling'], queues['extraction'], queues['building'], logs['building']))
 
 main()

@@ -1,6 +1,8 @@
 #!/bin/bash
 [ "$1" ] && [ -f "$1" ] && [ "$2" ] && [ -f "$2" ] || { echo "Usage: $0 <sha256.txt> <API_Keys.txt>"; exit 1; }
 
+# PASSAR OS DIRETÓRIOS LOGS E QUEUES CERTOS PARA O SCRIPT
+
 # splitar arquivos em partes de ~500 linhas
 LINHAS=$(wc -l $1 | cut -d' ' -f1)
 TAMANHO=$(($LINHAS/235))

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-[ $1 ] &&  [ -f $1 ] && [ $2 ] && [ -d $2 ] && [ $3 ] && [ $4 ] && [ -d $4 ] && [ $5 ] && [ -d $5 ] || { echo "Usage: $0 <list_of_APK_SHA256.txt> <path_download_queue> <n_parallel_downloads> <path_extraction_queue> <path_logs>"; exit; }
+[ $1 ] &&  [ -f $1 ] && [ $2 ] && [ -d $2 ] && [ $3 ] && [ $4 ] && [ -d $4 ] && [ $5 ] && [ -d $5 ] || { echo "Usage: $0 <list_of_APK_SHA256.txt> <path_download_queue> <n_parallel_downloads> <path_extraction_queue> <path_logs_download>"; exit; }
 
 DOWNLOAD_QUEUE=$2
 N_PARALLEL_DOWNLOADS=$3
