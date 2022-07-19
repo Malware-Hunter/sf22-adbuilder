@@ -23,7 +23,7 @@ def main():
    # verificando se existe MotoDroid_dataset.csv no diretório outdir
     if not os.path.isfile(outdir + 'MotoDroid_dataset.csv'):
         # se não existir, cria o arquivo
-        moto_df = pd.DataFrame()
+        moto_df = pd.DataFrame(columns=['SHA256','NOME','PACOTE','API_MIN','API'])
         moto_df.to_csv(outdir + 'MotoDroid_dataset.csv', index=False)
     else:
         moto_df = pd.read_csv(outdir + 'MotoDroid_dataset.csv')
