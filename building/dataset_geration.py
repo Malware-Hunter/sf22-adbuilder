@@ -1075,8 +1075,8 @@ def treatment_data(df):
 
 def parseArgs():
     parser = argparse.ArgumentParser(description='Dataset Building.')
+    parser.add_argument('--indir', dest='indir', required=True, help='CSV File.')
     parser.add_argument('--outdir', dest='outdir', required=True, help='Path to the building queue.')
-    parser.add_argument('--indir', dest='indir', required=True, help='Path to the input files.')
 
     return parser.parse_args()
 
@@ -1086,28 +1086,24 @@ def main():
     outdir = args.outdir
     # diretório para arquivos de entrada
     indir = args.indir
-    
+    name = indir.split('/')[-1]
     start = time.time()
-    # percorre todos os arquivos.csv do diretório atual
-    # realiza o tratamento dos dados de cada arquivo CSV
-    glob = Path(indir).glob("*.csv")
-    
-    for csv in glob:
-        df = pd.read_csv(csv)
-        
-        split_PERM = re.sub(r'[\[\'\]\" ]', '', df["PERMISSOES"][0]).split(",")
-        split_INTENTS = re.sub(r'[\[\'\]\"\{\} ]', '', df["INTENTS"][0]).split(",")
-        split_API = re.sub(r'[\[\'\]\"\{\} ]', '', df["APICALLS"][0]).split(",")
 
-        if len(split_PERM) > 1 and len(split_INTENTS) > 1 and len(split_API) > 1:
-            df_treatment = treatment_data(df)
-            df_treatment.to_csv(outdir+ csv.name, index=False)
-        else:
-            print("Não foi possível incluir o arquivo!!!\n")
+    # realiza o tratamento dos dados no arquivo CSV
+    df = pd.read_csv(indir)
     
+    split_PERM = re.sub(r'[\[\'\]\" ]', '', df["PERMISSOES"][0]).split(",")
+    split_INTENTS = re.sub(r'[\[\'\]\"\{\} ]', '', df["INTENTS"][0]).split(",")
+    split_API = re.sub(r'[\[\'\]\"\{\} ]', '', df["APICALLS"][0]).split(",")
+
+    if len(split_PERM) > 1 and len(split_INTENTS) > 1 and len(split_API) > 1:
+        df_treatment = treatment_data(df)
+        df_treatment.to_csv(outdir+ name, index=False)
+    else:
+        print("Não foi possível incluir o arquivo " + name + "!!!\n")
+
     end = time.time()
 
-    print("\n** Limpeza dos CSVs finalizada!!! **\n")
-    print("Tempo de execução do tratamento dos CSVs: ", end - start, " segundos\n\n")
+    print("Tempo de execução do tratamento do CSV:", end - start, "segundos\n\n")
 
 main()

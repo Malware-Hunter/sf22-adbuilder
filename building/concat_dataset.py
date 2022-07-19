@@ -7,8 +7,8 @@ import argparse
 
 def parseArgs():
     parser = argparse.ArgumentParser(description='Dataset Building.')
+    parser.add_argument('--indir', dest='indir', required=True, help='CSV File.')
     parser.add_argument('--outdir', dest='outdir', required=True, help='Path to the building queue.')
-    parser.add_argument('--indir', dest='indir', required=True, help='Path to the input files.')
 
     return parser.parse_args()
 
@@ -20,17 +20,20 @@ def main():
     # diretório para arquivos de entrada
     indir = args.indir
 
+   # verificando se existe MotoDroid_dataset.csv no diretório outdir
+    if not os.path.isfile(outdir + 'MotoDroid_dataset.csv'):
+        # se não existir, cria o arquivo
+        moto_df = pd.DataFrame()
+        moto_df.to_csv(outdir + 'MotoDroid_dataset.csv', index=False)
+    else:
+        moto_df = pd.read_csv(outdir + 'MotoDroid_dataset.csv')
+
+
     start = time.time()
 
-    print("Iniciando concatenação...")
-
-    #cwd = os.getcwd()
-    os.chdir(indir)
-    extension = 'csv'
-    varios_arquivos = [i for i in glob.glob('*.{}'.format(extension))]
-    #combinar todos os arquivos da lista
-    dataset= pd.concat([pd.read_csv(f) for f in varios_arquivos ], axis=0)
-    #exportar para csv
+    print("Concatenando " + indir + "...")
+    # concatenando os arquivos de entrada
+    dataset = pd.concat([moto_df, pd.read_csv(indir)], ignore_index=True)
     dataset.fillna(0, inplace=True)
     print("\n*** Transformando colunas em inteiros ***")
     start_test = time.time()
@@ -42,7 +45,7 @@ def main():
     end_test = time.time()
     print("\nTempo para transformar colunas em INT: ", end_test - start_test, " segundos\n")
     #dataset.to_csv(outdir+"MotoDroid_dataset.csv", index=False, encoding='utf-8-sig')
-    dataset.to_csv( "../Final/MotoDroid_dataset.csv", index=False, encoding='utf-8-sig')
+    dataset.to_csv(outdir + "MotoDroid_dataset.csv", index=False, encoding='utf-8-sig')
     
     end = time.time()
     print("MotoDroid dataset gerado!!!")

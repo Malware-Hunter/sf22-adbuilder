@@ -18,25 +18,17 @@ do
     for FILE in $(find $FILA_DE_BUILDING -type f -name \*.csv.OK)
     do
         COUNTER=$((COUNTER+1))
-        # splitar nome do arquivo
-        DIR_ARQUIVO=$(echo $FILE | cut -d'.' -f1)
-        NOME_ARQUIVO=$(echo $DIR_ARQUIVO | cut -d'/' -f3)
-
-        #echo "Diretorio do arquivo: $DIR_ARQUIVO"
-        #echo "Nome do arquivo: $NOME_ARQUIVO"
-        #echo -e "\nRealizando o tratamento do CSV " $NOME_ARQUIVO.csv
-        # executar o script de tratamento dos CSVs
-        python3 ./building/dataset_geration.py --indir $DIR_ARQUIVO.csv --outdir $FILA_DE_BUILDING/Clean/
-        #echo -e "\nFinalizado!!! Concatenando os arquivos..."
-        python3 ./building/concat_dataset.py --indir $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv --outdir $FILA_DE_BUILDING/Final/
-        #echo -e "\nMotoDroid dataset gerado com sucesso!!!"
     done
-
 
     # verificar se todos os CSVs já foram processados
     if [ $N_APKS -eq $COUNTER ]
     then
-        echo -e "Todos os CSVs já foram processados!\n\nMatando todos os processos..."  
+        echo -e "\nRealizando o tratamento dos CSVs..."
+        # executar o script de tratamento dos CSVs
+        python3 ./building/dataset_geration.py --indir $FILA_DE_BUILDING --outdir $FILA_DE_BUILDING/Clean/
+        echo -e "\nFinalizado!!! Concatenando os arquivos..."
+        python3 ./building/concat_dataset.py --indir $FILA_DE_BUILDING/Clean/ --outdir $FILA_DE_BUILDING/Final/
+        echo -e "\nMotoDroid dataset gerado com sucesso!!!"  
         break
     fi
     sleep 10

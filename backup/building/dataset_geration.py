@@ -3,6 +3,7 @@ import pandas as pd
 from pathlib import Path
 import time
 import numpy as np
+import argparse
 
 def treatment_data(df):
 
@@ -1072,13 +1073,24 @@ def treatment_data(df):
 
     return MotoDroid_df
 
+def parseArgs():
+    parser = argparse.ArgumentParser(description='Dataset Building.')
+    parser.add_argument('--outdir', dest='outdir', required=True, help='Path to the building queue.')
+    parser.add_argument('--indir', dest='indir', required=True, help='Path to the input files.')
 
+    return parser.parse_args()
 
 def main():
+    args = parseArgs()
+    # diretório para arquivos de saída
+    outdir = args.outdir
+    # diretório para arquivos de entrada
+    indir = args.indir
+    
     start = time.time()
     # percorre todos os arquivos.csv do diretório atual
     # realiza o tratamento dos dados de cada arquivo CSV
-    glob = Path("./CSVs/").glob("*.csv")
+    glob = Path(indir).glob("*.csv")
     
     for csv in glob:
         df = pd.read_csv(csv)
@@ -1089,7 +1101,7 @@ def main():
 
         if len(split_PERM) > 1 and len(split_INTENTS) > 1 and len(split_API) > 1:
             df_treatment = treatment_data(df)
-            df_treatment.to_csv("Clean/" + csv.name, index=False)
+            df_treatment.to_csv(outdir+ csv.name, index=False)
         else:
             print("Não foi possível incluir o arquivo!!!\n")
     
