@@ -38,6 +38,14 @@ def main():
              'building': 'logs/building' }
     create_logs(logs)
 
+    ##############################################
+    global var_APKs
+
+    # SOLUÇÃO TEMPORÁRIA
+    if args.download:
+        var_APKs = len(open(args.download, 'r').read().split('\n')[:-1])
+    ##############################################
+
     if args.download and args.n_download_queues:
         os.system('./download/run_n_downloads.sh {} {} {} {} {}'.format(args.download, queues['download'], args.n_download_queues, queues['extraction'], logs['download']))
     
@@ -47,11 +55,12 @@ def main():
     if args.feature_extraction and args.n_feature_extraction_queues: 
         os.system('./extraction/run_n_extractions.sh {} {} {} {}'.format(args.n_feature_extraction_queues, queues['extraction'], queues['building'], logs['extraction']))    
     
-    if args.building and args.download:
-        os.system('./building/run_building.sh {} {} {} {}'.format(queues['labelling'], queues['extraction'], queues['building'], logs['building']))
-        os.system('./extraction/run_verify.sh {} {}'.format(args.download, queues['building']))
+    if args.building:
+        os.system('./building/run_building.sh {} {} {} {} {}'.format(var_APKs, queues['labelling'], queues['extraction'], queues['building'], logs['building']))
 
-    if args.building_only:
-        os.system('./building/run_building.sh {} {} {} {}'.format(queues['labelling'], queues['extraction'], queues['building'], logs['building']))
+    #if args.building and args.download:
+    #    os.system('./building/run_building.sh {} {} {} {}'.format(queues['labelling'], queues['extraction'], queues['building'], logs['building']))
+    #    os.system('./extraction/run_verify.sh {} {}'.format(args.download, queues['building']))
+    ##############################################
 
 main()
