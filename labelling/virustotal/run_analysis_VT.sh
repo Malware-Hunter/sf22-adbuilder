@@ -25,7 +25,7 @@ do
 		[ -d $LOG_DIR/Errors ] || { mkdir -p $LOG_DIR/Errors; }
 		# move o arquivo para o diretório de erros
 		mv $FILA_DE_LABELLING/$SHA256".json" $LOG_DIR/Errors/
-		echo -e "\nO arquivo $SHA256.json gerou erro!!!"
+		echo -e "O arquivo $SHA256.json gerou erro!!!\n"
 		continue
 	else
 		# cria arquivo temporário

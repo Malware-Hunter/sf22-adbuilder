@@ -42,10 +42,6 @@ MotoDroidBuilder: implementação completa e totalmente integrada da ferramenta.
 
 ### Parâmetros adicionados
 
-- tool.py --download sha256.txt -np (num_processes)
-- tool.py --download sha256.txt -np (num_processes) --extract-features all
-- tool.py --extract_features_only sha256.txt -np (num_processes) (não está extraindo as características dos APKs contidos na pasta selecionada)
-- tool.py --all sha256.txt -np (num_processes) (falta juntar a etapa de rotulação com o VirusTotal)
 
 
 ### Teste
@@ -54,8 +50,8 @@ Você poderá testar a ferramenta.
 
 Atualmente, a etapa de download está integrada na ferramenta e pronta para utilização. Você pode executar o código com o seguinte comando:
 
-- tool.py --download lista.txt -np 1
+- python3 mdbuilder.py --download sha256.txt -npd (num de processos) --feature_extraction -npe (num de processos) --building
 
 O parâmetro *--download* recebe uma lista.txt contendo os sha256 dos APKs que se deseja baixar. Esta lista precisa estar no diretório **1_Download**.
 
-O parâmetro *-np* recebe um número inteiro informando a quantidade de processos (núcleos da máquina) que serão utilizados para realizar essa etapa de download. Se não for definido esse parâmetro, o valor será setado em 1 processo, por padrão.
+O parâmetro *-npd* e -*npe* recebe um número inteiro informando a quantidade de processos (núcleos da máquina) que serão utilizados para realizar essa etapa de download. Se não for definido esse parâmetro, o valor será setado em 1 processo, por padrão.

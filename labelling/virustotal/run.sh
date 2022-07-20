@@ -30,7 +30,23 @@ do
         # incrementar contador de API Keys
         CONTADOR=$((CONTADOR+1))
         # renomear diretório
-        wait $!
-        mv $ARQUIVO $ARQUIVO\_Ready
+        #wait $!
+        #mv $ARQUIVO $ARQUIVO\_Ready
     fi
+done
+
+while [ 1 ]
+do
+    # verifica se existe algum arquivo .csv.OK no diretorio de entrada
+    for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+    do
+        # splitar nome do arquivo
+        DIR_ARQUIVO=$(echo $FILE | cut -d'.' -f1)
+        NOME_ARQUIVO=$(echo $DIR_ARQUIVO | cut -d'/' -f4)
+
+        python3 ./labelling/virustotal/label.py --injson $DIR_ARQUIVO.json --outdir $FILA_DE_BUILDING
+        # renomear arquivo
+        mv $DIR_ARQUIVO.json.OK $DIR_ARQUIVO.json.labeled
+    done
+    sleep 10
 done

@@ -38,6 +38,7 @@ do
         #/usr/bin/time -f "$NOME_ARQUIVO Tempo decorrido da Concatenação do CSV = %e segundos, CPU = %P, Memoria = %M KiB Tamanho = $TAMANHO_ARQUIVO bytes" -a -o $LOGS_DIR/stats-$TS-Concat python3 ./building/concat_dataset.py --indir $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv --outdir $FILA_DE_BUILDING/Final/  &> $LOG_DIR/building-$TS-Concat.log &
     done
 
+    # fazer esperar a rotulação
 
     # verificar se todos os CSVs já foram processados
     if [ $N_APKS -eq $COUNTER ]
