@@ -25,8 +25,8 @@ do
         # splitar Folder_ do nome do arquivo
         NOME=$(echo $ARQUIVO | cut -d'_' -f3)
         # executar o arquivo run_analysis.sh
-        #$ARQUIVO/run_analysis_VT.sh 500_VT_"$NOME" $API_KEY $LOG_DIR/stats-$TS-$CONTADOR &> $LOG_DIR/labelling-$TS-$CONTADOR/log & 
-        $ARQUIVO/run_analysis_VT.sh $ARQUIVO/500_VT_"$NOME" $API_KEY $LOG_DIR/stats-$TS-$CONTADOR &
+        $ARQUIVO/run_analysis_VT.sh $ARQUIVO/500_VT_"$NOME" $API_KEY $LOG_DIR/stats-$TS-$CONTADOR $ARQUIVO &> $LOG_DIR/stats-$TS-$CONTADOR/log.log & 
+        #$ARQUIVO/run_analysis_VT.sh $ARQUIVO/500_VT_"$NOME" $API_KEY $LOG_DIR/stats-$TS-$CONTADOR $ARQUIVO &
         # incrementar contador de API Keys
         CONTADOR=$((CONTADOR+1))
         # renomear diretório
