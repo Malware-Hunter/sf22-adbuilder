@@ -21,8 +21,6 @@ def main():
     # diretório para arquivos de saída
     outdir = args.outdir
 
-    print("OUTIDR >> ", outdir)
-
     if not os.path.isfile(outdir + 'Labels.csv'):
         # se não existir, cria o arquivo
         moto_df = pd.DataFrame(columns=['SHA256','MALICIOUS'])
