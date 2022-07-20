@@ -20,6 +20,8 @@ def main():
     # diretório para arquivos de entrada
     indir = args.indir
 
+    name = indir.split('/')[-1]
+
    # verificando se existe MotoDroid_dataset.csv no diretório outdir
     if not os.path.isfile(outdir + 'MotoDroid_dataset.csv'):
         # se não existir, cria o arquivo
@@ -31,11 +33,9 @@ def main():
 
     start = time.time()
 
-    print("Concatenando " + indir + "...")
     # concatenando os arquivos de entrada
     dataset = pd.concat([moto_df, pd.read_csv(indir)], ignore_index=True)
     dataset.fillna(0, inplace=True)
-    print("\n*** Transformando colunas em inteiros ***")
     start_test = time.time()
     # transformar colunas float em int
     for col in dataset:
@@ -43,12 +43,11 @@ def main():
             dataset[col] = dataset[col].astype(int)
 
     end_test = time.time()
-    print("\nTempo para transformar colunas em INT: ", end_test - start_test, " segundos\n")
+    print("Tempo para transformar colunas em INT: ", end_test - start_test, " segundos")
     #dataset.to_csv(outdir+"MotoDroid_dataset.csv", index=False, encoding='utf-8-sig')
     dataset.to_csv(outdir + "MotoDroid_dataset.csv", index=False, encoding='utf-8-sig')
     
     end = time.time()
-    print("MotoDroid dataset gerado!!!")
-    print("\nTempo de execução: ", end - start, "segundos")
-
+    print("Tempo de concatenação do CSV " + name + ": ", end - start, "segundos")
+    print("\n")
 main()

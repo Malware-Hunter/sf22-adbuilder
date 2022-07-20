@@ -1104,6 +1104,6 @@ def main():
 
     end = time.time()
 
-    print("Tempo de execução do tratamento do CSV:", end - start, "segundos\n\n")
+    print("Tempo de execução do tratamento do " + name + ":", end - start, "segundos\n")
 
 main()

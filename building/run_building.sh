@@ -10,6 +10,11 @@ LOG_DIR=$5
 
 [ -d $FILA_DE_BUILDING/Clean ] || { mkdir -p $FILA_DE_BUILDING/Clean; }
 [ -d $FILA_DE_BUILDING/Final ] || { mkdir -p $FILA_DE_BUILDING/Final; }
+[ -d $LOG_DIR ] || { mkdir -p $LOG_DIR; }
+
+TS=$(date +%Y%m%d%H%M%S)
+[ -d $LOG_DIR/stats-$TS ] || { mkdir -p $LOG_DIR/stats-$TS; }
+#bash -x ./extraction/run_apk_extraction.sh $EXTRACTION_QUEUE $BUILDING_QUEUE $LOG_DIR/stats-$TS-$CONTADOR &> $LOG_DIR/extraction-$TS-$CONTADOR.log &
 
 while [ 1 ]
 do
@@ -22,21 +27,24 @@ do
         DIR_ARQUIVO=$(echo $FILE | cut -d'.' -f1)
         NOME_ARQUIVO=$(echo $DIR_ARQUIVO | cut -d'/' -f3)
 
-        #echo "Diretorio do arquivo: $DIR_ARQUIVO"
-        #echo "Nome do arquivo: $NOME_ARQUIVO"
-        #echo -e "\nRealizando o tratamento do CSV " $NOME_ARQUIVO.csv
-        # executar o script de tratamento dos CSVs
-        python3 ./building/dataset_geration.py --indir $DIR_ARQUIVO.csv --outdir $FILA_DE_BUILDING/Clean/
-        #echo -e "\nFinalizado!!! Concatenando os arquivos..."
-        python3 ./building/concat_dataset.py --indir $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv --outdir $FILA_DE_BUILDING/Final/
-        #echo -e "\nMotoDroid dataset gerado com sucesso!!!"
+        # tamanho do arquivo em bytes
+        TAMANHO_ARQUIVO=$(stat -c%s $FILE)
+        
+        python3 ./building/dataset_geration.py --indir $DIR_ARQUIVO.csv --outdir $FILA_DE_BUILDING/Clean/ &>> $LOG_DIR/stats-$TS/Geration-$TS.log
+        python3 ./building/concat_dataset.py --indir $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv --outdir $FILA_DE_BUILDING/Final/  &>> $LOG_DIR/stats-$TS/Concat-$TS.log
+        # PID do processo de concatenacao
+        PID_CONCAT=$!
+        #/usr/bin/time -f "$NOME_ARQUIVO Tempo decorrido do Tratamento e Geração do CSV = %e segundos, CPU = %P, Memoria = %M KiB, Tamanho = $TAMANHO_ARQUIVO bytes" -a -o $LOGS_DIR/stats-$TS-Geration python3 ./building/dataset_geration.py --indir $DIR_ARQUIVO.csv --outdir $FILA_DE_BUILDING/Clean/ &> $LOG_DIR/building-$TS-Geration.log &
+        #/usr/bin/time -f "$NOME_ARQUIVO Tempo decorrido da Concatenação do CSV = %e segundos, CPU = %P, Memoria = %M KiB Tamanho = $TAMANHO_ARQUIVO bytes" -a -o $LOGS_DIR/stats-$TS-Concat python3 ./building/concat_dataset.py --indir $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv --outdir $FILA_DE_BUILDING/Final/  &> $LOG_DIR/building-$TS-Concat.log &
     done
 
 
     # verificar se todos os CSVs já foram processados
     if [ $N_APKS -eq $COUNTER ]
     then
+        wait $PID_CONCAT
         echo -e "Todos os CSVs já foram processados!\n\nMatando todos os processos..."  
+        ./kill_all.sh
         break
     fi
     sleep 10
