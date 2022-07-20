@@ -44,7 +44,7 @@ do
         DIR_ARQUIVO=$(echo $FILE | cut -d'.' -f1)
         NOME_ARQUIVO=$(echo $DIR_ARQUIVO | cut -d'/' -f4)
 
-        python3 ./labelling/virustotal/label.py --injson $DIR_ARQUIVO.json --outdir $FILA_DE_BUILDING
+        python3 ./labelling/virustotal/label.py --injson $DIR_ARQUIVO.json --outdir $FILA_DE_BUILDING/
         # renomear arquivo
         mv $DIR_ARQUIVO.json.OK $DIR_ARQUIVO.json.labeled
     done

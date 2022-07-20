@@ -18,7 +18,7 @@ def main():
     parser.add_argument('--n_download_queues', '-npd', type=int, default=1, help='Number of parallel queues for download.')
     parser.add_argument('--feature_extraction', help='APK feature extraction.', action="store_true")
     parser.add_argument('--n_feature_extraction_queues', '-npe', type=int, default=1, help='Number of parallel queues for feature extraction.')
-    parser.add_argument('--labelling', help='Virus Total labelling. TXT file with a list of APKs SHA256 to download.', type=str, default=False)
+    parser.add_argument('--labelling', type=str, default=False, help='Virus Total labelling. TXT file with a list of APKs SHA256 to download.')
     parser.add_argument('--building', help='Building the dataset.', action="store_true")
     parser.add_argument('--building_only', help='Only Building the dataset.', action="store_true")
 
