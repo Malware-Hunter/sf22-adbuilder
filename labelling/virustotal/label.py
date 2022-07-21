@@ -21,12 +21,15 @@ def main():
     # diretório para arquivos de saída
     outdir = args.outdir
 
-    if not os.path.isfile(outdir + 'Labels.csv'):
+    name_split =str(injson.split('/')[-1])
+    name = name_split.split('.')[0]
+
+    if not os.path.isfile(outdir + name + '.csv.labeled'):
         # se não existir, cria o arquivo
         moto_df = pd.DataFrame(columns=['SHA256','MALICIOUS'])
-        moto_df.to_csv(outdir + 'Labels.csv', index=False)
+        moto_df.to_csv(outdir + name + '.csv.labeled', index=False)
     else:
-        moto_df = pd.read_csv(outdir + 'Labels.csv')
+        moto_df = pd.read_csv(outdir + name + '.csv.labeled')
 
     dados=[]
     with open(injson) as file:
@@ -47,9 +50,9 @@ def main():
     df_OUT = pd.DataFrame()
     df_OUT['SHA256'] = df_VT['sha256']
     df_OUT['MALICIOUS'] = df_VT['malicious']
-    df_concat = pd.concat([moto_df, df_OUT], ignore_index=True)
-    df_concat.fillna(-1, inplace=True)
-    df_concat.to_csv(outdir + "Labels.csv", index=False)   # salva o arquivo
+    #df_concat = pd.concat([moto_df, df_OUT], ignore_index=True)
+    #df_concat.fillna(-1, inplace=True)
+    df_OUT.to_csv(outdir + name + '.csv.labeled', index=False)   # salva o arquivo
     #print("Arquivos JSONs processados: ",len(df_concat))
 
 main()
