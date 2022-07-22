@@ -55,7 +55,7 @@ def main():
         os.system('./extraction/run_n_extractions.sh {} {} {} {}'.format(args.n_feature_extraction_queues, queues['extraction'], queues['building'], logs['extraction']))    
     
     if args.building:
-        os.system('./building/run_building.sh {} {} {} {} {}'.format(3, queues['labelling'], queues['extraction'], queues['building'], logs['building']))
+        os.system('./building/run_building.sh {} {} {} {} {}'.format(var_APKs, queues['labelling'], queues['extraction'], queues['building'], logs['building']))
 
     #if args.building and args.download:
     #    os.system('./building/run_building.sh {} {} {} {}'.format(queues['labelling'], queues['extraction'], queues['building'], logs['building']))

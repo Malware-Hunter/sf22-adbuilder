@@ -33,9 +33,10 @@ do
         then
             python3 ./building/dataset_geration.py --indir $DIR_ARQUIVO.csv --outdir $FILA_DE_BUILDING/Clean/ &>> $LOG_DIR/stats-$TS/Geration-$TS.log
         else
-            if [ -f $FILA_DE_BUILDING/$NOME_ARQUIVO.csv.labeled ]
+            if [ -f $FILA_DE_BUILDING/$NOME_ARQUIVO.csv.labeled ] && [ ! -f $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv.cleaned ]
             then
                 python3 ./building/concat_dataset.py --incsv $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv --inlabeled $FILA_DE_BUILDING/$NOME_ARQUIVO.csv.labeled --outdir $FILA_DE_BUILDING/Final/  &>> $LOG_DIR/stats-$TS/Concat-$TS.log
+                touch $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv.cleaned
                 COUNTER=$((COUNTER+1))
             fi
         fi

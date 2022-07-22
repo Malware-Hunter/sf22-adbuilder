@@ -15,7 +15,7 @@ TAMANHO=$(($LINHAS/235))
 if [ $TAMANHO -eq 0 ]; then
     [ -d $FILA_DE_LABELLING/500_VT_aa_Analysis ] || { mkdir -p $FILA_DE_LABELLING/500_VT_aa_Analysis; }
     cp $SHA256 $FILA_DE_LABELLING/500_VT_aa_Analysis/
-    mv $FILA_DE_LABELLING/500_VT_aa_Analysis/sha256.txt $FILA_DE_LABELLING/500_VT_aa_Analysis/500_VT_aa
+    mv $FILA_DE_LABELLING/500_VT_aa_Analysis/$SHA256 $FILA_DE_LABELLING/500_VT_aa_Analysis/500_VT_aa
     cp ./labelling/virustotal/run_analysis_VT.sh $FILA_DE_LABELLING/500_VT_aa_Analysis
 
 else
