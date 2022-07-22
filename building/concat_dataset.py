@@ -7,7 +7,8 @@ import argparse
 
 def parseArgs():
     parser = argparse.ArgumentParser(description='Dataset Building.')
-    parser.add_argument('--indir', dest='indir', required=True, help='CSV File.')
+    parser.add_argument('--incsv', dest='incsv', required=True, help='CSV File.')
+    parser.add_argument('--inlabeled', dest='inlabeled', required=True, help='CSV.labeled File.')
     parser.add_argument('--outdir', dest='outdir', required=True, help='Path to the building queue.')
 
     return parser.parse_args()
@@ -18,9 +19,13 @@ def main():
     # diretório para arquivos de saída
     outdir = args.outdir
     # diretório para arquivos de entrada
-    indir = args.indir
+    incsv = args.incsv
+    inlabeled = args.inlabeled
 
-    name = indir.split('/')[-1]
+    name = incsv.split('/')[-1]
+
+    if os.path.isfile(inlabeled):
+        labeled = pd.read_csv(inlabeled)
 
    # verificando se existe MotoDroid_dataset.csv no diretório outdir
     if not os.path.isfile(outdir + 'MotoDroid_dataset.csv'):
@@ -34,7 +39,8 @@ def main():
     start = time.time()
 
     # concatenando os arquivos de entrada
-    dataset = pd.concat([moto_df, pd.read_csv(indir)], ignore_index=True)
+    dataset = pd.concat([moto_df, pd.read_csv(incsv)], ignore_index=True)
+    dataset.loc[len(dataset)-1, 'CLASS'] = labeled['MALICIOUS'][0]
     dataset.fillna(0, inplace=True)
     start_test = time.time()
     # transformar colunas float em int

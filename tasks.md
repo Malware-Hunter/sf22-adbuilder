@@ -1,5 +1,4 @@
 # líder da FT: Lucas
-- realizar o acompanhamento diários das atividades do time;
 
 ### Equipe
 
@@ -32,14 +31,11 @@
 
 ### Atividades Pendentes
  **PRIORIDADE**
-- Integrar etapa da rotulação do VirusTotal na ferramenta: (Lucas... em andamento)
-    - Sincronizar etapa de *labelling* com *building*;
+    - Sincronizar etapa de *labelling* com *building*; (em andamento... Lucas)
+    - Fazer com que o run_analysis_VT.sh execute unicamente a partir do seu diretório raiz; (Lucas)
     - Permitir a lista de API Keys ser recebida de qualquer lugar.
-- Integrar etapa da construção do *dataset*: (Lucas... em andamento)
-    - Sincronizar *run_verify.sh* (*extraction* e *building*).
 
 **PRIORIDADE MENOR**
-- Terminar desenho do diagrama do processo da ferramenta (Lucas e Nicolas)
 - Resolver *quote exceed* das análises do Virus Total? (Nicolas)
 
 ### Atividades Realizadas
@@ -54,3 +50,5 @@
 - Integrar etapa da construção do *dataset* na ferramenta; (Lucas)
 - Reestruturação do repositório e códigos; (Diego)
 - Escrita textual do passo a passo do processo da ferramenta; (Lucas)
+- Diagrama da arquitetura da ferramenta (Diego e Lucas)
+- Integrar etapa da rotulação do VirusTotal na ferramenta: (Lucas)

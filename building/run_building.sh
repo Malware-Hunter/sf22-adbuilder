@@ -22,7 +22,6 @@ do
     # verifica se existe algum arquivo .csv.OK no diretorio de entrada
     for FILE in $(find $FILA_DE_BUILDING -type f -name \*.csv.OK)
     do
-        COUNTER=$((COUNTER+1))
         # splitar nome do arquivo
         DIR_ARQUIVO=$(echo $FILE | cut -d'.' -f1)
         NOME_ARQUIVO=$(echo $DIR_ARQUIVO | cut -d'/' -f3)
@@ -30,9 +29,19 @@ do
         # tamanho do arquivo em bytes
         TAMANHO_ARQUIVO=$(stat -c%s $FILE)
         
-        python3 ./building/dataset_geration.py --indir $DIR_ARQUIVO.csv --outdir $FILA_DE_BUILDING/Clean/ &>> $LOG_DIR/stats-$TS/Geration-$TS.log
-        python3 ./building/concat_dataset.py --indir $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv --outdir $FILA_DE_BUILDING/Final/  &>> $LOG_DIR/stats-$TS/Concat-$TS.log
-        # PID do processo de concatenacao
+        if [ ! -f $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv ]
+        then
+            python3 ./building/dataset_geration.py --indir $DIR_ARQUIVO.csv --outdir $FILA_DE_BUILDING/Clean/ &>> $LOG_DIR/stats-$TS/Geration-$TS.log
+        else
+            if [ -f $FILA_DE_BUILDING/$NOME_ARQUIVO.csv.labeled ]
+            then
+                python3 ./building/concat_dataset.py --incsv $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv --inlabeled $FILA_DE_BUILDING/$NOME_ARQUIVO.csv.labeled --outdir $FILA_DE_BUILDING/Final/  &>> $LOG_DIR/stats-$TS/Concat-$TS.log
+                COUNTER=$((COUNTER+1))
+            fi
+        fi
+
+
+        # PID do processo de concatenação
         PID_CONCAT=$!
         #/usr/bin/time -f "$NOME_ARQUIVO Tempo decorrido do Tratamento e Geração do CSV = %e segundos, CPU = %P, Memoria = %M KiB, Tamanho = $TAMANHO_ARQUIVO bytes" -a -o $LOGS_DIR/stats-$TS-Geration python3 ./building/dataset_geration.py --indir $DIR_ARQUIVO.csv --outdir $FILA_DE_BUILDING/Clean/ &> $LOG_DIR/building-$TS-Geration.log &
         #/usr/bin/time -f "$NOME_ARQUIVO Tempo decorrido da Concatenação do CSV = %e segundos, CPU = %P, Memoria = %M KiB Tamanho = $TAMANHO_ARQUIVO bytes" -a -o $LOGS_DIR/stats-$TS-Concat python3 ./building/concat_dataset.py --indir $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv --outdir $FILA_DE_BUILDING/Final/  &> $LOG_DIR/building-$TS-Concat.log &

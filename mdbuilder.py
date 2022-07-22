@@ -16,7 +16,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--download', type=str, default=False, help='TXT file with a list of APKs SHA256 to download.')
     parser.add_argument('--n_download_queues', '-npd', type=int, default=1, help='Number of parallel queues for download.')
-    parser.add_argument('--feature_extraction', help='APK feature extraction.', action="store_true")
+    parser.add_argument('--feature_extraction', '-fe', help='APK feature extraction.', action="store_true")
     parser.add_argument('--n_feature_extraction_queues', '-npe', type=int, default=1, help='Number of parallel queues for feature extraction.')
     parser.add_argument('--labelling', type=str, default=False, help='Virus Total labelling. TXT file with a list of APKs SHA256 to download.')
     parser.add_argument('--building', help='Building the dataset.', action="store_true")
@@ -55,7 +55,7 @@ def main():
         os.system('./extraction/run_n_extractions.sh {} {} {} {}'.format(args.n_feature_extraction_queues, queues['extraction'], queues['building'], logs['extraction']))    
     
     if args.building:
-        os.system('./building/run_building.sh {} {} {} {} {}'.format(var_APKs, queues['labelling'], queues['extraction'], queues['building'], logs['building']))
+        os.system('./building/run_building.sh {} {} {} {} {}'.format(3, queues['labelling'], queues['extraction'], queues['building'], logs['building']))
 
     #if args.building and args.download:
     #    os.system('./building/run_building.sh {} {} {} {}'.format(queues['labelling'], queues['extraction'], queues['building'], logs['building']))
