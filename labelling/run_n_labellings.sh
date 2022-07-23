@@ -28,7 +28,7 @@ else
     done
 fi
 
-./labelling/virustotal/run.sh $SHA256 $API_KEYS $FILA_DE_LABELLING $FILA_DE_BUILDING $LOG_DIR
+./labelling/virustotal/run.sh $SHA256 $API_KEYS $FILA_DE_LABELLING $FILA_DE_BUILDING $LOG_DIR &
 
 #N_LABELLINGS=$2
 #TS=$(date +%Y%m%d%H%M%S)
