@@ -43,6 +43,26 @@ MotoDroidBuilder: implementação completa e totalmente integrada da ferramenta.
 ### Parâmetros adicionados
 
 
+### Dependências / Permissões
+Antes de executar o projeto, você deve certificar-se de que as seguintes bibliotecas estão instaladas na sua máquina:
+curl, androguard, networkx e pandas. Se não estiverem, execute os comandos abaixo:
+
+- sudo snap install curl
+- sudo apt-get install androguard
+- sudo apt-get install networkx
+- python3 -m pip install pandas
+
+Se você tiver problemas de permissões, similar a esse:
+
+sh: 1: ./labelling/run_n_labellings.sh: Permission denied.
+
+Execute os seguintes comandos:
+
+- chmod u+x ./building/run_building.sh
+- chmod u+x ./labelling/run_n_labellings.sh
+- chmod u+x ./labelling/virustotal/run.sh
+- chmod u+x ./labelling/virustotal/run_analysis_VT.sh
+
 
 ### Teste
 
