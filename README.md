@@ -66,12 +66,14 @@ Execute os seguintes comandos:
 
 ### Teste
 
-Você poderá testar a ferramenta. 
+Atualmente, todas as etapas estão integradas na ferramenta. Você poderá testar a ferramenta com o seguinte comando:
 
-Atualmente, a etapa de download está integrada na ferramenta e pronta para utilização. Você pode executar o código com o seguinte comando:
+* *python3 mdbuilder.py --download sha256.txt -npd 2 -fe -npe 2 --labelling sha256.txt --building*
 
-- python3 mdbuilder.py --download sha256.txt -npd (num de processos) --feature_extraction -npe (num de processos) --building
+*Info: python3 mdbuilder.py --download (lista_de_sha256.txt) -npd (num de processos de download) --feature_extraction/-fe -npe (num de processos de extração) --labelling (lista_de_sha256.txt) --building*
 
 O parâmetro *--download* recebe uma lista.txt contendo os sha256 dos APKs que se deseja baixar. Esta lista precisa estar no diretório **1_Download**.
 
-O parâmetro *-npd* e -*npe* recebe um número inteiro informando a quantidade de processos (núcleos da máquina) que serão utilizados para realizar essa etapa de download. Se não for definido esse parâmetro, o valor será setado em 1 processo, por padrão.
+O parâmetro *-npd* e -*npe* recebe um número inteiro informando a quantidade de processos (núcleos da máquina) que serão utilizados para realizar a etapa de download e extração, respectivamente. Se não for definido esse parâmetro, o valor será setado em 1 processo, por padrão.
+
+*OBS: Também é possível rodar cada etapa separadamente. Apenas o building ainda precisa ser executado com o download ou labelling, porque precisa saber o número de sha256 para a parada do processo.*
