@@ -31,12 +31,19 @@
 
 ### Atividades Pendentes
  **PRIORIDADE**
-    - Sincronizar etapa de *labelling* com *building*; (em andamento... Lucas)
-    - Fazer com que o run_analysis_VT.sh execute unicamente a partir do seu diretório raiz; (Lucas)
-    - Permitir a lista de API Keys ser recebida de qualquer lugar.
+    - Permitir a lista de API Keys ser recebida de qualquer lugar; (Lucas)
+    - Gerar log usr/bin/time para concatenção; (Lucas)
+    - Criar um *--building_only* sem a variável vars_APKs; (Lucas)
+    - Resolver FIXMEs e fazer testes; (Lucas, Vagner e Nicolas)
+    - Disponibilizar ferramenta para o pessoal testar. (Lucas)
 
 **PRIORIDADE MENOR**
 - Resolver *quote exceed* das análises do Virus Total? (Nicolas)
+
+**OPCIONAL**
+- Fazer letras bonitas de tela inicial do MotoDroidBuilder;
+3° gerar log usr/bin/time para a concatenação;
+4° fazer um --building_only sem a vars_APKs;
 
 ### Atividades Realizadas
 - Estruturação de pastas neste repositório; (Lucas)
@@ -52,3 +59,5 @@
 - Escrita textual do passo a passo do processo da ferramenta; (Lucas)
 - Diagrama da arquitetura da ferramenta (Diego e Lucas)
 - Integrar etapa da rotulação do VirusTotal na ferramenta: (Lucas)
+- Sincronizar etapa de *labelling* com *building*; (Lucas)
+- Fazer com que o run_analysis_VT.sh execute unicamente a partir do seu diretório raiz; (Lucas)

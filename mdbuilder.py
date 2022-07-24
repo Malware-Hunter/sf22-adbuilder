@@ -43,6 +43,8 @@ def main():
     # SOLUÇÃO TEMPORÁRIA
     if args.download:
         var_APKs = len(open(args.download, 'r').read().split('\n')[:-1])
+    if args.labelling:
+        var_APKs = len(open(args.labelling, 'r').read().split('\n')[:-1])
     ##############################################
 
     if args.download and args.n_download_queues:

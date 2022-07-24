@@ -16,6 +16,20 @@ TS=$(date +%Y%m%d%H%M%S)
 [ -d $LOG_DIR/stats-$TS ] || { mkdir -p $LOG_DIR/stats-$TS; }
 #bash -x ./extraction/run_apk_extraction.sh $EXTRACTION_QUEUE $BUILDING_QUEUE $LOG_DIR/stats-$TS-$CONTADOR &> $LOG_DIR/extraction-$TS-$CONTADOR.log &
 
+for CLEANED in $(find $FILA_DE_BUILDING/Clean/ -type f -name \*.csv.cleaned)
+do
+    # splitar nome do arquivo
+    DIR_CLEANED=$(echo $CLEANED | cut -d'.' -f1)
+    NOME_CLEANED=$(echo $DIR_CLEANED | cut -d'/' -f4)
+    
+    if [ -f $FILA_DE_BUILDING/$NOME_CLEANED.csv.OK ]; then
+        rm -f $FILA_DE_BUILDING/$NOME_CLEANED.csv.OK
+        continue
+    fi
+done
+# excluir outros possíveis arquivos antigos
+#rm -f $FILA_DE_BUILDING/*.csv.OK
+
 while [ 1 ]
 do
     COUNTER=0
@@ -38,12 +52,11 @@ do
                 python3 ./building/concat_dataset.py --incsv $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv --inlabeled $FILA_DE_BUILDING/$NOME_ARQUIVO.csv.labeled --outdir $FILA_DE_BUILDING/Final/  &>> $LOG_DIR/stats-$TS/Concat-$TS.log
                 touch $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv.cleaned
                 COUNTER=$((COUNTER+1))
+                # PID do processo atual
+                PID=$!                
             fi
         fi
 
-
-        # PID do processo de concatenação
-        PID_CONCAT=$!
         #/usr/bin/time -f "$NOME_ARQUIVO Tempo decorrido do Tratamento e Geração do CSV = %e segundos, CPU = %P, Memoria = %M KiB, Tamanho = $TAMANHO_ARQUIVO bytes" -a -o $LOGS_DIR/stats-$TS-Geration python3 ./building/dataset_geration.py --indir $DIR_ARQUIVO.csv --outdir $FILA_DE_BUILDING/Clean/ &> $LOG_DIR/building-$TS-Geration.log &
         #/usr/bin/time -f "$NOME_ARQUIVO Tempo decorrido da Concatenação do CSV = %e segundos, CPU = %P, Memoria = %M KiB Tamanho = $TAMANHO_ARQUIVO bytes" -a -o $LOGS_DIR/stats-$TS-Concat python3 ./building/concat_dataset.py --indir $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv --outdir $FILA_DE_BUILDING/Final/  &> $LOG_DIR/building-$TS-Concat.log &
     done
@@ -53,8 +66,9 @@ do
     # verificar se todos os CSVs já foram processados
     if [ $N_APKS -eq $COUNTER ]
     then
-        wait $PID_CONCAT
-        echo -e "Todos os CSVs já foram processados!\n\nMatando todos os processos..."  
+        #esperar o PID do processo atual
+        wait $PID
+        echo -e "Todos os CSVs já foram processados!\nDataset gerado!\n\nMatando todos os processos..."  
         ./kill_all.sh
         break
     fi
