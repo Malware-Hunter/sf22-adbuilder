@@ -14,7 +14,7 @@ def create_queues(_queues):
 
 def main():
     
-    print("***** MotoDroid Builder *****")
+    print("\n***** MotoDroid Builder *****\n\nExecutando...")
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--download', type=str, default=False, help='TXT file with a list of APKs SHA256 to download.')

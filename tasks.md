@@ -31,19 +31,20 @@
 
 ### Atividades Pendentes
  **PRIORIDADE**
+    - Configurar labelling para esperar por 24h???
     - Permitir a lista de API Keys ser recebida de qualquer lugar; (Lucas)
+    - Matar os processos corretamente após a execução completa da ferramenta; (Lucas e Vagner)
     - Gerar log usr/bin/time para concatenção; (Lucas)
     - Criar um *--building_only* sem a variável vars_APKs; (Lucas)
     - Resolver FIXMEs e fazer testes; (Lucas, Vagner e Nicolas)
-    - Disponibilizar ferramenta para o pessoal testar. (Lucas)
+
 
 **PRIORIDADE MENOR**
 - Resolver *quote exceed* das análises do Virus Total? (Nicolas)
 
 **OPCIONAL**
 - Fazer letras bonitas de tela inicial do MotoDroidBuilder;
-3° gerar log usr/bin/time para a concatenação;
-4° fazer um --building_only sem a vars_APKs;
+
 
 ### Atividades Realizadas
 - Estruturação de pastas neste repositório; (Lucas)
@@ -61,3 +62,5 @@
 - Integrar etapa da rotulação do VirusTotal na ferramenta: (Lucas)
 - Sincronizar etapa de *labelling* com *building*; (Lucas)
 - Fazer com que o run_analysis_VT.sh execute unicamente a partir do seu diretório raiz; (Lucas)
+- Disponibilizar ferramenta para o pessoal testar; (Lucas)
+- Andamento da escrita da implementação da ferramenta; (Lucas)
