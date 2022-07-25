@@ -32,9 +32,10 @@
 ### Atividades Pendentes
  **PRIORIDADE**
     - Configurar labelling para esperar por 24h???
+    - Gerar log bash -x para todos os módulos? (Lucas)
+    - Gerar log usr/bin/time para concatenção; (Lucas)
     - Permitir a lista de API Keys ser recebida de qualquer lugar; (Lucas)
     - Matar os processos corretamente após a execução completa da ferramenta; (Lucas e Vagner)
-    - Gerar log usr/bin/time para concatenção; (Lucas)
     - Criar um *--building_only* sem a variável vars_APKs; (Lucas)
     - Resolver FIXMEs e fazer testes; (Lucas, Vagner e Nicolas)
 
