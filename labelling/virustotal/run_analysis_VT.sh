@@ -22,9 +22,9 @@ do
 	if [ $(stat -c%s $FILA_DE_LABELLING/$SHA256".json") -lt 1024 ]
 	then
 		# verifica se o diretório existe, se não cria
-		[ -d $LOG_DIR/Errors ] || { mkdir -p $LOG_DIR/Errors; }
+		[ -d $FILA_DE_LABELLING/Errors ] || { mkdir -p $FILA_DE_LABELLING/Errors; }
 		# move o arquivo para o diretório de erros
-		mv $FILA_DE_LABELLING/$SHA256".json" $LOG_DIR/Errors/
+		mv $FILA_DE_LABELLING/$SHA256".json" $FILA_DE_LABELLING/Errors/
 		echo -e "O arquivo $SHA256.json gerou erro!!!\n"
 		continue
 	else
