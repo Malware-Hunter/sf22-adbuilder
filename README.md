@@ -33,6 +33,7 @@ MotoDroidBuilder: implementação completa e totalmente integrada da ferramenta.
 Antes de executar o projeto, você deve certificar-se de que as seguintes bibliotecas estão instaladas na sua máquina:
 
 * curl 
+* time
 * pandas = 1.3.5
 * androguard = 3.3.5
 * networkx = 2.2
@@ -44,6 +45,7 @@ Antes de executar o projeto, você deve certificar-se de que as seguintes biblio
 Se não estiverem, execute os comandos abaixo:
 
 - sudo snap install curl
+- sudo apt install time
 - sudo apt-get install androguard=3.3.5
 - sudo apt-get install networkx=2.2
 - python3 -m pip install pandas=1.3.5
