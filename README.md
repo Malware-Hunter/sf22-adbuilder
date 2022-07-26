@@ -29,28 +29,24 @@ MotoDroidBuilder: implementação completa e totalmente integrada da ferramenta.
 5) possuir uma estrutura flexível para ser capaz de integrar mais funcionalidades, posteriormente.
 
 
-### Exemplos de parâmetros de execução:
-
-- tool.py --extract-features-only arquivo.APK
-- tool.py --download --extract-features SHA256_do_APK
-- tool.py --download --extract-features --labelling-virustotal SHA256_do_APK
-- tool.py --download --extract-features --labelling-all SHA256_do_APK
-- tool.py --download --extract-features --labelling-all --build-dataset SHA256_do_APK
-- tool.py --build-dataset-only arquivo_APK1.csv arquivo_APK2.csv ... arquivo_APKn.csv
-- tool.py --all SHA256_do_APK
-
-
-### Parâmetros adicionados
-
-
 ### Dependências / Permissões
 Antes de executar o projeto, você deve certificar-se de que as seguintes bibliotecas estão instaladas na sua máquina:
-curl, androguard, networkx e pandas. Se não estiverem, execute os comandos abaixo:
+
+* curl 
+* pandas = 1.3.5
+* androguard = 3.3.5
+* networkx = 2.2
+* pandas = 1.3.5
+* lxml = 4.5
+* numpy 1.22.3
+* (instalar json???)
+
+Se não estiverem, execute os comandos abaixo:
 
 - sudo snap install curl
-- sudo apt-get install androguard
-- sudo apt-get install networkx
-- python3 -m pip install pandas
+- sudo apt-get install androguard=3.3.5
+- sudo apt-get install networkx=2.2
+- python3 -m pip install pandas=1.3.5
 
 Se você tiver problemas de permissões, similar a esse:
 
@@ -58,10 +54,8 @@ sh: 1: ./labelling/run_n_labellings.sh: Permission denied.
 
 Execute os seguintes comandos:
 
-- chmod u+x ./building/run_building.sh
-- chmod u+x ./labelling/run_n_labellings.sh
-- chmod u+x ./labelling/virustotal/run.sh
-- chmod u+x ./labelling/virustotal/run_analysis_VT.sh
+- chmod u+x permissions.sh
+- ./permissions.sh
 
 
 ### Teste
@@ -72,8 +66,10 @@ Atualmente, todas as etapas estão integradas na ferramenta. Você poderá testa
 
 *Info: python3 mdbuilder.py --download (lista_de_sha256.txt) -npd (num de processos de download) --feature_extraction/-fe -npe (num de processos de extração) --labelling (lista_de_sha256.txt) -api (lista de API Keys do VirusTotal) --building*
 
-O parâmetro *--download* recebe uma lista.txt contendo os sha256 dos APKs que se deseja baixar. Esta lista precisa estar no diretório **1_Download**.
+Os parâmetros *--download* e *--labelling* recebem uma lista.txt contendo os sha256 dos APKs que se deseja baixar. Esta lista pode estar em qualquer lugar.
+
+O parâmetro *-api* recebe uma lista.txt contendo as API Keys do VirusTotal. Esta lista pode estar em qualquer lugar.
 
 O parâmetro *-npd* e -*npe* recebe um número inteiro informando a quantidade de processos (núcleos da máquina) que serão utilizados para realizar a etapa de download e extração, respectivamente. Se não for definido esse parâmetro, o valor será setado em 1 processo, por padrão.
 
-*OBS: Também é possível rodar cada etapa separadamente. Apenas o building ainda precisa ser executado com o download ou labelling, porque precisa saber o número de sha256 para a parada do processo.*
+*OBS: Também é possível rodar cada etapa separadamente. Apenas o building ainda precisa ser executado com o download ou labelling, porque precisa saber o número de sha256 da lista para a parada do processo.*
