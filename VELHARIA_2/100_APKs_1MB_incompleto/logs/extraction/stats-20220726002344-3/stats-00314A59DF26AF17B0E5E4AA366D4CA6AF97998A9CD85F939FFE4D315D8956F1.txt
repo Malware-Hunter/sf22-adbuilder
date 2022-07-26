@@ -1,0 +1,1 @@
+queues/extraction/00314A59DF26AF17B0E5E4AA366D4CA6AF97998A9CD85F939FFE4D315D8956F1.apk Tempo decorrido Extracao = 1.50 segundos, CPU = 144%, Memoria = 142568 KiB

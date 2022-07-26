@@ -70,7 +70,7 @@ Atualmente, todas as etapas estão integradas na ferramenta. Você poderá testa
 
 * *python3 mdbuilder.py --download sha256.txt -npd 2 -fe -npe 2 --labelling sha256.txt --building*
 
-*Info: python3 mdbuilder.py --download (lista_de_sha256.txt) -npd (num de processos de download) --feature_extraction/-fe -npe (num de processos de extração) --labelling (lista_de_sha256.txt) --building*
+*Info: python3 mdbuilder.py --download (lista_de_sha256.txt) -npd (num de processos de download) --feature_extraction/-fe -npe (num de processos de extração) --labelling (lista_de_sha256.txt) -api (lista de API Keys do VirusTotal) --building*
 
 O parâmetro *--download* recebe uma lista.txt contendo os sha256 dos APKs que se deseja baixar. Esta lista precisa estar no diretório **1_Download**.
 

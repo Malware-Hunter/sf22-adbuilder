@@ -1,11 +1,11 @@
 #!/bin/bash
-[ $1 ] && [ -f $1 ] && [ $2 ] && [ -d $2 ] && [ $3 ] && [ -d $3 ] && [ $4 ] && [ -d $4 ] || { echo "Uso: $0 <sha256.txt> <path_labelling_queue> <path_queue_building> <path_logs_labelling>"; exit; }
+[ $1 ] && [ -f $1 ] && [ $2 ] && [ -f $2 ] && [ $3 ] && [ -d $3 ] && [ $4 ] && [ -d $4 ] && [ $5 ] && [ -d $5 ] || { echo "Uso: $0 <sha256.txt> <API_Keys.txt> <path_labelling_queue> <path_queue_building> <path_logs_labelling>"; exit; }
 
 SHA256=$1
-API_KEYS=./labelling/virustotal/API_Keys.txt
-FILA_DE_LABELLING=$2
-FILA_DE_BUILDING=$3
-LOG_DIR=$4
+API_KEYS=$2
+FILA_DE_LABELLING=$3
+FILA_DE_BUILDING=$4
+LOG_DIR=$5
 
 ########### SPLIT_500 ##########
 

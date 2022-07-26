@@ -1100,7 +1100,7 @@ def main():
         df_treatment = treatment_data(df)
         df_treatment.to_csv(outdir+ name, index=False)
     else:
-        print("Não foi possível incluir o arquivo " + name + "!!!\n")
+        ''
 
     end = time.time()
 

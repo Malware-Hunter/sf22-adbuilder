@@ -37,7 +37,7 @@ done
 
 while [ 1 ]
 do
-    # verifica se existe algum arquivo .csv.OK no diretorio de entrada
+    # verifica se existe algum arquivo .json.OK no diretorio de entrada
     for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
     do
         # splitar nome do arquivo
