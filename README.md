@@ -76,7 +76,7 @@ Instalação do Git
 ```
 sudo apt-get install git -y
 ```
-Clone do Repositório
+Clone o Repositório
 ```
 git clone https://github.com/Malware-Hunter/sf22_motodroid.git
 ```
@@ -118,7 +118,7 @@ Instale as dependências necessárias utilizando os comandos:
 [//]: # ()
 [//]: # (O parâmetro *-npd* e -*npe* recebe um número inteiro informando a quantidade de processos &#40;núcleos da máquina&#41; que serão utilizados para realizar a etapa de download e extração, respectivamente. Se não for definido esse parâmetro, o valor será setado em 1 processo, por padrão.)
 
-***OBS: Também é possível rodar cada etapa separadamente. Apenas o building precisa ser executado com o download ou labelling, pois é necessário obter o número de sha256 da lista para a parada do processo.***
+***É possível rodar cada etapa separadamente. Apenas o building precisa ser executado com o download ou labelling, pois é necessário obter o número de sha256 da lista para a parada do processo.***
 
 <div id="exemplo-de-uso"/>
 
