@@ -7,8 +7,10 @@ FILA_DE_LABELLING=$3
 FILA_DE_BUILDING=$4
 LOG_DIR=$5
 
-########### SPLIT_500 ##########
+TS=$(date +%Y%m%d%H%M%S)
+[ -d $LOG_DIR/stats-$TS ] || { mkdir -p $LOG_DIR/stats-$TS; }
 
+########### SPLIT_500 ##########
 # splitar arquivos em partes de ~500 linhas
 LINHAS=$(wc -l $SHA256 | cut -d' ' -f1)
 TAMANHO=$(($LINHAS/235))
@@ -25,7 +27,7 @@ else
     done
 fi
 
-./labelling/virustotal/run.sh $SHA256 $API_KEYS $FILA_DE_LABELLING $FILA_DE_BUILDING $LOG_DIR &
+bash -x ./labelling/virustotal/run.sh $SHA256 $API_KEYS $FILA_DE_LABELLING $FILA_DE_BUILDING $LOG_DIR &> $LOG_DIR/stats-$TS-bash.log &
 
 #N_LABELLINGS=$2
 #TS=$(date +%Y%m%d%H%M%S)
