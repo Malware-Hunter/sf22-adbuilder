@@ -83,13 +83,12 @@ Clone o Repositório
 ```
 git clone https://github.com/Malware-Hunter/sf22_motodroid.git
 ```
-Entre na pasta principal do projeto clonado e dê permissões para os arquivos.
+Nós disponibilizamos um arquivo shell de setup que contém configurações de permissões e dependências necessárias. Portanto, para preparar o ambiente, basta executar o seguinte comando:
 ```
 cd sf22_motodroid
-chmod u+x permissions.sh
-./permissions.sh
+./setup.sh
 ```
-Instale as dependências necessárias utilizando os comandos:
+Caso prefira, você pode instalar as dependências individualmente utilizando os seguintes comandos:
 ```
 - sudo snap install curl
 - sudo apt install time
