@@ -51,7 +51,7 @@ do
             if [ -f $FILA_DE_BUILDING/$NOME_ARQUIVO.csv.labeled ] && [ ! -f $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv.cleaned ]
             then
                 python3 ./building/concat_dataset.py --incsv $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv --inlabeled $FILA_DE_BUILDING/$NOME_ARQUIVO.csv.labeled --outdir $FILA_DE_BUILDING/Final/  &>> $LOG_DIR/stats-$TS/Concat-$TS.log
-                # PID do processo de concatenacao
+                # PID do processo de concatenacao, para o building esperar esse PID para matar os processos
                 PID_CONCAT=$$
                 touch $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv.cleaned
                 COUNTER=$((COUNTER+1))               
@@ -67,6 +67,7 @@ do
     # verificar se todos os CSVs já foram processados
     if [ $N_APKS -eq $COUNTER ]
     then
+        echo -e "Esperando PID $PID_CONCAT para encerrar o programa..."
         #esperar o PID do processo atual
         wait $PID_CONCAT
         echo -e "Todos os CSVs já foram processados!\nDataset gerado!\n\nMatando todos os processos..."  
