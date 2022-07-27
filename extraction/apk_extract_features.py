@@ -175,22 +175,25 @@ def apk_extract_features(args):
         serviceString = 'service'
         for service in services:
             for action,intent_name in app.get_intent_filters(serviceString, service).items():
-                for intent in intent_name: 
-                    intents.append(intent)
+                for intent in intent_name:
+                    print("OI") 
+                    #intents.append(intent)
 				  
         receivers = app.get_receivers()
         receiverString = 'receiver'
         for receiver in receivers:
             for action,intent_name in app.get_intent_filters(receiverString, receiver).items():
                 for intent in intent_name: 
-                    intents.append(intent)   
+                    print("OI") 
+                    #intents.append(intent)   
 				  
         activitys = app.get_activities()
         activityString = 'activity'
         for activity in activitys:
             for action,intent_name in app.get_intent_filters(activityString, activity).items():
                 for intent in intent_name: 
-                    intents.append(intent)
+                    print("OI") 
+                    #intents.append(intent)
 					   
         return intents
       

@@ -1100,7 +1100,7 @@ def main():
         df_treatment = treatment_data(df)
         df_treatment.to_csv(outdir+ name, index=False)
     else:
-        ''
+        print("Arquivo" + name + " possui colunas de características vazias.")
 
     end = time.time()
 
