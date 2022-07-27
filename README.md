@@ -93,6 +93,7 @@ Instale as dependências necessárias utilizando os comandos:
 ```
 - sudo snap install curl
 - sudo apt install time
+- sudo apt install python3-pip
 - python3 -m pip install androguard==3.3.5
 - python3 -m pip install networkx==2.2
 - python3 -m pip install pandas==1.3.5
