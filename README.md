@@ -67,7 +67,7 @@
 
  No ambiente testado, utilizamos as seguintes bibliotecas com as respectivas versões:
 
-> curl, time, pandas (versão 1.3.5), androguard (versão 3.3.5), networkx (versão 2.2), pandas (versão 1.3.5), lxml (versão 4.5), numpy (versão 1.22.3).
+> curl, time, pandas (versão 1.3.5), androguard (versão 3.3.5), networkx (versão 2.2), lxml (versão 4.5), numpy (versão 1.22.3).
 
 <div id="preparando-o-ambiente"/>
 
@@ -90,9 +90,9 @@ Instale as dependências necessárias utilizando os comandos:
 ```
 - sudo snap install curl
 - sudo apt install time
-- sudo apt-get install androguard=3.3.5
-- sudo apt-get install networkx=2.2
-- python3 -m pip install pandas=1.3.5
+- python3 -m pip install androguard==3.3.5
+- python3 -m pip install networkx==2.2
+- python3 -m pip install pandas==1.3.5
 ```
 
 <div id="parametros-disponiveis"/>
@@ -103,7 +103,7 @@ Instale as dependências necessárias utilizando os comandos:
 ```
 --download (lista_de_sha256.txt) = realiza download de aplicativos obtidos pelo arquivo .txt fornecido.
 -npd (processos) = insira um número inteiro (e.g., 5) de processos para download.
--fe = extrai features dos aplicativos.
+--feature_extraction, -fe = extrai features dos aplicativos.
 -npe (processos) = insira um número inteiro (e.g., 5) de processos de extração. 
 --labelling (lista_de_sha256.txt) = realiza a rotulação dos aplicativos obtidos pelo arquivo .txt fornecido.
 -api (lista_de_keys_virustotal) = insira um arquivo com API keys do VirusTotal.
@@ -129,20 +129,27 @@ cd sf22_motodroid
 ```
 O seguinte comando executa todos módulos integrados. Basta passar os parâmetros que preferir:
 ```
-python3 mdbuilder.py --download sha256.txt -npd 2 -fe -npe 2 --labelling sha256.txt --building
+python3 mdbuilder.py --download sha256.txt -npd 2 -fe -npe 2 --labelling sha256.txt -api ./labelling/virustotal/API_Keys.txt --building
 ```
-Também, é possível executar cada módulo individualmente, conforme exemplos de uso:
+*OBS: o módulo building só pode ser executado com o download ou labelling, pois precisa saber do número da quantidade de APKs que serão processados.*
+Além do *building*, é possível executar cada módulo individualmente, conforme exemplos de uso:
 ```
 python3 mdbuilder.py --download sha256.txt
-python3 mdbuilder.py -npd 1
 python3 mdbuilder.py -fe
-python3 mdbuilder.py -npe 1
-python3 mdbuilder.py --labelling
-python3 mdbuilder.py --building
+python3 mdbuilder.py --labelling sha256.txt -api ./labelling/virustotal/API_Keys.txt
+```
+Também é possível executar os módulos de download e extração com mais de um processo, por exemplo:
+```
+python3 mdbuilder.py --download sha256.txt -npd 3 (download com três processos)
+python3 mdbuilder.py -fe -npe 3 (extração com três processos)
+python3 mdbuilder.py --download sha256.txt -npd 3 -fe -npe 2 (download com três processos e extração com dois processos)
+
 ```
 Por fim, é possível executar módulos em conjunto, conforme exemplos:
 ```
 python3 mdbuilder.py --download sha256.txt -npd 1
 python3 mdbuilder.py --download -fe
-python3 mdbuilder.py -fe -npe1 --labelling
+python3 mdbuilder.py -fe --labelling sha256.txt -api ./labelling/virustotal/API_Keys.txt
+python3 mdbuilder.py --download -fe --building
+python3 mdbuilder.py  -fe --labelling sha256.txt -api ./labelling/virustotal/API_Keys.txt --building
 ```
