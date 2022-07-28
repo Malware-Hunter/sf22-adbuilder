@@ -24,7 +24,7 @@ def main():
     parser.add_argument('--labelling', type=str, default=False, help='Virus Total labelling. TXT file with a list of APKs SHA256 to download.')
     parser.add_argument('--apikeys', '-api', type=str, default=False, help='TXT file with a VirusTotal\'s list of API Keys to analysis.')
     parser.add_argument('--building', help='Building the dataset.', action="store_true")
-    #parser.add_argument('--building_only', help='Only Building the dataset.', action="store_true")
+    parser.add_argument('--building_only', help='Only Building the dataset.', action="store_true")
 
 
     args = parser.parse_args()
@@ -70,6 +70,10 @@ def main():
     
     if args.building:
         os.system('./building/run_building.sh {} {} {} {}'.format(var_APKs, queues['labelling'], queues['building'], logs['building']))
+
+    if args.building_only:
+        os.system('./building/run_building.sh {} {} {} {}'.format(-1, queues['labelling'], queues['building'], logs['building']))
+
 
     #if args.building and args.download:
     #    os.system('./building/run_building.sh {} {} {} {}'.format(queues['labelling'], queues['extraction'], queues['building'], logs['building']))

@@ -31,10 +31,10 @@
 
 ### Atividades Pendentes
  **PRIORIDADE**
-    - Gerar log bash -x para todos os módulos? (Lucas)
-    - Gerar log usr/bin/time para concatenção; (Lucas)
+    - Gerar log bash -x para todos os módulos? e como faço para o building? (Lucas)
+    - Gerar log usr/bin/time para concatenção. Falar sobre erro usr/bin/time; (Lucas)
     - Fazer script.sh que liste todas as dependências atuais; (Lucas)
-    - Matar os processos corretamente após a execução completa da ferramenta; (Lucas e Vagner)
+    - Matar os processos corretamente após a execução completa da ferramenta (menos os corrommpidos); (Lucas e Vagner)
     - Resolver FIXMEs e fazer testes; (Lucas, Vagner e Nicolas)
 
 **PRIORIDADE MENOR**
