@@ -12,7 +12,7 @@ chmod u+x ./extraction/run_n_extractions.sh
 chmod u+x kill_all.sh
 
 # dependências
-sudo snap install curl
+sudo apt install curl
 sudo apt install time
 sudo apt install python3-pip
 sudo python3 -m pip install androguard==3.3.5

@@ -31,15 +31,16 @@
 
 ### Atividades Pendentes
  **PRIORIDADE**
-    - Gerar log bash -x para todos os módulos? e como faço para o building? (Lucas)
+    - Fazer Lista de API Keys ser recebida de qualquer lugar sem nenhum problema;
     - Gerar log usr/bin/time para concatenção. Falar sobre erro usr/bin/time; (Lucas)
-    - Fazer script.sh que liste todas as dependências atuais; (Lucas)
-    - Matar os processos corretamente após a execução completa da ferramenta (menos os corrommpidos); (Lucas e Vagner)
+    - Verificar os APKs corrompidos para matar processo, ao final; (Lucas e Vagner)
     - Resolver FIXMEs e fazer testes; (Lucas, Vagner e Nicolas)
 
 **PRIORIDADE MENOR**
+    - Fazer script.sh que liste todas as dependências atuais; (Lucas)
     - Configurar labelling para esperar por 24h???
     - Criar um *--building_only* sem a variável vars_APKs; (Lucas)
+    - Sinal de DEBUG; (Após tarefas prioritárias)
 
 **OPCIONAL**
 - Fazer letras personalizadas de tela inicial do MotoDroidBuilder;
