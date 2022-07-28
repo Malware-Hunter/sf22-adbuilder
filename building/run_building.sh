@@ -31,9 +31,9 @@ done
 # excluir outros possíveis arquivos antigos
 #rm -f $FILA_DE_BUILDING/*.csv.OK
 
+COUNTER=0
 while [ 1 ]
 do
-    COUNTER=0
     # verifica se existe algum arquivo .csv.OK no diretorio de entrada
     for FILE in $(find $FILA_DE_BUILDING -type f -name \*.csv.OK)
     do
@@ -46,13 +46,13 @@ do
         
         if [ ! -f $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv ]
         then
-            #python3 ./building/dataset_geration.py --indir $DIR_ARQUIVO.csv --outdir $FILA_DE_BUILDING/Clean/ &>> $LOG_DIR/stats-$TS/Geration-$TS.log
-            chmod u+x usr/bin/time -f "$NOME_ARQUIVO Tempo decorrido do Tratamento e Geração do CSV = %e segundos, CPU = %P, Memoria = %M KiB, Tamanho = $TAMANHO_ARQUIVO bytes" -a -o $LOGS_DIR/stats-$TS-Geration python3 ./building/dataset_geration.py --indir $DIR_ARQUIVO.csv --outdir $FILA_DE_BUILDING/Clean/ &> $LOG_DIR/treatment-$TS-Geration.log &
+            python3 ./building/dataset_geration.py --indir $DIR_ARQUIVO.csv --outdir $FILA_DE_BUILDING/Clean/ &>> $LOG_DIR/stats-$TS/Geration-$TS.log
+            #usr/bin/time -f "$NOME_ARQUIVO Tempo decorrido do Tratamento e Geração do CSV = %e segundos, CPU = %P, Memoria = %M KiB, Tamanho = $TAMANHO_ARQUIVO bytes" -a -o $LOGS_DIR/stats-$TS-Geration python3 ./building/dataset_geration.py --indir $DIR_ARQUIVO.csv --outdir $FILA_DE_BUILDING/Clean/ &> $LOG_DIR/treatment-$TS-Geration.log &
         else
             if [ -f $FILA_DE_BUILDING/$NOME_ARQUIVO.csv.labeled ] && [ ! -f $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv.cleaned ]
             then
-                #python3 ./building/concat_dataset.py --incsv $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv --inlabeled $FILA_DE_BUILDING/$NOME_ARQUIVO.csv.labeled --outdir $FILA_DE_BUILDING/Final/  &>> $LOG_DIR/stats-$TS/Concat-$TS.log
-                chmod u+x /usr/bin/time -f "$NOME_ARQUIVO Tempo decorrido da Concatenação do CSV = %e segundos, CPU = %P, Memoria = %M KiB Tamanho = $TAMANHO_ARQUIVO bytes" -a -o $LOGS_DIR/stats-$TS-Concat python3 ./building/concat_dataset.py --indir $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv --outdir $FILA_DE_BUILDING/Final/  &> $LOG_DIR/Concat-$TS-Concat.log &
+                python3 ./building/concat_dataset.py --incsv $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv --inlabeled $FILA_DE_BUILDING/$NOME_ARQUIVO.csv.labeled --outdir $FILA_DE_BUILDING/Final/  &>> $LOG_DIR/stats-$TS/Concat-$TS.log
+                #/usr/bin/time -f "$NOME_ARQUIVO Tempo decorrido da Concatenação do CSV = %e segundos, CPU = %P, Memoria = %M KiB Tamanho = $TAMANHO_ARQUIVO bytes" -a -o $LOGS_DIR/stats-$TS-Concat python3 ./building/concat_dataset.py --indir $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv --outdir $FILA_DE_BUILDING/Final/  &> $LOG_DIR/Concat-$TS-Concat.log &
                 # PID do processo de concatenacao, para o building esperar esse PID para matar os processos
                 PID_CONCAT=$$
                 touch $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv.cleaned

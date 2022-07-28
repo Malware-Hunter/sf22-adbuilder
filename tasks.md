@@ -65,4 +65,6 @@
 - Andamento da escrita da implementação da ferramenta; (Lucas)
 - Permitir a lista de API Keys ser recebida de qualquer lugar; (Lucas)
 - Atualizar Readme.md; (Lucas e Vagner);
-- Resolver erro do APK não conter nenhuma características de um tipo, e.g., intents; (Lucas); RESOLVIDO?
+- Resolver erro do APK não conter nenhuma características de um tipo, e.g., intents; (Lucas);
+- Teste de 100 APKs de 1MB >> 99% (1 APK corrompido);
+- Teste de 100 APKs de 5MB >> 100%;
