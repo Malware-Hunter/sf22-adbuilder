@@ -27,6 +27,7 @@ def apk_extract_features(args):
     sha256 = hashlib.sha256(contents).hexdigest()
     
     app,d,dx   = AnalyzeAPK(args.apk)
+
     apicalls = []
     treatments = []
     op_codes = []
@@ -44,11 +45,35 @@ def apk_extract_features(args):
     pacote        = app.get_package()
     API           = app.get_effective_target_sdk_version()
     minSdkVersion = app.get_min_sdk_version()
-    permissoes    = app.get_permissions()
-    activity      = app.get_activities()
-    service       = app.get_services()
-    receiver      = app.get_receivers()
-    provider      = app.get_providers()
+    try:
+        permissoes    = app.get_permissions()
+    except:
+        permissoes = []
+        print("\nNão foi possível extrair as permissões\n")
+
+    try:    
+        activity      = app.get_activities()
+    except:
+        activity = []
+        print("\nNão foi possível extrair as activities\n")
+    
+    try:
+        service       = app.get_services()
+    except:
+        service = []
+        print("\nNão foi possível extrair os serviços\n")
+    
+    try:
+        receiver      = app.get_receivers()
+    except:
+        receiver = []
+        print("\nNão foi possível extrair os receivers\n")
+    
+    try:
+        provider      = app.get_providers()
+    except:
+        provider = []
+        print("\nNão foi possível extrair os providers\n")
     """
     implementação baseada na documentação
     https://github.com/androguard/androguard/issues/685
@@ -175,25 +200,22 @@ def apk_extract_features(args):
         serviceString = 'service'
         for service in services:
             for action,intent_name in app.get_intent_filters(serviceString, service).items():
-                for intent in intent_name:
-                    print("OI") 
-                    #intents.append(intent)
+                for intent in intent_name: 
+                    intents.append(intent)
 				  
         receivers = app.get_receivers()
         receiverString = 'receiver'
         for receiver in receivers:
             for action,intent_name in app.get_intent_filters(receiverString, receiver).items():
-                for intent in intent_name: 
-                    print("OI") 
-                    #intents.append(intent)   
+                for intent in intent_name:  
+                    intents.append(intent)   
 				  
         activitys = app.get_activities()
         activityString = 'activity'
         for activity in activitys:
             for action,intent_name in app.get_intent_filters(activityString, activity).items():
-                for intent in intent_name: 
-                    print("OI") 
-                    #intents.append(intent)
+                for intent in intent_name:  
+                    intents.append(intent)
 					   
         return intents
       
@@ -201,11 +223,24 @@ def apk_extract_features(args):
         os.remove(apk)
         print(apk,"removido com sucesso!!!")
         return
-        
-    intents_full  = get_intents(app)
-    opcodes_full  = get_op_codes(dx)
 
-    apicalls_full = get_api_calls(cg)
+    try:  
+        intents_full  = get_intents(app)
+    except:
+        intents_full = []
+        print("\nNão foi possível obter os intents do app\n")
+
+    try:
+        opcodes_full  = get_op_codes(dx)
+    except:
+        opcodes_full = []
+        print("\nNão foi possível obter os opcodes do app\n")
+
+    try:
+        apicalls_full = get_api_calls(cg)
+    except:
+        apicalls_full = []
+        print("\nNão foi possível obter os métodos chamados pelo app\n")
     
     #apicalls_full = get_api_calls_3(dx)
     data=[sha256,nome,pacote,API, minSdkVersion,permissoes,intents_full,activity,service,receiver,provider,opcodes_full,apicalls_full]

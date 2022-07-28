@@ -1,0 +1,2676 @@
++ '[' v_1.txt ']'
++ '[' -f v_1.txt ']'
++ '[' labelling/virustotal/API_Keys.txt ']'
++ '[' -f labelling/virustotal/API_Keys.txt ']'
++ '[' queues/labelling ']'
++ '[' -d queues/labelling ']'
++ '[' queues/building ']'
++ '[' -d queues/building ']'
++ '[' logs/labelling ']'
++ '[' -d logs/labelling ']'
+++ wc -l labelling/virustotal/API_Keys.txt
+++ cut '-d ' -f1
++ MAX_API_KEYS=15
++ SHA256=v_1.txt
++ API_KEYS=labelling/virustotal/API_Keys.txt
++ FILA_DE_LABELLING=queues/labelling
++ FILA_DE_BUILDING=queues/building
++ LOG_DIR=logs/labelling
++ CONTADOR=1
++ '[' -d logs/labelling ']'
+++ date +%Y%m%d%H%M%S
++ TS=20220728044506
++ for ARQUIVO in $FILA_DE_LABELLING/*_Analysis
++ '[' 1 -le 15 ']'
++ '[' -d logs/labelling/stats-20220728044506-1 ']'
++ mkdir -p logs/labelling/stats-20220728044506-1
+++ sed -n 1p labelling/virustotal/API_Keys.txt
++ API_KEY=2d29e887a63900778b4bd56fcef1b23cb5e6db538af36b5ae2c8d870c7f497bd
+++ echo queues/labelling/500_VT_aa_Analysis
+++ cut -d_ -f3
++ NOME=aa
++ CONTADOR=2
++ ./labelling/virustotal/run_analysis_VT.sh queues/labelling/500_VT_aa_Analysis/500_VT_aa 2d29e887a63900778b4bd56fcef1b23cb5e6db538af36b5ae2c8d870c7f497bd logs/labelling/stats-20220728044506-1 queues/labelling/500_VT_aa_Analysis
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/000040290A90F689FB71A84A1D85064867E6A4924E5B034331BE716578D108A2.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/000040290A90F689FB71A84A1D85064867E6A4924E5B034331BE716578D108A2
+++ echo queues/labelling/500_VT_aa_Analysis/000040290A90F689FB71A84A1D85064867E6A4924E5B034331BE716578D108A2
+++ cut -d/ -f4
++ NOME_ARQUIVO=000040290A90F689FB71A84A1D85064867E6A4924E5B034331BE716578D108A2
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/000040290A90F689FB71A84A1D85064867E6A4924E5B034331BE716578D108A2.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/000040290A90F689FB71A84A1D85064867E6A4924E5B034331BE716578D108A2.json.OK queues/labelling/500_VT_aa_Analysis/000040290A90F689FB71A84A1D85064867E6A4924E5B034331BE716578D108A2.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/0000527D37451F842D5BA27F59C0646E9BE9B5F976421075BCE7630FAD1A58C1.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/0000527D37451F842D5BA27F59C0646E9BE9B5F976421075BCE7630FAD1A58C1
+++ echo queues/labelling/500_VT_aa_Analysis/0000527D37451F842D5BA27F59C0646E9BE9B5F976421075BCE7630FAD1A58C1
+++ cut -d/ -f4
++ NOME_ARQUIVO=0000527D37451F842D5BA27F59C0646E9BE9B5F976421075BCE7630FAD1A58C1
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/0000527D37451F842D5BA27F59C0646E9BE9B5F976421075BCE7630FAD1A58C1.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/0000527D37451F842D5BA27F59C0646E9BE9B5F976421075BCE7630FAD1A58C1.json.OK queues/labelling/500_VT_aa_Analysis/0000527D37451F842D5BA27F59C0646E9BE9B5F976421075BCE7630FAD1A58C1.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/0000764713B286CFE7E8E76C7038C92312977712D9C5A86D504BE54F3C1D025A.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/0000764713B286CFE7E8E76C7038C92312977712D9C5A86D504BE54F3C1D025A
+++ echo queues/labelling/500_VT_aa_Analysis/0000764713B286CFE7E8E76C7038C92312977712D9C5A86D504BE54F3C1D025A
+++ cut -d/ -f4
++ NOME_ARQUIVO=0000764713B286CFE7E8E76C7038C92312977712D9C5A86D504BE54F3C1D025A
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/0000764713B286CFE7E8E76C7038C92312977712D9C5A86D504BE54F3C1D025A.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/0000764713B286CFE7E8E76C7038C92312977712D9C5A86D504BE54F3C1D025A.json.OK queues/labelling/500_VT_aa_Analysis/0000764713B286CFE7E8E76C7038C92312977712D9C5A86D504BE54F3C1D025A.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/0000A7B09E2B695D069BC7BA4B9BD797F24EB532E0AD88666307913DDE8EDC2B.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/0000A7B09E2B695D069BC7BA4B9BD797F24EB532E0AD88666307913DDE8EDC2B
+++ echo queues/labelling/500_VT_aa_Analysis/0000A7B09E2B695D069BC7BA4B9BD797F24EB532E0AD88666307913DDE8EDC2B
+++ cut -d/ -f4
++ NOME_ARQUIVO=0000A7B09E2B695D069BC7BA4B9BD797F24EB532E0AD88666307913DDE8EDC2B
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/0000A7B09E2B695D069BC7BA4B9BD797F24EB532E0AD88666307913DDE8EDC2B.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/0000A7B09E2B695D069BC7BA4B9BD797F24EB532E0AD88666307913DDE8EDC2B.json.OK queues/labelling/500_VT_aa_Analysis/0000A7B09E2B695D069BC7BA4B9BD797F24EB532E0AD88666307913DDE8EDC2B.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/0001048C77B5FD01FD2C0C36155BB73C73533F4D3F06521AF7332BCD9BE4E319.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/0001048C77B5FD01FD2C0C36155BB73C73533F4D3F06521AF7332BCD9BE4E319
+++ echo queues/labelling/500_VT_aa_Analysis/0001048C77B5FD01FD2C0C36155BB73C73533F4D3F06521AF7332BCD9BE4E319
+++ cut -d/ -f4
++ NOME_ARQUIVO=0001048C77B5FD01FD2C0C36155BB73C73533F4D3F06521AF7332BCD9BE4E319
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/0001048C77B5FD01FD2C0C36155BB73C73533F4D3F06521AF7332BCD9BE4E319.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/0001048C77B5FD01FD2C0C36155BB73C73533F4D3F06521AF7332BCD9BE4E319.json.OK queues/labelling/500_VT_aa_Analysis/0001048C77B5FD01FD2C0C36155BB73C73533F4D3F06521AF7332BCD9BE4E319.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/0001DEC59F938FAB221FA876B198387B346DB3A6799B5B9917358C8C4E0EF7CF.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/0001DEC59F938FAB221FA876B198387B346DB3A6799B5B9917358C8C4E0EF7CF
+++ echo queues/labelling/500_VT_aa_Analysis/0001DEC59F938FAB221FA876B198387B346DB3A6799B5B9917358C8C4E0EF7CF
+++ cut -d/ -f4
++ NOME_ARQUIVO=0001DEC59F938FAB221FA876B198387B346DB3A6799B5B9917358C8C4E0EF7CF
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/0001DEC59F938FAB221FA876B198387B346DB3A6799B5B9917358C8C4E0EF7CF.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/0001DEC59F938FAB221FA876B198387B346DB3A6799B5B9917358C8C4E0EF7CF.json.OK queues/labelling/500_VT_aa_Analysis/0001DEC59F938FAB221FA876B198387B346DB3A6799B5B9917358C8C4E0EF7CF.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/0002F45E396B4D948ED0E9D2F818EC9F1B10F592347D43825CA2FF6A271A6867.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/0002F45E396B4D948ED0E9D2F818EC9F1B10F592347D43825CA2FF6A271A6867
+++ echo queues/labelling/500_VT_aa_Analysis/0002F45E396B4D948ED0E9D2F818EC9F1B10F592347D43825CA2FF6A271A6867
+++ cut -d/ -f4
++ NOME_ARQUIVO=0002F45E396B4D948ED0E9D2F818EC9F1B10F592347D43825CA2FF6A271A6867
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/0002F45E396B4D948ED0E9D2F818EC9F1B10F592347D43825CA2FF6A271A6867.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/0002F45E396B4D948ED0E9D2F818EC9F1B10F592347D43825CA2FF6A271A6867.json.OK queues/labelling/500_VT_aa_Analysis/0002F45E396B4D948ED0E9D2F818EC9F1B10F592347D43825CA2FF6A271A6867.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/0003D47ADE8F130801E263D4D26D487E66731B25D89D8AAECD5816AD830378EA.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/0003D47ADE8F130801E263D4D26D487E66731B25D89D8AAECD5816AD830378EA
+++ echo queues/labelling/500_VT_aa_Analysis/0003D47ADE8F130801E263D4D26D487E66731B25D89D8AAECD5816AD830378EA
+++ cut -d/ -f4
++ NOME_ARQUIVO=0003D47ADE8F130801E263D4D26D487E66731B25D89D8AAECD5816AD830378EA
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/0003D47ADE8F130801E263D4D26D487E66731B25D89D8AAECD5816AD830378EA.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/0003D47ADE8F130801E263D4D26D487E66731B25D89D8AAECD5816AD830378EA.json.OK queues/labelling/500_VT_aa_Analysis/0003D47ADE8F130801E263D4D26D487E66731B25D89D8AAECD5816AD830378EA.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/0004DA539598DBEE69156E64B3C82E294C819FA4C9432246C4C9E392670DEC52.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/0004DA539598DBEE69156E64B3C82E294C819FA4C9432246C4C9E392670DEC52
+++ echo queues/labelling/500_VT_aa_Analysis/0004DA539598DBEE69156E64B3C82E294C819FA4C9432246C4C9E392670DEC52
+++ cut -d/ -f4
++ NOME_ARQUIVO=0004DA539598DBEE69156E64B3C82E294C819FA4C9432246C4C9E392670DEC52
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/0004DA539598DBEE69156E64B3C82E294C819FA4C9432246C4C9E392670DEC52.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/0004DA539598DBEE69156E64B3C82E294C819FA4C9432246C4C9E392670DEC52.json.OK queues/labelling/500_VT_aa_Analysis/0004DA539598DBEE69156E64B3C82E294C819FA4C9432246C4C9E392670DEC52.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/00050EE1EFEE0602426671153AD0487A46C235D5FFB397427C96C832A6DB38A1.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/00050EE1EFEE0602426671153AD0487A46C235D5FFB397427C96C832A6DB38A1
+++ echo queues/labelling/500_VT_aa_Analysis/00050EE1EFEE0602426671153AD0487A46C235D5FFB397427C96C832A6DB38A1
+++ cut -d/ -f4
++ NOME_ARQUIVO=00050EE1EFEE0602426671153AD0487A46C235D5FFB397427C96C832A6DB38A1
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/00050EE1EFEE0602426671153AD0487A46C235D5FFB397427C96C832A6DB38A1.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/00050EE1EFEE0602426671153AD0487A46C235D5FFB397427C96C832A6DB38A1.json.OK queues/labelling/500_VT_aa_Analysis/00050EE1EFEE0602426671153AD0487A46C235D5FFB397427C96C832A6DB38A1.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/0006A22A1D0CB4175A3539B0D3BA453CAC8AD32C3133D33591800FA84324E10D.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/0006A22A1D0CB4175A3539B0D3BA453CAC8AD32C3133D33591800FA84324E10D
+++ echo queues/labelling/500_VT_aa_Analysis/0006A22A1D0CB4175A3539B0D3BA453CAC8AD32C3133D33591800FA84324E10D
+++ cut -d/ -f4
++ NOME_ARQUIVO=0006A22A1D0CB4175A3539B0D3BA453CAC8AD32C3133D33591800FA84324E10D
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/0006A22A1D0CB4175A3539B0D3BA453CAC8AD32C3133D33591800FA84324E10D.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/0006A22A1D0CB4175A3539B0D3BA453CAC8AD32C3133D33591800FA84324E10D.json.OK queues/labelling/500_VT_aa_Analysis/0006A22A1D0CB4175A3539B0D3BA453CAC8AD32C3133D33591800FA84324E10D.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/0006C02B163072546759FA6700701C1735CBF243EAE86C51481DC8C4A2E071FD.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/0006C02B163072546759FA6700701C1735CBF243EAE86C51481DC8C4A2E071FD
+++ echo queues/labelling/500_VT_aa_Analysis/0006C02B163072546759FA6700701C1735CBF243EAE86C51481DC8C4A2E071FD
+++ cut -d/ -f4
++ NOME_ARQUIVO=0006C02B163072546759FA6700701C1735CBF243EAE86C51481DC8C4A2E071FD
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/0006C02B163072546759FA6700701C1735CBF243EAE86C51481DC8C4A2E071FD.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/0006C02B163072546759FA6700701C1735CBF243EAE86C51481DC8C4A2E071FD.json.OK queues/labelling/500_VT_aa_Analysis/0006C02B163072546759FA6700701C1735CBF243EAE86C51481DC8C4A2E071FD.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/0006E3E18C1666579A2469BB8BDDFA3A632612F2E943DE6E1796F49421B5AB08.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/0006E3E18C1666579A2469BB8BDDFA3A632612F2E943DE6E1796F49421B5AB08
+++ echo queues/labelling/500_VT_aa_Analysis/0006E3E18C1666579A2469BB8BDDFA3A632612F2E943DE6E1796F49421B5AB08
+++ cut -d/ -f4
++ NOME_ARQUIVO=0006E3E18C1666579A2469BB8BDDFA3A632612F2E943DE6E1796F49421B5AB08
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/0006E3E18C1666579A2469BB8BDDFA3A632612F2E943DE6E1796F49421B5AB08.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/0006E3E18C1666579A2469BB8BDDFA3A632612F2E943DE6E1796F49421B5AB08.json.OK queues/labelling/500_VT_aa_Analysis/0006E3E18C1666579A2469BB8BDDFA3A632612F2E943DE6E1796F49421B5AB08.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/0007631191B108668F1FB8F139D95C059694A20D95B2145400B30B3741EF0E49.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/0007631191B108668F1FB8F139D95C059694A20D95B2145400B30B3741EF0E49
+++ cut -d/ -f4
+++ echo queues/labelling/500_VT_aa_Analysis/0007631191B108668F1FB8F139D95C059694A20D95B2145400B30B3741EF0E49
++ NOME_ARQUIVO=0007631191B108668F1FB8F139D95C059694A20D95B2145400B30B3741EF0E49
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/0007631191B108668F1FB8F139D95C059694A20D95B2145400B30B3741EF0E49.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/0007631191B108668F1FB8F139D95C059694A20D95B2145400B30B3741EF0E49.json.OK queues/labelling/500_VT_aa_Analysis/0007631191B108668F1FB8F139D95C059694A20D95B2145400B30B3741EF0E49.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/00077F1A34CC84DADEB5E04964A6D0FC83BA6D64EF1FD79FF92CE238936F0C89.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/00077F1A34CC84DADEB5E04964A6D0FC83BA6D64EF1FD79FF92CE238936F0C89
+++ echo queues/labelling/500_VT_aa_Analysis/00077F1A34CC84DADEB5E04964A6D0FC83BA6D64EF1FD79FF92CE238936F0C89
+++ cut -d/ -f4
++ NOME_ARQUIVO=00077F1A34CC84DADEB5E04964A6D0FC83BA6D64EF1FD79FF92CE238936F0C89
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/00077F1A34CC84DADEB5E04964A6D0FC83BA6D64EF1FD79FF92CE238936F0C89.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/00077F1A34CC84DADEB5E04964A6D0FC83BA6D64EF1FD79FF92CE238936F0C89.json.OK queues/labelling/500_VT_aa_Analysis/00077F1A34CC84DADEB5E04964A6D0FC83BA6D64EF1FD79FF92CE238936F0C89.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/00088E191503BBFBD5C56A789A71E8C718E42EA422EC73C760EE2DE489E02B2E.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/00088E191503BBFBD5C56A789A71E8C718E42EA422EC73C760EE2DE489E02B2E
+++ echo queues/labelling/500_VT_aa_Analysis/00088E191503BBFBD5C56A789A71E8C718E42EA422EC73C760EE2DE489E02B2E
+++ cut -d/ -f4
++ NOME_ARQUIVO=00088E191503BBFBD5C56A789A71E8C718E42EA422EC73C760EE2DE489E02B2E
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/00088E191503BBFBD5C56A789A71E8C718E42EA422EC73C760EE2DE489E02B2E.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/00088E191503BBFBD5C56A789A71E8C718E42EA422EC73C760EE2DE489E02B2E.json.OK queues/labelling/500_VT_aa_Analysis/00088E191503BBFBD5C56A789A71E8C718E42EA422EC73C760EE2DE489E02B2E.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/0008A46987C4BBECC020664892113112B0A5D47A09CC537B5A32FBE405A0CE57.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/0008A46987C4BBECC020664892113112B0A5D47A09CC537B5A32FBE405A0CE57
+++ echo queues/labelling/500_VT_aa_Analysis/0008A46987C4BBECC020664892113112B0A5D47A09CC537B5A32FBE405A0CE57
+++ cut -d/ -f4
++ NOME_ARQUIVO=0008A46987C4BBECC020664892113112B0A5D47A09CC537B5A32FBE405A0CE57
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/0008A46987C4BBECC020664892113112B0A5D47A09CC537B5A32FBE405A0CE57.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/0008A46987C4BBECC020664892113112B0A5D47A09CC537B5A32FBE405A0CE57.json.OK queues/labelling/500_VT_aa_Analysis/0008A46987C4BBECC020664892113112B0A5D47A09CC537B5A32FBE405A0CE57.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/0008B849C70477FAF464E80DF6C7EA91569F78BD2F13AF79924F8B5341A44EDD.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/0008B849C70477FAF464E80DF6C7EA91569F78BD2F13AF79924F8B5341A44EDD
+++ echo queues/labelling/500_VT_aa_Analysis/0008B849C70477FAF464E80DF6C7EA91569F78BD2F13AF79924F8B5341A44EDD
+++ cut -d/ -f4
++ NOME_ARQUIVO=0008B849C70477FAF464E80DF6C7EA91569F78BD2F13AF79924F8B5341A44EDD
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/0008B849C70477FAF464E80DF6C7EA91569F78BD2F13AF79924F8B5341A44EDD.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/0008B849C70477FAF464E80DF6C7EA91569F78BD2F13AF79924F8B5341A44EDD.json.OK queues/labelling/500_VT_aa_Analysis/0008B849C70477FAF464E80DF6C7EA91569F78BD2F13AF79924F8B5341A44EDD.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/00093B4EDF37672F1192D4FADDC05CF40D43234B06118D25AAA1B2AF0D08B7B6.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/00093B4EDF37672F1192D4FADDC05CF40D43234B06118D25AAA1B2AF0D08B7B6
+++ echo queues/labelling/500_VT_aa_Analysis/00093B4EDF37672F1192D4FADDC05CF40D43234B06118D25AAA1B2AF0D08B7B6
+++ cut -d/ -f4
++ NOME_ARQUIVO=00093B4EDF37672F1192D4FADDC05CF40D43234B06118D25AAA1B2AF0D08B7B6
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/00093B4EDF37672F1192D4FADDC05CF40D43234B06118D25AAA1B2AF0D08B7B6.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/00093B4EDF37672F1192D4FADDC05CF40D43234B06118D25AAA1B2AF0D08B7B6.json.OK queues/labelling/500_VT_aa_Analysis/00093B4EDF37672F1192D4FADDC05CF40D43234B06118D25AAA1B2AF0D08B7B6.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/000952BC2EEE0C342B6A6EDD8FD4F82B15E51CB3D2A4A04BF53677243B542D78.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/000952BC2EEE0C342B6A6EDD8FD4F82B15E51CB3D2A4A04BF53677243B542D78
+++ echo queues/labelling/500_VT_aa_Analysis/000952BC2EEE0C342B6A6EDD8FD4F82B15E51CB3D2A4A04BF53677243B542D78
+++ cut -d/ -f4
++ NOME_ARQUIVO=000952BC2EEE0C342B6A6EDD8FD4F82B15E51CB3D2A4A04BF53677243B542D78
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/000952BC2EEE0C342B6A6EDD8FD4F82B15E51CB3D2A4A04BF53677243B542D78.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/000952BC2EEE0C342B6A6EDD8FD4F82B15E51CB3D2A4A04BF53677243B542D78.json.OK queues/labelling/500_VT_aa_Analysis/000952BC2EEE0C342B6A6EDD8FD4F82B15E51CB3D2A4A04BF53677243B542D78.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ cut -d. -f1
+++ echo queues/labelling/500_VT_aa_Analysis/00099FCA1886B99919847167931CDE313DEE8372001026AA17A730806A64F261.json.OK
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/00099FCA1886B99919847167931CDE313DEE8372001026AA17A730806A64F261
+++ cut -d/ -f4
+++ echo queues/labelling/500_VT_aa_Analysis/00099FCA1886B99919847167931CDE313DEE8372001026AA17A730806A64F261
++ NOME_ARQUIVO=00099FCA1886B99919847167931CDE313DEE8372001026AA17A730806A64F261
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/00099FCA1886B99919847167931CDE313DEE8372001026AA17A730806A64F261.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/00099FCA1886B99919847167931CDE313DEE8372001026AA17A730806A64F261.json.OK queues/labelling/500_VT_aa_Analysis/00099FCA1886B99919847167931CDE313DEE8372001026AA17A730806A64F261.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/0009AE23FBDA97926F1BA3845B00471378B5F00704F2FD27319061FBB752F279.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/0009AE23FBDA97926F1BA3845B00471378B5F00704F2FD27319061FBB752F279
+++ echo queues/labelling/500_VT_aa_Analysis/0009AE23FBDA97926F1BA3845B00471378B5F00704F2FD27319061FBB752F279
+++ cut -d/ -f4
++ NOME_ARQUIVO=0009AE23FBDA97926F1BA3845B00471378B5F00704F2FD27319061FBB752F279
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/0009AE23FBDA97926F1BA3845B00471378B5F00704F2FD27319061FBB752F279.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/0009AE23FBDA97926F1BA3845B00471378B5F00704F2FD27319061FBB752F279.json.OK queues/labelling/500_VT_aa_Analysis/0009AE23FBDA97926F1BA3845B00471378B5F00704F2FD27319061FBB752F279.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/000A0397564123673D14131BE4B7AA8BC2D10EFC57ECCB5DA83915B7692C6EB5.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/000A0397564123673D14131BE4B7AA8BC2D10EFC57ECCB5DA83915B7692C6EB5
+++ echo queues/labelling/500_VT_aa_Analysis/000A0397564123673D14131BE4B7AA8BC2D10EFC57ECCB5DA83915B7692C6EB5
+++ cut -d/ -f4
++ NOME_ARQUIVO=000A0397564123673D14131BE4B7AA8BC2D10EFC57ECCB5DA83915B7692C6EB5
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/000A0397564123673D14131BE4B7AA8BC2D10EFC57ECCB5DA83915B7692C6EB5.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/000A0397564123673D14131BE4B7AA8BC2D10EFC57ECCB5DA83915B7692C6EB5.json.OK queues/labelling/500_VT_aa_Analysis/000A0397564123673D14131BE4B7AA8BC2D10EFC57ECCB5DA83915B7692C6EB5.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/000A8593DC596F5015263D8C54A527D36709344D3626CE03BB10B8C2E76B2EF4.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/000A8593DC596F5015263D8C54A527D36709344D3626CE03BB10B8C2E76B2EF4
+++ echo queues/labelling/500_VT_aa_Analysis/000A8593DC596F5015263D8C54A527D36709344D3626CE03BB10B8C2E76B2EF4
+++ cut -d/ -f4
++ NOME_ARQUIVO=000A8593DC596F5015263D8C54A527D36709344D3626CE03BB10B8C2E76B2EF4
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/000A8593DC596F5015263D8C54A527D36709344D3626CE03BB10B8C2E76B2EF4.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/000A8593DC596F5015263D8C54A527D36709344D3626CE03BB10B8C2E76B2EF4.json.OK queues/labelling/500_VT_aa_Analysis/000A8593DC596F5015263D8C54A527D36709344D3626CE03BB10B8C2E76B2EF4.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/000C2F0C7A69CF15D31C27116C53B6C2141C0C45BCA9BDDCC937803CB525A0A7.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/000C2F0C7A69CF15D31C27116C53B6C2141C0C45BCA9BDDCC937803CB525A0A7
+++ echo queues/labelling/500_VT_aa_Analysis/000C2F0C7A69CF15D31C27116C53B6C2141C0C45BCA9BDDCC937803CB525A0A7
+++ cut -d/ -f4
++ NOME_ARQUIVO=000C2F0C7A69CF15D31C27116C53B6C2141C0C45BCA9BDDCC937803CB525A0A7
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/000C2F0C7A69CF15D31C27116C53B6C2141C0C45BCA9BDDCC937803CB525A0A7.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/000C2F0C7A69CF15D31C27116C53B6C2141C0C45BCA9BDDCC937803CB525A0A7.json.OK queues/labelling/500_VT_aa_Analysis/000C2F0C7A69CF15D31C27116C53B6C2141C0C45BCA9BDDCC937803CB525A0A7.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/000C6BB100B3A78D2C132DA626558D259E7ECE95E728517C94CFBE40DEC7C551.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/000C6BB100B3A78D2C132DA626558D259E7ECE95E728517C94CFBE40DEC7C551
+++ echo queues/labelling/500_VT_aa_Analysis/000C6BB100B3A78D2C132DA626558D259E7ECE95E728517C94CFBE40DEC7C551
+++ cut -d/ -f4
++ NOME_ARQUIVO=000C6BB100B3A78D2C132DA626558D259E7ECE95E728517C94CFBE40DEC7C551
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/000C6BB100B3A78D2C132DA626558D259E7ECE95E728517C94CFBE40DEC7C551.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/000C6BB100B3A78D2C132DA626558D259E7ECE95E728517C94CFBE40DEC7C551.json.OK queues/labelling/500_VT_aa_Analysis/000C6BB100B3A78D2C132DA626558D259E7ECE95E728517C94CFBE40DEC7C551.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/000E0948176BDEC2B6E19D0F03E23F37910676A9B7E7709954614BAC79269C36.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/000E0948176BDEC2B6E19D0F03E23F37910676A9B7E7709954614BAC79269C36
+++ echo queues/labelling/500_VT_aa_Analysis/000E0948176BDEC2B6E19D0F03E23F37910676A9B7E7709954614BAC79269C36
+++ cut -d/ -f4
++ NOME_ARQUIVO=000E0948176BDEC2B6E19D0F03E23F37910676A9B7E7709954614BAC79269C36
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/000E0948176BDEC2B6E19D0F03E23F37910676A9B7E7709954614BAC79269C36.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/000E0948176BDEC2B6E19D0F03E23F37910676A9B7E7709954614BAC79269C36.json.OK queues/labelling/500_VT_aa_Analysis/000E0948176BDEC2B6E19D0F03E23F37910676A9B7E7709954614BAC79269C36.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/000E5E567E15597B2FDF803F59313F9F52C6F70C2346A1EA1650F090BB4CC6BF.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/000E5E567E15597B2FDF803F59313F9F52C6F70C2346A1EA1650F090BB4CC6BF
+++ echo queues/labelling/500_VT_aa_Analysis/000E5E567E15597B2FDF803F59313F9F52C6F70C2346A1EA1650F090BB4CC6BF
+++ cut -d/ -f4
++ NOME_ARQUIVO=000E5E567E15597B2FDF803F59313F9F52C6F70C2346A1EA1650F090BB4CC6BF
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/000E5E567E15597B2FDF803F59313F9F52C6F70C2346A1EA1650F090BB4CC6BF.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/000E5E567E15597B2FDF803F59313F9F52C6F70C2346A1EA1650F090BB4CC6BF.json.OK queues/labelling/500_VT_aa_Analysis/000E5E567E15597B2FDF803F59313F9F52C6F70C2346A1EA1650F090BB4CC6BF.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/000E7149AB7550EF605C2B22CB1BEAFFBEE9219699661D89158D490A3FFA393A.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/000E7149AB7550EF605C2B22CB1BEAFFBEE9219699661D89158D490A3FFA393A
+++ echo queues/labelling/500_VT_aa_Analysis/000E7149AB7550EF605C2B22CB1BEAFFBEE9219699661D89158D490A3FFA393A
+++ cut -d/ -f4
++ NOME_ARQUIVO=000E7149AB7550EF605C2B22CB1BEAFFBEE9219699661D89158D490A3FFA393A
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/000E7149AB7550EF605C2B22CB1BEAFFBEE9219699661D89158D490A3FFA393A.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/000E7149AB7550EF605C2B22CB1BEAFFBEE9219699661D89158D490A3FFA393A.json.OK queues/labelling/500_VT_aa_Analysis/000E7149AB7550EF605C2B22CB1BEAFFBEE9219699661D89158D490A3FFA393A.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/00111AD8824985A5156449965A56D208D23CC0C1E7A6E2D52F925E5AA4F1039C.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/00111AD8824985A5156449965A56D208D23CC0C1E7A6E2D52F925E5AA4F1039C
+++ echo queues/labelling/500_VT_aa_Analysis/00111AD8824985A5156449965A56D208D23CC0C1E7A6E2D52F925E5AA4F1039C
+++ cut -d/ -f4
++ NOME_ARQUIVO=00111AD8824985A5156449965A56D208D23CC0C1E7A6E2D52F925E5AA4F1039C
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/00111AD8824985A5156449965A56D208D23CC0C1E7A6E2D52F925E5AA4F1039C.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/00111AD8824985A5156449965A56D208D23CC0C1E7A6E2D52F925E5AA4F1039C.json.OK queues/labelling/500_VT_aa_Analysis/00111AD8824985A5156449965A56D208D23CC0C1E7A6E2D52F925E5AA4F1039C.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/0012DA08D94DE6FB62ECB01C3D25DD31288D08FE40C471AFDE1EC7069B632377.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/0012DA08D94DE6FB62ECB01C3D25DD31288D08FE40C471AFDE1EC7069B632377
+++ echo queues/labelling/500_VT_aa_Analysis/0012DA08D94DE6FB62ECB01C3D25DD31288D08FE40C471AFDE1EC7069B632377
+++ cut -d/ -f4
++ NOME_ARQUIVO=0012DA08D94DE6FB62ECB01C3D25DD31288D08FE40C471AFDE1EC7069B632377
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/0012DA08D94DE6FB62ECB01C3D25DD31288D08FE40C471AFDE1EC7069B632377.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/0012DA08D94DE6FB62ECB01C3D25DD31288D08FE40C471AFDE1EC7069B632377.json.OK queues/labelling/500_VT_aa_Analysis/0012DA08D94DE6FB62ECB01C3D25DD31288D08FE40C471AFDE1EC7069B632377.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/001436B85C34F9E5FCABB437C3055B3693A108C350C061AD48EBEA10FE04F416.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/001436B85C34F9E5FCABB437C3055B3693A108C350C061AD48EBEA10FE04F416
+++ echo queues/labelling/500_VT_aa_Analysis/001436B85C34F9E5FCABB437C3055B3693A108C350C061AD48EBEA10FE04F416
+++ cut -d/ -f4
++ NOME_ARQUIVO=001436B85C34F9E5FCABB437C3055B3693A108C350C061AD48EBEA10FE04F416
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/001436B85C34F9E5FCABB437C3055B3693A108C350C061AD48EBEA10FE04F416.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/001436B85C34F9E5FCABB437C3055B3693A108C350C061AD48EBEA10FE04F416.json.OK queues/labelling/500_VT_aa_Analysis/001436B85C34F9E5FCABB437C3055B3693A108C350C061AD48EBEA10FE04F416.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/00161B1614CB7B10F57BE818640A2BBBC92FF596FE977AAB93546E92BBDCA420.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/00161B1614CB7B10F57BE818640A2BBBC92FF596FE977AAB93546E92BBDCA420
+++ echo queues/labelling/500_VT_aa_Analysis/00161B1614CB7B10F57BE818640A2BBBC92FF596FE977AAB93546E92BBDCA420
+++ cut -d/ -f4
++ NOME_ARQUIVO=00161B1614CB7B10F57BE818640A2BBBC92FF596FE977AAB93546E92BBDCA420
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/00161B1614CB7B10F57BE818640A2BBBC92FF596FE977AAB93546E92BBDCA420.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/00161B1614CB7B10F57BE818640A2BBBC92FF596FE977AAB93546E92BBDCA420.json.OK queues/labelling/500_VT_aa_Analysis/00161B1614CB7B10F57BE818640A2BBBC92FF596FE977AAB93546E92BBDCA420.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/001673502768F25B448CA513C0EB56954694A31F84543F70C6FEC99A5D5F6BFC.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/001673502768F25B448CA513C0EB56954694A31F84543F70C6FEC99A5D5F6BFC
+++ echo queues/labelling/500_VT_aa_Analysis/001673502768F25B448CA513C0EB56954694A31F84543F70C6FEC99A5D5F6BFC
+++ cut -d/ -f4
++ NOME_ARQUIVO=001673502768F25B448CA513C0EB56954694A31F84543F70C6FEC99A5D5F6BFC
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/001673502768F25B448CA513C0EB56954694A31F84543F70C6FEC99A5D5F6BFC.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/001673502768F25B448CA513C0EB56954694A31F84543F70C6FEC99A5D5F6BFC.json.OK queues/labelling/500_VT_aa_Analysis/001673502768F25B448CA513C0EB56954694A31F84543F70C6FEC99A5D5F6BFC.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/0016B3D270A9C97E2A5DF8C7F063DABECB09BBF93BE090F9DE2BE65E91E178BE.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/0016B3D270A9C97E2A5DF8C7F063DABECB09BBF93BE090F9DE2BE65E91E178BE
+++ echo queues/labelling/500_VT_aa_Analysis/0016B3D270A9C97E2A5DF8C7F063DABECB09BBF93BE090F9DE2BE65E91E178BE
+++ cut -d/ -f4
++ NOME_ARQUIVO=0016B3D270A9C97E2A5DF8C7F063DABECB09BBF93BE090F9DE2BE65E91E178BE
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/0016B3D270A9C97E2A5DF8C7F063DABECB09BBF93BE090F9DE2BE65E91E178BE.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/0016B3D270A9C97E2A5DF8C7F063DABECB09BBF93BE090F9DE2BE65E91E178BE.json.OK queues/labelling/500_VT_aa_Analysis/0016B3D270A9C97E2A5DF8C7F063DABECB09BBF93BE090F9DE2BE65E91E178BE.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/0016D40668E1669A70EACDE221B3EEABB47565060B91FF8934D9D42E777E7CA8.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/0016D40668E1669A70EACDE221B3EEABB47565060B91FF8934D9D42E777E7CA8
+++ echo queues/labelling/500_VT_aa_Analysis/0016D40668E1669A70EACDE221B3EEABB47565060B91FF8934D9D42E777E7CA8
+++ cut -d/ -f4
++ NOME_ARQUIVO=0016D40668E1669A70EACDE221B3EEABB47565060B91FF8934D9D42E777E7CA8
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/0016D40668E1669A70EACDE221B3EEABB47565060B91FF8934D9D42E777E7CA8.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/0016D40668E1669A70EACDE221B3EEABB47565060B91FF8934D9D42E777E7CA8.json.OK queues/labelling/500_VT_aa_Analysis/0016D40668E1669A70EACDE221B3EEABB47565060B91FF8934D9D42E777E7CA8.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/0016F5ED0FE16426C1A2B2B9BD5D2F42E893D9C0004E6E542EB2093D5A7ED705.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/0016F5ED0FE16426C1A2B2B9BD5D2F42E893D9C0004E6E542EB2093D5A7ED705
+++ echo queues/labelling/500_VT_aa_Analysis/0016F5ED0FE16426C1A2B2B9BD5D2F42E893D9C0004E6E542EB2093D5A7ED705
+++ cut -d/ -f4
++ NOME_ARQUIVO=0016F5ED0FE16426C1A2B2B9BD5D2F42E893D9C0004E6E542EB2093D5A7ED705
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/0016F5ED0FE16426C1A2B2B9BD5D2F42E893D9C0004E6E542EB2093D5A7ED705.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/0016F5ED0FE16426C1A2B2B9BD5D2F42E893D9C0004E6E542EB2093D5A7ED705.json.OK queues/labelling/500_VT_aa_Analysis/0016F5ED0FE16426C1A2B2B9BD5D2F42E893D9C0004E6E542EB2093D5A7ED705.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/00173A6F404EBCB07E4CD4A877F622C4FCE2F0320DFB4811CF1D9DD5D99F95E0.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/00173A6F404EBCB07E4CD4A877F622C4FCE2F0320DFB4811CF1D9DD5D99F95E0
+++ echo queues/labelling/500_VT_aa_Analysis/00173A6F404EBCB07E4CD4A877F622C4FCE2F0320DFB4811CF1D9DD5D99F95E0
+++ cut -d/ -f4
++ NOME_ARQUIVO=00173A6F404EBCB07E4CD4A877F622C4FCE2F0320DFB4811CF1D9DD5D99F95E0
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/00173A6F404EBCB07E4CD4A877F622C4FCE2F0320DFB4811CF1D9DD5D99F95E0.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/00173A6F404EBCB07E4CD4A877F622C4FCE2F0320DFB4811CF1D9DD5D99F95E0.json.OK queues/labelling/500_VT_aa_Analysis/00173A6F404EBCB07E4CD4A877F622C4FCE2F0320DFB4811CF1D9DD5D99F95E0.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/001884E3E90DE260D1274495E574D4ECF5403D7030F9AE4D352A2DC24C06340C.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/001884E3E90DE260D1274495E574D4ECF5403D7030F9AE4D352A2DC24C06340C
+++ echo queues/labelling/500_VT_aa_Analysis/001884E3E90DE260D1274495E574D4ECF5403D7030F9AE4D352A2DC24C06340C
+++ cut -d/ -f4
++ NOME_ARQUIVO=001884E3E90DE260D1274495E574D4ECF5403D7030F9AE4D352A2DC24C06340C
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/001884E3E90DE260D1274495E574D4ECF5403D7030F9AE4D352A2DC24C06340C.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/001884E3E90DE260D1274495E574D4ECF5403D7030F9AE4D352A2DC24C06340C.json.OK queues/labelling/500_VT_aa_Analysis/001884E3E90DE260D1274495E574D4ECF5403D7030F9AE4D352A2DC24C06340C.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/0018EA6E7CEA36E61B0383B451938EED22BCD473BE4FA9860692985944B720E5.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/0018EA6E7CEA36E61B0383B451938EED22BCD473BE4FA9860692985944B720E5
+++ echo queues/labelling/500_VT_aa_Analysis/0018EA6E7CEA36E61B0383B451938EED22BCD473BE4FA9860692985944B720E5
+++ cut -d/ -f4
++ NOME_ARQUIVO=0018EA6E7CEA36E61B0383B451938EED22BCD473BE4FA9860692985944B720E5
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/0018EA6E7CEA36E61B0383B451938EED22BCD473BE4FA9860692985944B720E5.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/0018EA6E7CEA36E61B0383B451938EED22BCD473BE4FA9860692985944B720E5.json.OK queues/labelling/500_VT_aa_Analysis/0018EA6E7CEA36E61B0383B451938EED22BCD473BE4FA9860692985944B720E5.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/001912442A3E0FBF3AE332BC1FA9C4CF7B330BEDC05825D30894965FF2205A48.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/001912442A3E0FBF3AE332BC1FA9C4CF7B330BEDC05825D30894965FF2205A48
+++ echo queues/labelling/500_VT_aa_Analysis/001912442A3E0FBF3AE332BC1FA9C4CF7B330BEDC05825D30894965FF2205A48
+++ cut -d/ -f4
++ NOME_ARQUIVO=001912442A3E0FBF3AE332BC1FA9C4CF7B330BEDC05825D30894965FF2205A48
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/001912442A3E0FBF3AE332BC1FA9C4CF7B330BEDC05825D30894965FF2205A48.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/001912442A3E0FBF3AE332BC1FA9C4CF7B330BEDC05825D30894965FF2205A48.json.OK queues/labelling/500_VT_aa_Analysis/001912442A3E0FBF3AE332BC1FA9C4CF7B330BEDC05825D30894965FF2205A48.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/001913E6883C300105C7CE4C4372621F44D57450F8B4F85E598338A035462176.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/001913E6883C300105C7CE4C4372621F44D57450F8B4F85E598338A035462176
+++ echo queues/labelling/500_VT_aa_Analysis/001913E6883C300105C7CE4C4372621F44D57450F8B4F85E598338A035462176
+++ cut -d/ -f4
++ NOME_ARQUIVO=001913E6883C300105C7CE4C4372621F44D57450F8B4F85E598338A035462176
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/001913E6883C300105C7CE4C4372621F44D57450F8B4F85E598338A035462176.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/001913E6883C300105C7CE4C4372621F44D57450F8B4F85E598338A035462176.json.OK queues/labelling/500_VT_aa_Analysis/001913E6883C300105C7CE4C4372621F44D57450F8B4F85E598338A035462176.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/0019519DA8E5A665EA3EBF4C3D7CDCCBEA74CC14DE87A00AC18ACD02A68D1841.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/0019519DA8E5A665EA3EBF4C3D7CDCCBEA74CC14DE87A00AC18ACD02A68D1841
+++ echo queues/labelling/500_VT_aa_Analysis/0019519DA8E5A665EA3EBF4C3D7CDCCBEA74CC14DE87A00AC18ACD02A68D1841
+++ cut -d/ -f4
++ NOME_ARQUIVO=0019519DA8E5A665EA3EBF4C3D7CDCCBEA74CC14DE87A00AC18ACD02A68D1841
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/0019519DA8E5A665EA3EBF4C3D7CDCCBEA74CC14DE87A00AC18ACD02A68D1841.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/0019519DA8E5A665EA3EBF4C3D7CDCCBEA74CC14DE87A00AC18ACD02A68D1841.json.OK queues/labelling/500_VT_aa_Analysis/0019519DA8E5A665EA3EBF4C3D7CDCCBEA74CC14DE87A00AC18ACD02A68D1841.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/001A7738780E0A5F2FAE69D1C0B9015DA0A72DFD895E2E7C2526510475909ECB.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/001A7738780E0A5F2FAE69D1C0B9015DA0A72DFD895E2E7C2526510475909ECB
+++ echo queues/labelling/500_VT_aa_Analysis/001A7738780E0A5F2FAE69D1C0B9015DA0A72DFD895E2E7C2526510475909ECB
+++ cut -d/ -f4
++ NOME_ARQUIVO=001A7738780E0A5F2FAE69D1C0B9015DA0A72DFD895E2E7C2526510475909ECB
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/001A7738780E0A5F2FAE69D1C0B9015DA0A72DFD895E2E7C2526510475909ECB.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/001A7738780E0A5F2FAE69D1C0B9015DA0A72DFD895E2E7C2526510475909ECB.json.OK queues/labelling/500_VT_aa_Analysis/001A7738780E0A5F2FAE69D1C0B9015DA0A72DFD895E2E7C2526510475909ECB.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/001C88754DEE6CCCA002F4909109DF90D6F78791B5D25400699FAD5BABED5050.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/001C88754DEE6CCCA002F4909109DF90D6F78791B5D25400699FAD5BABED5050
+++ echo queues/labelling/500_VT_aa_Analysis/001C88754DEE6CCCA002F4909109DF90D6F78791B5D25400699FAD5BABED5050
+++ cut -d/ -f4
++ NOME_ARQUIVO=001C88754DEE6CCCA002F4909109DF90D6F78791B5D25400699FAD5BABED5050
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/001C88754DEE6CCCA002F4909109DF90D6F78791B5D25400699FAD5BABED5050.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/001C88754DEE6CCCA002F4909109DF90D6F78791B5D25400699FAD5BABED5050.json.OK queues/labelling/500_VT_aa_Analysis/001C88754DEE6CCCA002F4909109DF90D6F78791B5D25400699FAD5BABED5050.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ cut -d. -f1
+++ echo queues/labelling/500_VT_aa_Analysis/001CA3D260A15A01121C33F9EE7576D33DE20C4D42425D5CC18D1337AFF3CB79.json.OK
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/001CA3D260A15A01121C33F9EE7576D33DE20C4D42425D5CC18D1337AFF3CB79
+++ echo queues/labelling/500_VT_aa_Analysis/001CA3D260A15A01121C33F9EE7576D33DE20C4D42425D5CC18D1337AFF3CB79
+++ cut -d/ -f4
++ NOME_ARQUIVO=001CA3D260A15A01121C33F9EE7576D33DE20C4D42425D5CC18D1337AFF3CB79
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/001CA3D260A15A01121C33F9EE7576D33DE20C4D42425D5CC18D1337AFF3CB79.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/001CA3D260A15A01121C33F9EE7576D33DE20C4D42425D5CC18D1337AFF3CB79.json.OK queues/labelling/500_VT_aa_Analysis/001CA3D260A15A01121C33F9EE7576D33DE20C4D42425D5CC18D1337AFF3CB79.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/001D38F5BBD3DB64E62A829C90F447033405BF51DA21E0A474A239099D7B6E21.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/001D38F5BBD3DB64E62A829C90F447033405BF51DA21E0A474A239099D7B6E21
+++ echo queues/labelling/500_VT_aa_Analysis/001D38F5BBD3DB64E62A829C90F447033405BF51DA21E0A474A239099D7B6E21
+++ cut -d/ -f4
++ NOME_ARQUIVO=001D38F5BBD3DB64E62A829C90F447033405BF51DA21E0A474A239099D7B6E21
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/001D38F5BBD3DB64E62A829C90F447033405BF51DA21E0A474A239099D7B6E21.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/001D38F5BBD3DB64E62A829C90F447033405BF51DA21E0A474A239099D7B6E21.json.OK queues/labelling/500_VT_aa_Analysis/001D38F5BBD3DB64E62A829C90F447033405BF51DA21E0A474A239099D7B6E21.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/001E0947B0297FB42094763B396D4F9EB8DFE539A1B095A77857A8D6D6A3852B.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/001E0947B0297FB42094763B396D4F9EB8DFE539A1B095A77857A8D6D6A3852B
+++ echo queues/labelling/500_VT_aa_Analysis/001E0947B0297FB42094763B396D4F9EB8DFE539A1B095A77857A8D6D6A3852B
+++ cut -d/ -f4
++ NOME_ARQUIVO=001E0947B0297FB42094763B396D4F9EB8DFE539A1B095A77857A8D6D6A3852B
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/001E0947B0297FB42094763B396D4F9EB8DFE539A1B095A77857A8D6D6A3852B.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/001E0947B0297FB42094763B396D4F9EB8DFE539A1B095A77857A8D6D6A3852B.json.OK queues/labelling/500_VT_aa_Analysis/001E0947B0297FB42094763B396D4F9EB8DFE539A1B095A77857A8D6D6A3852B.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/001E1D5CC4B94A7F3177E4C607C2015BEBB67C19E707165667EDB4FA6F712ED7.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/001E1D5CC4B94A7F3177E4C607C2015BEBB67C19E707165667EDB4FA6F712ED7
+++ echo queues/labelling/500_VT_aa_Analysis/001E1D5CC4B94A7F3177E4C607C2015BEBB67C19E707165667EDB4FA6F712ED7
+++ cut -d/ -f4
++ NOME_ARQUIVO=001E1D5CC4B94A7F3177E4C607C2015BEBB67C19E707165667EDB4FA6F712ED7
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/001E1D5CC4B94A7F3177E4C607C2015BEBB67C19E707165667EDB4FA6F712ED7.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/001E1D5CC4B94A7F3177E4C607C2015BEBB67C19E707165667EDB4FA6F712ED7.json.OK queues/labelling/500_VT_aa_Analysis/001E1D5CC4B94A7F3177E4C607C2015BEBB67C19E707165667EDB4FA6F712ED7.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/001EDF856F5E07D183BCEEEAD3E7147B6A3AE6A24749B2B8144FF08F9727D109.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/001EDF856F5E07D183BCEEEAD3E7147B6A3AE6A24749B2B8144FF08F9727D109
+++ echo queues/labelling/500_VT_aa_Analysis/001EDF856F5E07D183BCEEEAD3E7147B6A3AE6A24749B2B8144FF08F9727D109
+++ cut -d/ -f4
++ NOME_ARQUIVO=001EDF856F5E07D183BCEEEAD3E7147B6A3AE6A24749B2B8144FF08F9727D109
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/001EDF856F5E07D183BCEEEAD3E7147B6A3AE6A24749B2B8144FF08F9727D109.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/001EDF856F5E07D183BCEEEAD3E7147B6A3AE6A24749B2B8144FF08F9727D109.json.OK queues/labelling/500_VT_aa_Analysis/001EDF856F5E07D183BCEEEAD3E7147B6A3AE6A24749B2B8144FF08F9727D109.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/001F0C479D193364C3C9258014186BFDFE8E1837300D0F52A9165EAEF12C5846.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/001F0C479D193364C3C9258014186BFDFE8E1837300D0F52A9165EAEF12C5846
+++ echo queues/labelling/500_VT_aa_Analysis/001F0C479D193364C3C9258014186BFDFE8E1837300D0F52A9165EAEF12C5846
+++ cut -d/ -f4
++ NOME_ARQUIVO=001F0C479D193364C3C9258014186BFDFE8E1837300D0F52A9165EAEF12C5846
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/001F0C479D193364C3C9258014186BFDFE8E1837300D0F52A9165EAEF12C5846.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/001F0C479D193364C3C9258014186BFDFE8E1837300D0F52A9165EAEF12C5846.json.OK queues/labelling/500_VT_aa_Analysis/001F0C479D193364C3C9258014186BFDFE8E1837300D0F52A9165EAEF12C5846.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/00210A60CA90E42DE0E361EBE7CB3E95ED99EC2B72B0EED931FF704BF425D6C0.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/00210A60CA90E42DE0E361EBE7CB3E95ED99EC2B72B0EED931FF704BF425D6C0
+++ echo queues/labelling/500_VT_aa_Analysis/00210A60CA90E42DE0E361EBE7CB3E95ED99EC2B72B0EED931FF704BF425D6C0
+++ cut -d/ -f4
++ NOME_ARQUIVO=00210A60CA90E42DE0E361EBE7CB3E95ED99EC2B72B0EED931FF704BF425D6C0
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/00210A60CA90E42DE0E361EBE7CB3E95ED99EC2B72B0EED931FF704BF425D6C0.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/00210A60CA90E42DE0E361EBE7CB3E95ED99EC2B72B0EED931FF704BF425D6C0.json.OK queues/labelling/500_VT_aa_Analysis/00210A60CA90E42DE0E361EBE7CB3E95ED99EC2B72B0EED931FF704BF425D6C0.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/0022479EA61D9AA4B0CB7E31441C5466C2A784349A27DD9C60693CDB865496CB.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/0022479EA61D9AA4B0CB7E31441C5466C2A784349A27DD9C60693CDB865496CB
+++ echo queues/labelling/500_VT_aa_Analysis/0022479EA61D9AA4B0CB7E31441C5466C2A784349A27DD9C60693CDB865496CB
+++ cut -d/ -f4
++ NOME_ARQUIVO=0022479EA61D9AA4B0CB7E31441C5466C2A784349A27DD9C60693CDB865496CB
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/0022479EA61D9AA4B0CB7E31441C5466C2A784349A27DD9C60693CDB865496CB.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/0022479EA61D9AA4B0CB7E31441C5466C2A784349A27DD9C60693CDB865496CB.json.OK queues/labelling/500_VT_aa_Analysis/0022479EA61D9AA4B0CB7E31441C5466C2A784349A27DD9C60693CDB865496CB.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/0024F5BA000879C1CC9284B93B5E1FF31A134413353648B163A35A0FD251E2DC.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/0024F5BA000879C1CC9284B93B5E1FF31A134413353648B163A35A0FD251E2DC
+++ echo queues/labelling/500_VT_aa_Analysis/0024F5BA000879C1CC9284B93B5E1FF31A134413353648B163A35A0FD251E2DC
+++ cut -d/ -f4
++ NOME_ARQUIVO=0024F5BA000879C1CC9284B93B5E1FF31A134413353648B163A35A0FD251E2DC
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/0024F5BA000879C1CC9284B93B5E1FF31A134413353648B163A35A0FD251E2DC.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/0024F5BA000879C1CC9284B93B5E1FF31A134413353648B163A35A0FD251E2DC.json.OK queues/labelling/500_VT_aa_Analysis/0024F5BA000879C1CC9284B93B5E1FF31A134413353648B163A35A0FD251E2DC.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/00257F4F8E3F5B61ABD5C985F0DF6FAE48882FFD977A6EA79341B9E61191B246.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/00257F4F8E3F5B61ABD5C985F0DF6FAE48882FFD977A6EA79341B9E61191B246
+++ echo queues/labelling/500_VT_aa_Analysis/00257F4F8E3F5B61ABD5C985F0DF6FAE48882FFD977A6EA79341B9E61191B246
+++ cut -d/ -f4
++ NOME_ARQUIVO=00257F4F8E3F5B61ABD5C985F0DF6FAE48882FFD977A6EA79341B9E61191B246
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/00257F4F8E3F5B61ABD5C985F0DF6FAE48882FFD977A6EA79341B9E61191B246.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/00257F4F8E3F5B61ABD5C985F0DF6FAE48882FFD977A6EA79341B9E61191B246.json.OK queues/labelling/500_VT_aa_Analysis/00257F4F8E3F5B61ABD5C985F0DF6FAE48882FFD977A6EA79341B9E61191B246.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/0025AD53A2C025E8778B77D2D53AD0E3FD47C7A8BCC3282FDEB27ED5928845B4.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/0025AD53A2C025E8778B77D2D53AD0E3FD47C7A8BCC3282FDEB27ED5928845B4
+++ echo queues/labelling/500_VT_aa_Analysis/0025AD53A2C025E8778B77D2D53AD0E3FD47C7A8BCC3282FDEB27ED5928845B4
+++ cut -d/ -f4
++ NOME_ARQUIVO=0025AD53A2C025E8778B77D2D53AD0E3FD47C7A8BCC3282FDEB27ED5928845B4
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/0025AD53A2C025E8778B77D2D53AD0E3FD47C7A8BCC3282FDEB27ED5928845B4.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/0025AD53A2C025E8778B77D2D53AD0E3FD47C7A8BCC3282FDEB27ED5928845B4.json.OK queues/labelling/500_VT_aa_Analysis/0025AD53A2C025E8778B77D2D53AD0E3FD47C7A8BCC3282FDEB27ED5928845B4.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/0025F94ED7DEFB1F063B30463612F6795C0C5AA0786D51F49722E17962D2BAE2.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/0025F94ED7DEFB1F063B30463612F6795C0C5AA0786D51F49722E17962D2BAE2
+++ echo queues/labelling/500_VT_aa_Analysis/0025F94ED7DEFB1F063B30463612F6795C0C5AA0786D51F49722E17962D2BAE2
+++ cut -d/ -f4
++ NOME_ARQUIVO=0025F94ED7DEFB1F063B30463612F6795C0C5AA0786D51F49722E17962D2BAE2
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/0025F94ED7DEFB1F063B30463612F6795C0C5AA0786D51F49722E17962D2BAE2.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/0025F94ED7DEFB1F063B30463612F6795C0C5AA0786D51F49722E17962D2BAE2.json.OK queues/labelling/500_VT_aa_Analysis/0025F94ED7DEFB1F063B30463612F6795C0C5AA0786D51F49722E17962D2BAE2.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/0026989DF565BDCB261DFF58EB20EB5E56DEE2927E63A7A485468A271819849C.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/0026989DF565BDCB261DFF58EB20EB5E56DEE2927E63A7A485468A271819849C
+++ echo queues/labelling/500_VT_aa_Analysis/0026989DF565BDCB261DFF58EB20EB5E56DEE2927E63A7A485468A271819849C
+++ cut -d/ -f4
++ NOME_ARQUIVO=0026989DF565BDCB261DFF58EB20EB5E56DEE2927E63A7A485468A271819849C
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/0026989DF565BDCB261DFF58EB20EB5E56DEE2927E63A7A485468A271819849C.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/0026989DF565BDCB261DFF58EB20EB5E56DEE2927E63A7A485468A271819849C.json.OK queues/labelling/500_VT_aa_Analysis/0026989DF565BDCB261DFF58EB20EB5E56DEE2927E63A7A485468A271819849C.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/0026ADEC3CC9B96DD89D1FB3F5C48598BBC32225DF62D8027D817291116D5864.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/0026ADEC3CC9B96DD89D1FB3F5C48598BBC32225DF62D8027D817291116D5864
+++ echo queues/labelling/500_VT_aa_Analysis/0026ADEC3CC9B96DD89D1FB3F5C48598BBC32225DF62D8027D817291116D5864
+++ cut -d/ -f4
++ NOME_ARQUIVO=0026ADEC3CC9B96DD89D1FB3F5C48598BBC32225DF62D8027D817291116D5864
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/0026ADEC3CC9B96DD89D1FB3F5C48598BBC32225DF62D8027D817291116D5864.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/0026ADEC3CC9B96DD89D1FB3F5C48598BBC32225DF62D8027D817291116D5864.json.OK queues/labelling/500_VT_aa_Analysis/0026ADEC3CC9B96DD89D1FB3F5C48598BBC32225DF62D8027D817291116D5864.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/002736EC6465D58043239C8EF3B0D17E86BB34F74E4A418A23CAD331DF02522C.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/002736EC6465D58043239C8EF3B0D17E86BB34F74E4A418A23CAD331DF02522C
+++ echo queues/labelling/500_VT_aa_Analysis/002736EC6465D58043239C8EF3B0D17E86BB34F74E4A418A23CAD331DF02522C
+++ cut -d/ -f4
++ NOME_ARQUIVO=002736EC6465D58043239C8EF3B0D17E86BB34F74E4A418A23CAD331DF02522C
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/002736EC6465D58043239C8EF3B0D17E86BB34F74E4A418A23CAD331DF02522C.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/002736EC6465D58043239C8EF3B0D17E86BB34F74E4A418A23CAD331DF02522C.json.OK queues/labelling/500_VT_aa_Analysis/002736EC6465D58043239C8EF3B0D17E86BB34F74E4A418A23CAD331DF02522C.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/002755634A63F34E4AABEB56DDBB5DD113BB4302DF34031337FA90C2C3841815.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/002755634A63F34E4AABEB56DDBB5DD113BB4302DF34031337FA90C2C3841815
+++ echo queues/labelling/500_VT_aa_Analysis/002755634A63F34E4AABEB56DDBB5DD113BB4302DF34031337FA90C2C3841815
+++ cut -d/ -f4
++ NOME_ARQUIVO=002755634A63F34E4AABEB56DDBB5DD113BB4302DF34031337FA90C2C3841815
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/002755634A63F34E4AABEB56DDBB5DD113BB4302DF34031337FA90C2C3841815.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/002755634A63F34E4AABEB56DDBB5DD113BB4302DF34031337FA90C2C3841815.json.OK queues/labelling/500_VT_aa_Analysis/002755634A63F34E4AABEB56DDBB5DD113BB4302DF34031337FA90C2C3841815.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ cut -d. -f1
+++ echo queues/labelling/500_VT_aa_Analysis/002841B219C80C4CCE0A33C5A62899C9C064264E2DFAC01CCBF117258B59731D.json.OK
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/002841B219C80C4CCE0A33C5A62899C9C064264E2DFAC01CCBF117258B59731D
+++ echo queues/labelling/500_VT_aa_Analysis/002841B219C80C4CCE0A33C5A62899C9C064264E2DFAC01CCBF117258B59731D
+++ cut -d/ -f4
++ NOME_ARQUIVO=002841B219C80C4CCE0A33C5A62899C9C064264E2DFAC01CCBF117258B59731D
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/002841B219C80C4CCE0A33C5A62899C9C064264E2DFAC01CCBF117258B59731D.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/002841B219C80C4CCE0A33C5A62899C9C064264E2DFAC01CCBF117258B59731D.json.OK queues/labelling/500_VT_aa_Analysis/002841B219C80C4CCE0A33C5A62899C9C064264E2DFAC01CCBF117258B59731D.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/002878CED9796BE7A84A7E68E7151CFCE5E77920C6A9DFF0F7AFAED103984535.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/002878CED9796BE7A84A7E68E7151CFCE5E77920C6A9DFF0F7AFAED103984535
+++ echo queues/labelling/500_VT_aa_Analysis/002878CED9796BE7A84A7E68E7151CFCE5E77920C6A9DFF0F7AFAED103984535
+++ cut -d/ -f4
++ NOME_ARQUIVO=002878CED9796BE7A84A7E68E7151CFCE5E77920C6A9DFF0F7AFAED103984535
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/002878CED9796BE7A84A7E68E7151CFCE5E77920C6A9DFF0F7AFAED103984535.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/002878CED9796BE7A84A7E68E7151CFCE5E77920C6A9DFF0F7AFAED103984535.json.OK queues/labelling/500_VT_aa_Analysis/002878CED9796BE7A84A7E68E7151CFCE5E77920C6A9DFF0F7AFAED103984535.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/00287BF74288C67D4EBF1F6D352C4D80548CB4F7D6A12459EC4DE9D4555106F4.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/00287BF74288C67D4EBF1F6D352C4D80548CB4F7D6A12459EC4DE9D4555106F4
+++ echo queues/labelling/500_VT_aa_Analysis/00287BF74288C67D4EBF1F6D352C4D80548CB4F7D6A12459EC4DE9D4555106F4
+++ cut -d/ -f4
++ NOME_ARQUIVO=00287BF74288C67D4EBF1F6D352C4D80548CB4F7D6A12459EC4DE9D4555106F4
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/00287BF74288C67D4EBF1F6D352C4D80548CB4F7D6A12459EC4DE9D4555106F4.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/00287BF74288C67D4EBF1F6D352C4D80548CB4F7D6A12459EC4DE9D4555106F4.json.OK queues/labelling/500_VT_aa_Analysis/00287BF74288C67D4EBF1F6D352C4D80548CB4F7D6A12459EC4DE9D4555106F4.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/0029333C3985B712C6D656B34AB0F5B9F9AC1F439210ABB95532C38EE6373C28.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/0029333C3985B712C6D656B34AB0F5B9F9AC1F439210ABB95532C38EE6373C28
+++ echo queues/labelling/500_VT_aa_Analysis/0029333C3985B712C6D656B34AB0F5B9F9AC1F439210ABB95532C38EE6373C28
+++ cut -d/ -f4
++ NOME_ARQUIVO=0029333C3985B712C6D656B34AB0F5B9F9AC1F439210ABB95532C38EE6373C28
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/0029333C3985B712C6D656B34AB0F5B9F9AC1F439210ABB95532C38EE6373C28.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/0029333C3985B712C6D656B34AB0F5B9F9AC1F439210ABB95532C38EE6373C28.json.OK queues/labelling/500_VT_aa_Analysis/0029333C3985B712C6D656B34AB0F5B9F9AC1F439210ABB95532C38EE6373C28.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/002A21420531A272BF792BD55D9A0AB0F4D2995EA13FEC9D26A86EF3BBF5DF22.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/002A21420531A272BF792BD55D9A0AB0F4D2995EA13FEC9D26A86EF3BBF5DF22
+++ echo queues/labelling/500_VT_aa_Analysis/002A21420531A272BF792BD55D9A0AB0F4D2995EA13FEC9D26A86EF3BBF5DF22
+++ cut -d/ -f4
++ NOME_ARQUIVO=002A21420531A272BF792BD55D9A0AB0F4D2995EA13FEC9D26A86EF3BBF5DF22
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/002A21420531A272BF792BD55D9A0AB0F4D2995EA13FEC9D26A86EF3BBF5DF22.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/002A21420531A272BF792BD55D9A0AB0F4D2995EA13FEC9D26A86EF3BBF5DF22.json.OK queues/labelling/500_VT_aa_Analysis/002A21420531A272BF792BD55D9A0AB0F4D2995EA13FEC9D26A86EF3BBF5DF22.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/002ADB28AF57BDEDDFAAF8E70FB7629A72C0CC538E7582060ACFCEF6CDE29EA2.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/002ADB28AF57BDEDDFAAF8E70FB7629A72C0CC538E7582060ACFCEF6CDE29EA2
+++ echo queues/labelling/500_VT_aa_Analysis/002ADB28AF57BDEDDFAAF8E70FB7629A72C0CC538E7582060ACFCEF6CDE29EA2
+++ cut -d/ -f4
++ NOME_ARQUIVO=002ADB28AF57BDEDDFAAF8E70FB7629A72C0CC538E7582060ACFCEF6CDE29EA2
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/002ADB28AF57BDEDDFAAF8E70FB7629A72C0CC538E7582060ACFCEF6CDE29EA2.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/002ADB28AF57BDEDDFAAF8E70FB7629A72C0CC538E7582060ACFCEF6CDE29EA2.json.OK queues/labelling/500_VT_aa_Analysis/002ADB28AF57BDEDDFAAF8E70FB7629A72C0CC538E7582060ACFCEF6CDE29EA2.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/002B22B2DE025F0F62CE9A04F0C673FEC5756A4A09CB7FF36BB771A6C9AF4FF2.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/002B22B2DE025F0F62CE9A04F0C673FEC5756A4A09CB7FF36BB771A6C9AF4FF2
+++ echo queues/labelling/500_VT_aa_Analysis/002B22B2DE025F0F62CE9A04F0C673FEC5756A4A09CB7FF36BB771A6C9AF4FF2
+++ cut -d/ -f4
++ NOME_ARQUIVO=002B22B2DE025F0F62CE9A04F0C673FEC5756A4A09CB7FF36BB771A6C9AF4FF2
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/002B22B2DE025F0F62CE9A04F0C673FEC5756A4A09CB7FF36BB771A6C9AF4FF2.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/002B22B2DE025F0F62CE9A04F0C673FEC5756A4A09CB7FF36BB771A6C9AF4FF2.json.OK queues/labelling/500_VT_aa_Analysis/002B22B2DE025F0F62CE9A04F0C673FEC5756A4A09CB7FF36BB771A6C9AF4FF2.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/002BD922800D3BAA8E8EFA770DF86A8D46E1925AA84EADDBE8C7AF31A45937F8.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/002BD922800D3BAA8E8EFA770DF86A8D46E1925AA84EADDBE8C7AF31A45937F8
+++ echo queues/labelling/500_VT_aa_Analysis/002BD922800D3BAA8E8EFA770DF86A8D46E1925AA84EADDBE8C7AF31A45937F8
+++ cut -d/ -f4
++ NOME_ARQUIVO=002BD922800D3BAA8E8EFA770DF86A8D46E1925AA84EADDBE8C7AF31A45937F8
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/002BD922800D3BAA8E8EFA770DF86A8D46E1925AA84EADDBE8C7AF31A45937F8.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/002BD922800D3BAA8E8EFA770DF86A8D46E1925AA84EADDBE8C7AF31A45937F8.json.OK queues/labelling/500_VT_aa_Analysis/002BD922800D3BAA8E8EFA770DF86A8D46E1925AA84EADDBE8C7AF31A45937F8.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/002C146A848C5787A65D0B4E8221C1A9A7043DA494FB4E9FBA3F4CEF261DA0DD.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/002C146A848C5787A65D0B4E8221C1A9A7043DA494FB4E9FBA3F4CEF261DA0DD
+++ echo queues/labelling/500_VT_aa_Analysis/002C146A848C5787A65D0B4E8221C1A9A7043DA494FB4E9FBA3F4CEF261DA0DD
+++ cut -d/ -f4
++ NOME_ARQUIVO=002C146A848C5787A65D0B4E8221C1A9A7043DA494FB4E9FBA3F4CEF261DA0DD
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/002C146A848C5787A65D0B4E8221C1A9A7043DA494FB4E9FBA3F4CEF261DA0DD.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/002C146A848C5787A65D0B4E8221C1A9A7043DA494FB4E9FBA3F4CEF261DA0DD.json.OK queues/labelling/500_VT_aa_Analysis/002C146A848C5787A65D0B4E8221C1A9A7043DA494FB4E9FBA3F4CEF261DA0DD.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/002C659936C53F065AAE248608B73F5E90C865DB0F55DF4C4BFC221604BE8EA8.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/002C659936C53F065AAE248608B73F5E90C865DB0F55DF4C4BFC221604BE8EA8
+++ echo queues/labelling/500_VT_aa_Analysis/002C659936C53F065AAE248608B73F5E90C865DB0F55DF4C4BFC221604BE8EA8
+++ cut -d/ -f4
++ NOME_ARQUIVO=002C659936C53F065AAE248608B73F5E90C865DB0F55DF4C4BFC221604BE8EA8
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/002C659936C53F065AAE248608B73F5E90C865DB0F55DF4C4BFC221604BE8EA8.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/002C659936C53F065AAE248608B73F5E90C865DB0F55DF4C4BFC221604BE8EA8.json.OK queues/labelling/500_VT_aa_Analysis/002C659936C53F065AAE248608B73F5E90C865DB0F55DF4C4BFC221604BE8EA8.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/002C90FE32F4B21C5FE2583D1CB9322F075C718A9FE0462FD32E1C5B5868BAAE.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/002C90FE32F4B21C5FE2583D1CB9322F075C718A9FE0462FD32E1C5B5868BAAE
+++ echo queues/labelling/500_VT_aa_Analysis/002C90FE32F4B21C5FE2583D1CB9322F075C718A9FE0462FD32E1C5B5868BAAE
+++ cut -d/ -f4
++ NOME_ARQUIVO=002C90FE32F4B21C5FE2583D1CB9322F075C718A9FE0462FD32E1C5B5868BAAE
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/002C90FE32F4B21C5FE2583D1CB9322F075C718A9FE0462FD32E1C5B5868BAAE.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/002C90FE32F4B21C5FE2583D1CB9322F075C718A9FE0462FD32E1C5B5868BAAE.json.OK queues/labelling/500_VT_aa_Analysis/002C90FE32F4B21C5FE2583D1CB9322F075C718A9FE0462FD32E1C5B5868BAAE.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/002D2EBAC804745C10198869AC73044E78A83659969AA37C93745ECF9E499221.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/002D2EBAC804745C10198869AC73044E78A83659969AA37C93745ECF9E499221
+++ echo queues/labelling/500_VT_aa_Analysis/002D2EBAC804745C10198869AC73044E78A83659969AA37C93745ECF9E499221
+++ cut -d/ -f4
++ NOME_ARQUIVO=002D2EBAC804745C10198869AC73044E78A83659969AA37C93745ECF9E499221
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/002D2EBAC804745C10198869AC73044E78A83659969AA37C93745ECF9E499221.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/002D2EBAC804745C10198869AC73044E78A83659969AA37C93745ECF9E499221.json.OK queues/labelling/500_VT_aa_Analysis/002D2EBAC804745C10198869AC73044E78A83659969AA37C93745ECF9E499221.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/002D5FF6933394B0802858E47E9F011055DB2D8783CE7CE9B54C5EF4177A367A.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/002D5FF6933394B0802858E47E9F011055DB2D8783CE7CE9B54C5EF4177A367A
+++ echo queues/labelling/500_VT_aa_Analysis/002D5FF6933394B0802858E47E9F011055DB2D8783CE7CE9B54C5EF4177A367A
+++ cut -d/ -f4
++ NOME_ARQUIVO=002D5FF6933394B0802858E47E9F011055DB2D8783CE7CE9B54C5EF4177A367A
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/002D5FF6933394B0802858E47E9F011055DB2D8783CE7CE9B54C5EF4177A367A.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/002D5FF6933394B0802858E47E9F011055DB2D8783CE7CE9B54C5EF4177A367A.json.OK queues/labelling/500_VT_aa_Analysis/002D5FF6933394B0802858E47E9F011055DB2D8783CE7CE9B54C5EF4177A367A.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/002E5BF3AC17260E8E095212F96273AB5691C3B67856D94328A84933B3E5081C.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/002E5BF3AC17260E8E095212F96273AB5691C3B67856D94328A84933B3E5081C
+++ echo queues/labelling/500_VT_aa_Analysis/002E5BF3AC17260E8E095212F96273AB5691C3B67856D94328A84933B3E5081C
+++ cut -d/ -f4
++ NOME_ARQUIVO=002E5BF3AC17260E8E095212F96273AB5691C3B67856D94328A84933B3E5081C
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/002E5BF3AC17260E8E095212F96273AB5691C3B67856D94328A84933B3E5081C.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/002E5BF3AC17260E8E095212F96273AB5691C3B67856D94328A84933B3E5081C.json.OK queues/labelling/500_VT_aa_Analysis/002E5BF3AC17260E8E095212F96273AB5691C3B67856D94328A84933B3E5081C.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/002F1837C6F633E2C991627614CDBFE06F98F39A8A6B13305176431ADFDC7707.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/002F1837C6F633E2C991627614CDBFE06F98F39A8A6B13305176431ADFDC7707
+++ echo queues/labelling/500_VT_aa_Analysis/002F1837C6F633E2C991627614CDBFE06F98F39A8A6B13305176431ADFDC7707
+++ cut -d/ -f4
++ NOME_ARQUIVO=002F1837C6F633E2C991627614CDBFE06F98F39A8A6B13305176431ADFDC7707
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/002F1837C6F633E2C991627614CDBFE06F98F39A8A6B13305176431ADFDC7707.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/002F1837C6F633E2C991627614CDBFE06F98F39A8A6B13305176431ADFDC7707.json.OK queues/labelling/500_VT_aa_Analysis/002F1837C6F633E2C991627614CDBFE06F98F39A8A6B13305176431ADFDC7707.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/002FCAA7D81F4950C4EC199B6707E5E1264F4A861F331715F22ED57BD6611339.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/002FCAA7D81F4950C4EC199B6707E5E1264F4A861F331715F22ED57BD6611339
+++ echo queues/labelling/500_VT_aa_Analysis/002FCAA7D81F4950C4EC199B6707E5E1264F4A861F331715F22ED57BD6611339
+++ cut -d/ -f4
++ NOME_ARQUIVO=002FCAA7D81F4950C4EC199B6707E5E1264F4A861F331715F22ED57BD6611339
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/002FCAA7D81F4950C4EC199B6707E5E1264F4A861F331715F22ED57BD6611339.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/002FCAA7D81F4950C4EC199B6707E5E1264F4A861F331715F22ED57BD6611339.json.OK queues/labelling/500_VT_aa_Analysis/002FCAA7D81F4950C4EC199B6707E5E1264F4A861F331715F22ED57BD6611339.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/002FD9FD1A2BE4E8CEBB3A4AAC18D08FD8ED0A9489C2F74E452B444B4FEBCFED.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/002FD9FD1A2BE4E8CEBB3A4AAC18D08FD8ED0A9489C2F74E452B444B4FEBCFED
+++ echo queues/labelling/500_VT_aa_Analysis/002FD9FD1A2BE4E8CEBB3A4AAC18D08FD8ED0A9489C2F74E452B444B4FEBCFED
+++ cut -d/ -f4
++ NOME_ARQUIVO=002FD9FD1A2BE4E8CEBB3A4AAC18D08FD8ED0A9489C2F74E452B444B4FEBCFED
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/002FD9FD1A2BE4E8CEBB3A4AAC18D08FD8ED0A9489C2F74E452B444B4FEBCFED.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/002FD9FD1A2BE4E8CEBB3A4AAC18D08FD8ED0A9489C2F74E452B444B4FEBCFED.json.OK queues/labelling/500_VT_aa_Analysis/002FD9FD1A2BE4E8CEBB3A4AAC18D08FD8ED0A9489C2F74E452B444B4FEBCFED.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/0030C38FA4FE0EF60F05E0699FA8EC2DD10E30C494106378B7A14C9AB1222AAE.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/0030C38FA4FE0EF60F05E0699FA8EC2DD10E30C494106378B7A14C9AB1222AAE
+++ echo queues/labelling/500_VT_aa_Analysis/0030C38FA4FE0EF60F05E0699FA8EC2DD10E30C494106378B7A14C9AB1222AAE
+++ cut -d/ -f4
++ NOME_ARQUIVO=0030C38FA4FE0EF60F05E0699FA8EC2DD10E30C494106378B7A14C9AB1222AAE
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/0030C38FA4FE0EF60F05E0699FA8EC2DD10E30C494106378B7A14C9AB1222AAE.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/0030C38FA4FE0EF60F05E0699FA8EC2DD10E30C494106378B7A14C9AB1222AAE.json.OK queues/labelling/500_VT_aa_Analysis/0030C38FA4FE0EF60F05E0699FA8EC2DD10E30C494106378B7A14C9AB1222AAE.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/00314A59DF26AF17B0E5E4AA366D4CA6AF97998A9CD85F939FFE4D315D8956F1.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/00314A59DF26AF17B0E5E4AA366D4CA6AF97998A9CD85F939FFE4D315D8956F1
+++ echo queues/labelling/500_VT_aa_Analysis/00314A59DF26AF17B0E5E4AA366D4CA6AF97998A9CD85F939FFE4D315D8956F1
+++ cut -d/ -f4
++ NOME_ARQUIVO=00314A59DF26AF17B0E5E4AA366D4CA6AF97998A9CD85F939FFE4D315D8956F1
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/00314A59DF26AF17B0E5E4AA366D4CA6AF97998A9CD85F939FFE4D315D8956F1.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/00314A59DF26AF17B0E5E4AA366D4CA6AF97998A9CD85F939FFE4D315D8956F1.json.OK queues/labelling/500_VT_aa_Analysis/00314A59DF26AF17B0E5E4AA366D4CA6AF97998A9CD85F939FFE4D315D8956F1.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/00354041EC44065ED5F346FE6396649A8C76DA7E6B99F42D4FC12D4F2B4A86C6.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/00354041EC44065ED5F346FE6396649A8C76DA7E6B99F42D4FC12D4F2B4A86C6
+++ echo queues/labelling/500_VT_aa_Analysis/00354041EC44065ED5F346FE6396649A8C76DA7E6B99F42D4FC12D4F2B4A86C6
+++ cut -d/ -f4
++ NOME_ARQUIVO=00354041EC44065ED5F346FE6396649A8C76DA7E6B99F42D4FC12D4F2B4A86C6
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/00354041EC44065ED5F346FE6396649A8C76DA7E6B99F42D4FC12D4F2B4A86C6.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/00354041EC44065ED5F346FE6396649A8C76DA7E6B99F42D4FC12D4F2B4A86C6.json.OK queues/labelling/500_VT_aa_Analysis/00354041EC44065ED5F346FE6396649A8C76DA7E6B99F42D4FC12D4F2B4A86C6.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/003560E31501F1A19D1EA8B109EB5C5A6C82BC9D2D7CEC5524BAD3A1DC473882.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/003560E31501F1A19D1EA8B109EB5C5A6C82BC9D2D7CEC5524BAD3A1DC473882
+++ echo queues/labelling/500_VT_aa_Analysis/003560E31501F1A19D1EA8B109EB5C5A6C82BC9D2D7CEC5524BAD3A1DC473882
+++ cut -d/ -f4
++ NOME_ARQUIVO=003560E31501F1A19D1EA8B109EB5C5A6C82BC9D2D7CEC5524BAD3A1DC473882
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/003560E31501F1A19D1EA8B109EB5C5A6C82BC9D2D7CEC5524BAD3A1DC473882.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/003560E31501F1A19D1EA8B109EB5C5A6C82BC9D2D7CEC5524BAD3A1DC473882.json.OK queues/labelling/500_VT_aa_Analysis/003560E31501F1A19D1EA8B109EB5C5A6C82BC9D2D7CEC5524BAD3A1DC473882.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/0035B4FE1F5E5F2133E1EA0E01E34EF0B91855EBD03EF7211845A0B6FE76C0F6.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/0035B4FE1F5E5F2133E1EA0E01E34EF0B91855EBD03EF7211845A0B6FE76C0F6
+++ echo queues/labelling/500_VT_aa_Analysis/0035B4FE1F5E5F2133E1EA0E01E34EF0B91855EBD03EF7211845A0B6FE76C0F6
+++ cut -d/ -f4
++ NOME_ARQUIVO=0035B4FE1F5E5F2133E1EA0E01E34EF0B91855EBD03EF7211845A0B6FE76C0F6
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/0035B4FE1F5E5F2133E1EA0E01E34EF0B91855EBD03EF7211845A0B6FE76C0F6.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/0035B4FE1F5E5F2133E1EA0E01E34EF0B91855EBD03EF7211845A0B6FE76C0F6.json.OK queues/labelling/500_VT_aa_Analysis/0035B4FE1F5E5F2133E1EA0E01E34EF0B91855EBD03EF7211845A0B6FE76C0F6.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/00366DB4C96D406AE4BC78CDB0261F748F12BFA63B5EC9E056719B344C0F37F8.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/00366DB4C96D406AE4BC78CDB0261F748F12BFA63B5EC9E056719B344C0F37F8
+++ echo queues/labelling/500_VT_aa_Analysis/00366DB4C96D406AE4BC78CDB0261F748F12BFA63B5EC9E056719B344C0F37F8
+++ cut -d/ -f4
++ NOME_ARQUIVO=00366DB4C96D406AE4BC78CDB0261F748F12BFA63B5EC9E056719B344C0F37F8
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/00366DB4C96D406AE4BC78CDB0261F748F12BFA63B5EC9E056719B344C0F37F8.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/00366DB4C96D406AE4BC78CDB0261F748F12BFA63B5EC9E056719B344C0F37F8.json.OK queues/labelling/500_VT_aa_Analysis/00366DB4C96D406AE4BC78CDB0261F748F12BFA63B5EC9E056719B344C0F37F8.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/00374438AE75D905DA2403CEEFD1D9C31E95B3DEAFEF53CAB5CCA3657D45DA72.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/00374438AE75D905DA2403CEEFD1D9C31E95B3DEAFEF53CAB5CCA3657D45DA72
+++ echo queues/labelling/500_VT_aa_Analysis/00374438AE75D905DA2403CEEFD1D9C31E95B3DEAFEF53CAB5CCA3657D45DA72
+++ cut -d/ -f4
++ NOME_ARQUIVO=00374438AE75D905DA2403CEEFD1D9C31E95B3DEAFEF53CAB5CCA3657D45DA72
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/00374438AE75D905DA2403CEEFD1D9C31E95B3DEAFEF53CAB5CCA3657D45DA72.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/00374438AE75D905DA2403CEEFD1D9C31E95B3DEAFEF53CAB5CCA3657D45DA72.json.OK queues/labelling/500_VT_aa_Analysis/00374438AE75D905DA2403CEEFD1D9C31E95B3DEAFEF53CAB5CCA3657D45DA72.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/0039247C53D4430BF0822BA269086C99EFCCDE6B27461F03900FA0D8EE543817.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/0039247C53D4430BF0822BA269086C99EFCCDE6B27461F03900FA0D8EE543817
+++ echo queues/labelling/500_VT_aa_Analysis/0039247C53D4430BF0822BA269086C99EFCCDE6B27461F03900FA0D8EE543817
+++ cut -d/ -f4
++ NOME_ARQUIVO=0039247C53D4430BF0822BA269086C99EFCCDE6B27461F03900FA0D8EE543817
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/0039247C53D4430BF0822BA269086C99EFCCDE6B27461F03900FA0D8EE543817.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/0039247C53D4430BF0822BA269086C99EFCCDE6B27461F03900FA0D8EE543817.json.OK queues/labelling/500_VT_aa_Analysis/0039247C53D4430BF0822BA269086C99EFCCDE6B27461F03900FA0D8EE543817.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/003BB779735917E1B029EE1ECEFA0EFC5AECBC82004A38E06468544955317A0C.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/003BB779735917E1B029EE1ECEFA0EFC5AECBC82004A38E06468544955317A0C
+++ echo queues/labelling/500_VT_aa_Analysis/003BB779735917E1B029EE1ECEFA0EFC5AECBC82004A38E06468544955317A0C
+++ cut -d/ -f4
++ NOME_ARQUIVO=003BB779735917E1B029EE1ECEFA0EFC5AECBC82004A38E06468544955317A0C
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/003BB779735917E1B029EE1ECEFA0EFC5AECBC82004A38E06468544955317A0C.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/003BB779735917E1B029EE1ECEFA0EFC5AECBC82004A38E06468544955317A0C.json.OK queues/labelling/500_VT_aa_Analysis/003BB779735917E1B029EE1ECEFA0EFC5AECBC82004A38E06468544955317A0C.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/003CB8A203421FD65E65917567DF2933710A6A0A94B2B877B16296646CF0998D.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/003CB8A203421FD65E65917567DF2933710A6A0A94B2B877B16296646CF0998D
+++ echo queues/labelling/500_VT_aa_Analysis/003CB8A203421FD65E65917567DF2933710A6A0A94B2B877B16296646CF0998D
+++ cut -d/ -f4
++ NOME_ARQUIVO=003CB8A203421FD65E65917567DF2933710A6A0A94B2B877B16296646CF0998D
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/003CB8A203421FD65E65917567DF2933710A6A0A94B2B877B16296646CF0998D.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/003CB8A203421FD65E65917567DF2933710A6A0A94B2B877B16296646CF0998D.json.OK queues/labelling/500_VT_aa_Analysis/003CB8A203421FD65E65917567DF2933710A6A0A94B2B877B16296646CF0998D.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/003D514B089D8AA5B207E046C184F8BFDC4DFB4F58B85B7131EDC7C741622517.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/003D514B089D8AA5B207E046C184F8BFDC4DFB4F58B85B7131EDC7C741622517
+++ echo queues/labelling/500_VT_aa_Analysis/003D514B089D8AA5B207E046C184F8BFDC4DFB4F58B85B7131EDC7C741622517
+++ cut -d/ -f4
++ NOME_ARQUIVO=003D514B089D8AA5B207E046C184F8BFDC4DFB4F58B85B7131EDC7C741622517
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/003D514B089D8AA5B207E046C184F8BFDC4DFB4F58B85B7131EDC7C741622517.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/003D514B089D8AA5B207E046C184F8BFDC4DFB4F58B85B7131EDC7C741622517.json.OK queues/labelling/500_VT_aa_Analysis/003D514B089D8AA5B207E046C184F8BFDC4DFB4F58B85B7131EDC7C741622517.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/003DA5C71E758672CAA784C63215ABF6838488760D2DABD6644AEBA602F056BA.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/003DA5C71E758672CAA784C63215ABF6838488760D2DABD6644AEBA602F056BA
+++ echo queues/labelling/500_VT_aa_Analysis/003DA5C71E758672CAA784C63215ABF6838488760D2DABD6644AEBA602F056BA
+++ cut -d/ -f4
++ NOME_ARQUIVO=003DA5C71E758672CAA784C63215ABF6838488760D2DABD6644AEBA602F056BA
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/003DA5C71E758672CAA784C63215ABF6838488760D2DABD6644AEBA602F056BA.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/003DA5C71E758672CAA784C63215ABF6838488760D2DABD6644AEBA602F056BA.json.OK queues/labelling/500_VT_aa_Analysis/003DA5C71E758672CAA784C63215ABF6838488760D2DABD6644AEBA602F056BA.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/003F5A556527134C76B39D3DCE6E6B6255201BD27EE19FDCFBBA6E2280B507D3.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/003F5A556527134C76B39D3DCE6E6B6255201BD27EE19FDCFBBA6E2280B507D3
+++ echo queues/labelling/500_VT_aa_Analysis/003F5A556527134C76B39D3DCE6E6B6255201BD27EE19FDCFBBA6E2280B507D3
+++ cut -d/ -f4
++ NOME_ARQUIVO=003F5A556527134C76B39D3DCE6E6B6255201BD27EE19FDCFBBA6E2280B507D3
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/003F5A556527134C76B39D3DCE6E6B6255201BD27EE19FDCFBBA6E2280B507D3.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/003F5A556527134C76B39D3DCE6E6B6255201BD27EE19FDCFBBA6E2280B507D3.json.OK queues/labelling/500_VT_aa_Analysis/003F5A556527134C76B39D3DCE6E6B6255201BD27EE19FDCFBBA6E2280B507D3.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/003FF7FB7C2FA27F65945C627B0C77246AFCE387CCDEB45A3D5F9F3AD2DDED51.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/003FF7FB7C2FA27F65945C627B0C77246AFCE387CCDEB45A3D5F9F3AD2DDED51
+++ echo queues/labelling/500_VT_aa_Analysis/003FF7FB7C2FA27F65945C627B0C77246AFCE387CCDEB45A3D5F9F3AD2DDED51
+++ cut -d/ -f4
++ NOME_ARQUIVO=003FF7FB7C2FA27F65945C627B0C77246AFCE387CCDEB45A3D5F9F3AD2DDED51
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/003FF7FB7C2FA27F65945C627B0C77246AFCE387CCDEB45A3D5F9F3AD2DDED51.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/003FF7FB7C2FA27F65945C627B0C77246AFCE387CCDEB45A3D5F9F3AD2DDED51.json.OK queues/labelling/500_VT_aa_Analysis/003FF7FB7C2FA27F65945C627B0C77246AFCE387CCDEB45A3D5F9F3AD2DDED51.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/00404840DB4C5597B13A9297614832EB2D6F6B8D6EA3E4E6FC49D21267615FBF.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/00404840DB4C5597B13A9297614832EB2D6F6B8D6EA3E4E6FC49D21267615FBF
+++ echo queues/labelling/500_VT_aa_Analysis/00404840DB4C5597B13A9297614832EB2D6F6B8D6EA3E4E6FC49D21267615FBF
+++ cut -d/ -f4
++ NOME_ARQUIVO=00404840DB4C5597B13A9297614832EB2D6F6B8D6EA3E4E6FC49D21267615FBF
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/00404840DB4C5597B13A9297614832EB2D6F6B8D6EA3E4E6FC49D21267615FBF.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/00404840DB4C5597B13A9297614832EB2D6F6B8D6EA3E4E6FC49D21267615FBF.json.OK queues/labelling/500_VT_aa_Analysis/00404840DB4C5597B13A9297614832EB2D6F6B8D6EA3E4E6FC49D21267615FBF.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/00453CA8895FD43A2509E3B731CEEF37A337FE61A36DB3ECE0F2952E3EDEEBC8.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/00453CA8895FD43A2509E3B731CEEF37A337FE61A36DB3ECE0F2952E3EDEEBC8
+++ echo queues/labelling/500_VT_aa_Analysis/00453CA8895FD43A2509E3B731CEEF37A337FE61A36DB3ECE0F2952E3EDEEBC8
+++ cut -d/ -f4
++ NOME_ARQUIVO=00453CA8895FD43A2509E3B731CEEF37A337FE61A36DB3ECE0F2952E3EDEEBC8
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/00453CA8895FD43A2509E3B731CEEF37A337FE61A36DB3ECE0F2952E3EDEEBC8.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/00453CA8895FD43A2509E3B731CEEF37A337FE61A36DB3ECE0F2952E3EDEEBC8.json.OK queues/labelling/500_VT_aa_Analysis/00453CA8895FD43A2509E3B731CEEF37A337FE61A36DB3ECE0F2952E3EDEEBC8.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/0049B80C02AAA7DC86305088A4571B5DFA68F2FCB1205768E53F8CCFEBA0DC45.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/0049B80C02AAA7DC86305088A4571B5DFA68F2FCB1205768E53F8CCFEBA0DC45
+++ echo queues/labelling/500_VT_aa_Analysis/0049B80C02AAA7DC86305088A4571B5DFA68F2FCB1205768E53F8CCFEBA0DC45
+++ cut -d/ -f4
++ NOME_ARQUIVO=0049B80C02AAA7DC86305088A4571B5DFA68F2FCB1205768E53F8CCFEBA0DC45
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/0049B80C02AAA7DC86305088A4571B5DFA68F2FCB1205768E53F8CCFEBA0DC45.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/0049B80C02AAA7DC86305088A4571B5DFA68F2FCB1205768E53F8CCFEBA0DC45.json.OK queues/labelling/500_VT_aa_Analysis/0049B80C02AAA7DC86305088A4571B5DFA68F2FCB1205768E53F8CCFEBA0DC45.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/004A4B85C4FE43BDCCE4F71D6D247C447D1132FDF975FA904DDE84A08404296A.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/004A4B85C4FE43BDCCE4F71D6D247C447D1132FDF975FA904DDE84A08404296A
+++ echo queues/labelling/500_VT_aa_Analysis/004A4B85C4FE43BDCCE4F71D6D247C447D1132FDF975FA904DDE84A08404296A
+++ cut -d/ -f4
++ NOME_ARQUIVO=004A4B85C4FE43BDCCE4F71D6D247C447D1132FDF975FA904DDE84A08404296A
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/004A4B85C4FE43BDCCE4F71D6D247C447D1132FDF975FA904DDE84A08404296A.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/004A4B85C4FE43BDCCE4F71D6D247C447D1132FDF975FA904DDE84A08404296A.json.OK queues/labelling/500_VT_aa_Analysis/004A4B85C4FE43BDCCE4F71D6D247C447D1132FDF975FA904DDE84A08404296A.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/004B3862F816F35464FE8F1E45D56628B299D32B25F47ED4D308251F4B250D19.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/004B3862F816F35464FE8F1E45D56628B299D32B25F47ED4D308251F4B250D19
+++ echo queues/labelling/500_VT_aa_Analysis/004B3862F816F35464FE8F1E45D56628B299D32B25F47ED4D308251F4B250D19
+++ cut -d/ -f4
++ NOME_ARQUIVO=004B3862F816F35464FE8F1E45D56628B299D32B25F47ED4D308251F4B250D19
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/004B3862F816F35464FE8F1E45D56628B299D32B25F47ED4D308251F4B250D19.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/004B3862F816F35464FE8F1E45D56628B299D32B25F47ED4D308251F4B250D19.json.OK queues/labelling/500_VT_aa_Analysis/004B3862F816F35464FE8F1E45D56628B299D32B25F47ED4D308251F4B250D19.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/004C9C99C0AA7D47F929063939DA4E95BB9786DF239864249CFB695029DDB0CF.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/004C9C99C0AA7D47F929063939DA4E95BB9786DF239864249CFB695029DDB0CF
+++ echo queues/labelling/500_VT_aa_Analysis/004C9C99C0AA7D47F929063939DA4E95BB9786DF239864249CFB695029DDB0CF
+++ cut -d/ -f4
++ NOME_ARQUIVO=004C9C99C0AA7D47F929063939DA4E95BB9786DF239864249CFB695029DDB0CF
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/004C9C99C0AA7D47F929063939DA4E95BB9786DF239864249CFB695029DDB0CF.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/004C9C99C0AA7D47F929063939DA4E95BB9786DF239864249CFB695029DDB0CF.json.OK queues/labelling/500_VT_aa_Analysis/004C9C99C0AA7D47F929063939DA4E95BB9786DF239864249CFB695029DDB0CF.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/004D92FBF197F97658F817F0D7CA7219729DB23B8211A18F3C5A2BC0120E4C0D.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/004D92FBF197F97658F817F0D7CA7219729DB23B8211A18F3C5A2BC0120E4C0D
+++ echo queues/labelling/500_VT_aa_Analysis/004D92FBF197F97658F817F0D7CA7219729DB23B8211A18F3C5A2BC0120E4C0D
+++ cut -d/ -f4
++ NOME_ARQUIVO=004D92FBF197F97658F817F0D7CA7219729DB23B8211A18F3C5A2BC0120E4C0D
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/004D92FBF197F97658F817F0D7CA7219729DB23B8211A18F3C5A2BC0120E4C0D.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/004D92FBF197F97658F817F0D7CA7219729DB23B8211A18F3C5A2BC0120E4C0D.json.OK queues/labelling/500_VT_aa_Analysis/004D92FBF197F97658F817F0D7CA7219729DB23B8211A18F3C5A2BC0120E4C0D.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ for FILE in $(find $FILA_DE_LABELLING -type f -name \*.json.OK)
+++ echo queues/labelling/500_VT_aa_Analysis/004E604754363D5DAE6A5B15FEC40C1CE81BB516E63CF75D438A905AD76651AB.json.OK
+++ cut -d. -f1
++ DIR_ARQUIVO=queues/labelling/500_VT_aa_Analysis/004E604754363D5DAE6A5B15FEC40C1CE81BB516E63CF75D438A905AD76651AB
+++ echo queues/labelling/500_VT_aa_Analysis/004E604754363D5DAE6A5B15FEC40C1CE81BB516E63CF75D438A905AD76651AB
+++ cut -d/ -f4
++ NOME_ARQUIVO=004E604754363D5DAE6A5B15FEC40C1CE81BB516E63CF75D438A905AD76651AB
++ python3 ./labelling/virustotal/label.py --injson queues/labelling/500_VT_aa_Analysis/004E604754363D5DAE6A5B15FEC40C1CE81BB516E63CF75D438A905AD76651AB.json --outdir queues/building/
++ mv queues/labelling/500_VT_aa_Analysis/004E604754363D5DAE6A5B15FEC40C1CE81BB516E63CF75D438A905AD76651AB.json.OK queues/labelling/500_VT_aa_Analysis/004E604754363D5DAE6A5B15FEC40C1CE81BB516E63CF75D438A905AD76651AB.json.labeled
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10
++ '[' 1 ']'
+++ find queues/labelling -type f -name '*.json.OK'
++ sleep 10

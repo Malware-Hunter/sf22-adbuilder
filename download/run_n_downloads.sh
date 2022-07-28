@@ -4,6 +4,17 @@
 
 DOWNLOAD_QUEUE=$2
 N_PARALLEL_DOWNLOADS=$3
+
+# excluir arquivos moto_ que já foram baixados
+for MOTO in $DOWNLOAD_QUEUE/moto_*
+do
+	[ -f $MOTO ] && {
+		SHA256=$(cat $MOTO | awk '{print $1}')
+		echo "Excluindo $MOTO"
+		rm $MOTO
+	}
+done
+
 if [ $3 -gt 1 ]
 then	
 	SIZE=$(wc -l "$1" | awk '{ print $1 }')

@@ -1096,14 +1096,14 @@ def main():
     split_INTENTS = re.sub(r'[\[\'\]\"\{\} ]', '', df["INTENTS"][0]).split(",")
     split_API = re.sub(r'[\[\'\]\"\{\} ]', '', df["APICALLS"][0]).split(",")
 
-    if len(split_PERM) > 1 and len(split_INTENTS) > 1 and len(split_API) > 1:
+    if len(split_PERM) > 0 and len(split_INTENTS) > 0 and len(split_API) > 0:
         df_treatment = treatment_data(df)
         df_treatment.to_csv(outdir+ name, index=False)
     else:
-        print("Arquivo" + name + " possui colunas de características vazias.")
+        print("\nArquivo " + name + " possui colunas de características vazias.\n")
 
     end = time.time()
 
-    print("Tempo de execução do tratamento do " + name + ":", end - start, "segundos\n")
+    print("\nTempo de execução do tratamento do " + name + ":", end - start, "segundos\n")
 
 main()

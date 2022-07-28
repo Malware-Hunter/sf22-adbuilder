@@ -106,7 +106,7 @@ Instale as dependências necessárias utilizando os comandos:
 ```
 --download (lista_de_sha256.txt) = realiza download de aplicativos obtidos pelo arquivo .txt fornecido.
 -npd (processos) = insira um número inteiro (e.g., 5) de processos para download.
---feature_extraction, -fe = extrai features dos aplicativos.
+--feature_extraction, -fe = extrai características dos aplicativos.
 -npe (processos) = insira um número inteiro (e.g., 5) de processos de extração. 
 --labelling (lista_de_sha256.txt) = realiza a rotulação dos aplicativos obtidos pelo arquivo .txt fornecido.
 -api (lista_de_keys_virustotal) = insira um arquivo com API keys do VirusTotal.
