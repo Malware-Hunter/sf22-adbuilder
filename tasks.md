@@ -3,7 +3,7 @@
 ### Equipe
 
 - Lucas
-- Joner
+- Vagner
 - Nicolas
 
 ### Estrutura de Atividades
@@ -31,16 +31,15 @@
 
 ### Atividades Pendentes
  **PRIORIDADE**
-    - Fazer script.sh que liste todas as dependências atuais; (Lucas)
-    - Resolver erro do APK não conter nenhuma características de um tipo, e.g., intents; (Lucas  e Vagner);
-    - Atualizar Readme.md; (Lucas e Vagner);
-    - Configurar labelling para esperar por 24h???
     - Gerar log bash -x para todos os módulos? (Lucas)
     - Gerar log usr/bin/time para concatenção; (Lucas)
+    - Fazer script.sh que liste todas as dependências atuais; (Lucas)
     - Matar os processos corretamente após a execução completa da ferramenta; (Lucas e Vagner)
-    - Criar um *--building_only* sem a variável vars_APKs; (Lucas)
     - Resolver FIXMEs e fazer testes; (Lucas, Vagner e Nicolas)
 
+**PRIORIDADE MENOR**
+    - Configurar labelling para esperar por 24h???
+    - Criar um *--building_only* sem a variável vars_APKs; (Lucas)
 
 **OPCIONAL**
 - Fazer letras personalizadas de tela inicial do MotoDroidBuilder;
@@ -65,3 +64,5 @@
 - Disponibilizar ferramenta para o pessoal testar; (Lucas)
 - Andamento da escrita da implementação da ferramenta; (Lucas)
 - Permitir a lista de API Keys ser recebida de qualquer lugar; (Lucas)
+- Atualizar Readme.md; (Lucas e Vagner);
+- Resolver erro do APK não conter nenhuma características de um tipo, e.g., intents; (Lucas); RESOLVIDO?
