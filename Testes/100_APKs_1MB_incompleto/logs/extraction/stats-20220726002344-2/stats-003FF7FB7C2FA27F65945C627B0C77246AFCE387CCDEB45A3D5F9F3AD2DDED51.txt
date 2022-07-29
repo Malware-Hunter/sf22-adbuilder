@@ -1,2 +1,0 @@
-Command exited with non-zero status 1
-queues/extraction/003FF7FB7C2FA27F65945C627B0C77246AFCE387CCDEB45A3D5F9F3AD2DDED51.apk Tempo decorrido Extracao = 1.44 segundos, CPU = 174%, Memoria = 118120 KiB
