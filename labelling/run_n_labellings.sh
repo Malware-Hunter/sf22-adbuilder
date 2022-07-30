@@ -17,7 +17,10 @@ TAMANHO=$(($LINHAS/235))
 if [ $TAMANHO -eq 0 ]; then
     [ -d $FILA_DE_LABELLING/500_VT_aa_Analysis ] || { mkdir -p $FILA_DE_LABELLING/500_VT_aa_Analysis; }
     cp $SHA256 $FILA_DE_LABELLING/500_VT_aa_Analysis/
-    mv $FILA_DE_LABELLING/500_VT_aa_Analysis/$SHA256 $FILA_DE_LABELLING/500_VT_aa_Analysis/500_VT_aa
+    # pegar o nome do arquivo
+    NOME_ARQ=$(basename $SHA256)
+    echo "Nome do SHA256>> $NOME_ARQ"
+    mv $FILA_DE_LABELLING/500_VT_aa_Analysis/$NOME_ARQ $FILA_DE_LABELLING/500_VT_aa_Analysis/500_VT_aa
 else
     split -l $TAMANHO $SHA256 $FILA_DE_LABELLING/500_VT_
     for ARQUIVO in $FILA_DE_LABELLING/500_VT_*

@@ -1100,10 +1100,11 @@ def main():
         df_treatment = treatment_data(df)
         df_treatment.to_csv(outdir+ name, index=False)
     else:
-        print("\nArquivo " + name + " possui colunas de características vazias.\n")
+        ''
+        # print("\nArquivo " + name + " possui colunas de características vazias.\n")
 
     end = time.time()
 
-    print("\nTempo de execução do tratamento do " + name + ":", end - start, "segundos\n")
+    #print("\nTempo de execução do tratamento do " + name + ":", end - start, "segundos\n")
 
 main()

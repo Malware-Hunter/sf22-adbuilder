@@ -49,11 +49,11 @@ def main():
             dataset[col] = dataset[col].astype(int)
 
     end_test = time.time()
-    print("Tempo para transformar colunas em INT: ", end_test - start_test, " segundos")
+    #print("Tempo para transformar colunas em INT: ", end_test - start_test, " segundos")
     #dataset.to_csv(outdir+"MotoDroid_dataset.csv", index=False, encoding='utf-8-sig')
     dataset.to_csv(outdir + "MotoDroid_dataset.csv", index=False, encoding='utf-8-sig')
     
     end = time.time()
-    print("Tempo de concatenação do CSV " + name + ": ", end - start, "segundos")
-    print("\n")
+    #print("Tempo de concatenação do CSV " + name + ": ", end - start, "segundos")
+    #print("\n")
 main()
