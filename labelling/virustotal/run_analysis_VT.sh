@@ -12,7 +12,7 @@ while read SHA256
 do  
 	echo -n "Realizando o download do json $SHA256 ... "
 	echo -e "\nAPI Key utilizada: $API_KEY"
-	/usr/bin/time -f "$SHA256 Tempo decorrido da Análise do VT = %e segundos, CPU = %P, Memoria = %M KiB" -a -o $LOG_DIR/stats-$TS curl  --request GET --url "https://www.virustotal.com/api/v3/files/"$SHA256 --header  'x-apikey:'$API_KEY > $FILA_DE_LABELLING/$SHA256".json"
+	/usr/bin/time -f "$SHA256 Tempo decorrido da Análise do VT = %e segundos, CPU = %P, Memoria = %M KiB" -a -o $LOG_DIR/stats-$TS.txt curl  --request GET --url "https://www.virustotal.com/api/v3/files/"$SHA256 --header  'x-apikey:'$API_KEY > $FILA_DE_LABELLING/$SHA256".json"
 	#curl  --request GET --url "https://www.virustotal.com/api/v3/files/"$SHA256 --header  'x-apikey:'$API_KEY > $SHA256".json" &
 
 	sleep 30

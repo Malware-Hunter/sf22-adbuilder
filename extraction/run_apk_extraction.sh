@@ -26,7 +26,7 @@ do
         APK_FILE_NAME=$(echo $APK_FILE | sed 's/^.*\///;s/\..*$//')
  
         # extrai as caracteristicas do APK e gera estatisticas
-        /usr/bin/time -f "$APK_FILE Tempo decorrido Extracao = %e segundos, CPU = %P, Memoria = %M KiB" -a -o $LOGS_DIR/stats-$APK_FILE_NAME.txt python3 extraction/apk_extract_features.py --apk $APK_FILE --outdir $BUILDING_QUEUE --logdir $LOGS_DIR
+        /usr/bin/time -f "$APK_FILE Tempo decorrido Extracao = %e segundos, CPU = %P, Memoria = %M KiB" -a -o $LOGS_DIR/stats-extraction.txt python3 extraction/apk_extract_features.py --apk $APK_FILE --outdir $BUILDING_QUEUE --logdir $LOGS_DIR
  
         if [ -f $BUILDING_QUEUE/$APK_FILE_NAME.csv ]
         then

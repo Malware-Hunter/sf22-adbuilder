@@ -39,21 +39,19 @@ do
         # splitar nome do arquivo
         DIR_ARQUIVO=$(echo $FILE | cut -d'.' -f1)
         NOME_ARQUIVO=$(echo $DIR_ARQUIVO | cut -d'/' -f3)
-
-        # tamanho do arquivo em bytes
-        TAMANHO_ARQUIVO=$(stat -c%s $FILE)
         
         if [ ! -f $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv ]
         then
             #python3 ./building/dataset_geration.py --indir $DIR_ARQUIVO.csv --outdir $FILA_DE_BUILDING/Clean/ &>> $LOG_DIR/stats-$TS/Geration-$TS.log
-            /usr/bin/time -f "$NOME_ARQUIVO Tempo decorrido do Tratamento e Geração do CSV = %e segundos, CPU = %P, Memoria = %M KiB, Tamanho = $TAMANHO_ARQUIVO bytes" -a -o $LOG_DIR/stats-$TS/stats-Geration python3 ./building/dataset_geration.py --indir $DIR_ARQUIVO.csv --outdir $FILA_DE_BUILDING/Clean/ &
+            /usr/bin/time -f "$NOME_ARQUIVO Tempo decorrido do Tratamento e Geração do CSV = %e segundos, CPU = %P, Memoria = %M KiB" -a -o $LOG_DIR/stats-$TS/stats-Geration.txt python3 ./building/dataset_geration.py --indir $DIR_ARQUIVO.csv --outdir $FILA_DE_BUILDING/Clean/ &
         else
             if [ -f $FILA_DE_BUILDING/$NOME_ARQUIVO.csv.labeled ] && [ ! -f $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv.cleaned ]
             then
                 #python3 ./building/concat_dataset.py --incsv $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv --inlabeled $FILA_DE_BUILDING/$NOME_ARQUIVO.csv.labeled --outdir $FILA_DE_BUILDING/Final/  &>> $LOG_DIR/stats-$TS/Concat-$TS.log
-                /usr/bin/time -f "$NOME_ARQUIVO Tempo decorrido da Concatenação do CSV = %e segundos, CPU = %P, Memoria = %M KiB Tamanho = $TAMANHO_ARQUIVO bytes" -a -o $LOG_DIR/stats-$TS/stats-Concat python3 ./building/concat_dataset.py --incsv $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv --inlabeled $FILA_DE_BUILDING/$NOME_ARQUIVO.csv.labeled --outdir $FILA_DE_BUILDING/Final/ &
+                /usr/bin/time -f "$NOME_ARQUIVO Tempo decorrido da Concatenação do CSV = %e segundos, CPU = %P, Memoria = %M KiB" -a -o $LOG_DIR/stats-$TS/stats-Concat.txt python3 ./building/concat_dataset.py --incsv $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv --inlabeled $FILA_DE_BUILDING/$NOME_ARQUIVO.csv.labeled --outdir $FILA_DE_BUILDING/Final/ &
                 # PID do processo de concatenacao, para o building esperar esse PID para matar os processos
-                PID_CONCAT=$!
+                PID_CONCAT=$$
+                wait
                 touch $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv.cleaned
                 COUNTER=$((COUNTER+1))               
             fi
