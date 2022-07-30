@@ -13,6 +13,6 @@ TS=$(date +%Y%m%d%H%M%S)
 for NEXT in $(seq 1 $N_PARALLEL_EXTRACTORS)
 do
     [ -d $LOG_DIR/stats-$TS-$CONTADOR ] || { mkdir -p $LOG_DIR/stats-$TS-$CONTADOR; }
-    bash -x ./extraction/run_apk_extraction.sh $EXTRACTION_QUEUE $BUILDING_QUEUE $LOG_DIR/stats-$TS-$CONTADOR &> $LOG_DIR/extraction-$TS-$CONTADOR.log &
+    bash -x ./extraction/run_apk_extraction.sh $EXTRACTION_QUEUE $BUILDING_QUEUE $LOG_DIR/stats-$TS-$CONTADOR $CONTADOR &> $LOG_DIR/extraction-$TS-$CONTADOR.log &
     CONTADOR=$((CONTADOR+1))
 done

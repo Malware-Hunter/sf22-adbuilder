@@ -19,7 +19,6 @@ if [ $TAMANHO -eq 0 ]; then
     cp $SHA256 $FILA_DE_LABELLING/500_VT_aa_Analysis/
     # pegar o nome do arquivo
     NOME_ARQ=$(basename $SHA256)
-    echo "Nome do SHA256>> $NOME_ARQ"
     mv $FILA_DE_LABELLING/500_VT_aa_Analysis/$NOME_ARQ $FILA_DE_LABELLING/500_VT_aa_Analysis/500_VT_aa
 else
     split -l $TAMANHO $SHA256 $FILA_DE_LABELLING/500_VT_

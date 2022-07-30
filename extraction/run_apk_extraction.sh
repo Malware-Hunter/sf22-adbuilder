@@ -1,10 +1,11 @@
 #!/bin/bash
 
-[ -d $1 ] && [ -d $2 ] && [ -d $3 ] || { echo "Uso: $0 <path_extraction_queue> <path_building_queue> <path_logs>"; exit; }
+[ -d $1 ] && [ -d $2 ] && [ -d $3 ] && [ $4 ] || { echo "Uso: $0 <path_extraction_queue> <path_building_queue> <path_logs> <counter>"; exit; }
 
 EXTRACTION_QUEUE=$1
 BUILDING_QUEUE=$2
 LOGS_DIR=$3
+CONTADOR=$4
 
 while [ 1 ]
 do
@@ -24,9 +25,11 @@ do
  
         # pega nome do APK sem PATH e sem extensao
         APK_FILE_NAME=$(echo $APK_FILE | sed 's/^.*\///;s/\..*$//')
- 
+
+
+
         # extrai as caracteristicas do APK e gera estatisticas
-        /usr/bin/time -f "$APK_FILE Tempo decorrido Extracao = %e segundos, CPU = %P, Memoria = %M KiB" -a -o $LOGS_DIR/stats-extraction.txt python3 extraction/apk_extract_features.py --apk $APK_FILE --outdir $BUILDING_QUEUE --logdir $LOGS_DIR
+        /usr/bin/time -f "$APK_FILE Tempo decorrido Extracao = %e segundos, CPU = %P, Memoria = %M KiB" -a -o $LOGS_DIR/stats-extraction-$CONTADOR.txt python3 extraction/apk_extract_features.py --apk $APK_FILE --outdir $BUILDING_QUEUE --logdir $LOGS_DIR
  
         if [ -f $BUILDING_QUEUE/$APK_FILE_NAME.csv ]
         then
