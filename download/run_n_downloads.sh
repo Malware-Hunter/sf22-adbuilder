@@ -4,6 +4,7 @@
 
 DOWNLOAD_QUEUE=$2
 N_PARALLEL_DOWNLOADS=$3
+EXTRACTION_QUEUE=$4
 
 # excluir arquivos moto_ que já foram baixados
 for MOTO in $DOWNLOAD_QUEUE/moto_*
@@ -27,11 +28,15 @@ fi
 TS=$(date +%Y%m%d%H%M%S)
 COUNTER=1
 LOG_DIR=$5
+
+# número de linhas do arquivo de sha256
+N_LINES=$(wc -l "$1" | awk '{ print $1 }')
+
+
 [ -d $LOG_DIR ] || { mkdir -p $LOG_DIR; }
 for APK_LIST_FILE in $DOWNLOAD_QUEUE/moto_*
 do
     [ -d $LOG_DIR/stats-$TS-$COUNTER ] || { mkdir -p $LOG_DIR/stats-$TS-$COUNTER; }
-    ./download/run_apk_download.sh $APK_LIST_FILE $4 $LOG_DIR/stats-$TS-$COUNTER &> $LOG_DIR/download-$TS-$COUNTER.log &
-    COUNTER=$((COUNTER+1))
+    ./download/run_apk_download.sh $APK_LIST_FILE $DOWNLOAD_QUEUE $EXTRACTION_QUEUE $LOG_DIR/stats-$TS-$COUNTER &> $LOG_DIR/download-$TS-$COUNTER.log &
+	COUNTER=$((COUNTER+1))
 done
-

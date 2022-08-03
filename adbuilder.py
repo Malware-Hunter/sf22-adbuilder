@@ -2,6 +2,8 @@
 import argparse
 import os
 from pathlib import Path
+import time
+import pandas as pd
 
 def create_directories(_dirs):
     for _dir in _dirs.keys():
@@ -52,13 +54,15 @@ def main():
             for line in file:
                 if line.strip():
                     var_APKs += 1
-    elif args.labelling:
-        var_APKs = 0
+    if args.labelling:
+        var_APKs_2 = 0
         with open(args.labelling, 'r') as file:
             for line in file:
                 if line.strip():
-                    var_APKs += 1
+                    var_APKs_2 += 1
     ##############################################
+
+    start = time.time()
 
     if args.download and args.n_download_queues:
         os.system('./download/run_n_downloads.sh {} {} {} {} {}'.format(args.download, queues['download'], args.n_download_queues, queues['extraction'], logs['download']))
@@ -69,16 +73,75 @@ def main():
     if args.feature_extraction and args.n_feature_extraction_queues: 
         os.system('./extraction/run_n_extractions.sh {} {} {} {}'.format(args.n_feature_extraction_queues, queues['extraction'], queues['building'], logs['extraction']))    
     
-    if args.building:
-        os.system('./building/run_building.sh {} {} {} {}'.format(var_APKs, queues['labelling'], queues['building'], logs['building']))
+    if args.building and args.download:
+        os.system('./building/run_building.sh {} {} {} {} &'.format(var_APKs, queues['labelling'], queues['building'], logs['building']))
+    
+    elif args.building and args.labelling:
+            os.system('./building/run_building.sh {} {} {} {} &'.format(var_APKs_2, queues['labelling'], queues['building'], logs['building']))
 
-    if args.building_only:
-        os.system('./building/run_building.sh {} {} {} {}'.format(-1, queues['labelling'], queues['building'], logs['building']))
 
+    counter_while = 1
+    while True:
+        # informações do módulo de download
+        download_count = 0
+        dir_download = "./queues/download"
+        for path in os.listdir(dir_download):
+            if os.path.isfile(os.path.join(dir_download, path)):
+                if path.endswith(".apk.downloaded"):
+                    download_count += 1
+        # informações do módulo de extração
+        extraction_count = 0
+        dir_extraction = "./queues/extraction"
+        for path in os.listdir(dir_extraction):
+            if os.path.isfile(os.path.join(dir_extraction, path)):
+                if path.endswith(".apk.extracted"):
+                    extraction_count += 1
+        # informações do módulo de rotulação
+        labelling_count = 0
+        dir_labelling = "./queues/building"
+        for path in os.listdir(dir_labelling):
+            if os.path.isfile(os.path.join(dir_labelling, path)):
+                if path.endswith(".csv.labeled"):
+                    labelling_count += 1
+        # informações do módulo de building
+        building_count = 0
+        dir_building = "./queues/building/Clean"
+        try:
+            for path in os.listdir(dir_building):
+                if os.path.isfile(os.path.join(dir_building, path)):
+                    if path.endswith(".csv.cleaned"):
+                        building_count += 1
+        except:
+            ''
 
-    #if args.building and args.download:
-    #    os.system('./building/run_building.sh {} {} {} {}'.format(queues['labelling'], queues['extraction'], queues['building'], logs['building']))
-    #    os.system('./extraction/run_verify.sh {} {}'.format(args.download, queues['building']))
+        print("\n***** Status de Execução", counter_while,"*****\n")
+        if args.download and args.n_download_queues:
+            print("Download: {}/{}".format(download_count, var_APKs))
+        if args.labelling and args.apikeys:
+            print("Extraction: {}/{}".format(extraction_count, var_APKs))
+        if args.feature_extraction and args.n_feature_extraction_queues:
+            print("Labelling: {}/{}".format(labelling_count, var_APKs_2))
+        if args.building:
+            print("Building: {}/{}".format(building_count, var_APKs))
+
+        dir_dataset = "./queues/building/Final/MotoDroid_dataset.csv"
+        try:
+            if os.path.isfile(dir_dataset):
+                if os.path.getsize(dir_dataset) > 0:
+                    df = pd.read_csv(dir_dataset)
+                    print("\n*** Dataset em construção ***\nNúmero de amostras: {}\nNúmero de características {}\nTamanho do dataset: {} bytes\n\n".format(len(df), len(df.columns), os.path.getsize(dir_dataset)))
+        except:
+            pass
+
+        if building_count == var_APKs:
+            break
+        
+        counter_while += 1
+        time.sleep(10)
+
+    end = time.time()
+    print("\n***** ADBuilder *****\nExecutado em {} segundos.\n".format(end - start))
+
     ##############################################
 
 main()

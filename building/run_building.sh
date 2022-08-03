@@ -30,6 +30,7 @@ done
 # excluir outros possíveis arquivos antigos
 #rm -f $FILA_DE_BUILDING/*.csv.OK
 
+
 COUNTER=0
 while [ 1 ]
 do
@@ -43,12 +44,14 @@ do
         if [ ! -f $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv ]
         then
             #python3 ./building/dataset_geration.py --indir $DIR_ARQUIVO.csv --outdir $FILA_DE_BUILDING/Clean/ &>> $LOG_DIR/stats-$TS/Geration-$TS.log
-            /usr/bin/time -f "$NOME_ARQUIVO Tempo decorrido do Tratamento e Geração do CSV = %e segundos, CPU = %P, Memoria = %M KiB" -a -o $LOG_DIR/stats-$TS/stats-Geration.txt python3 ./building/dataset_geration.py --indir $DIR_ARQUIVO.csv --outdir $FILA_DE_BUILDING/Clean/ &
+            #/usr/bin/time -f "$NOME_ARQUIVO Tempo decorrido do Tratamento e Geração do CSV = %e segundos, CPU = %P, Memoria = %M KiB" -a -o $LOG_DIR/stats-$TS/stats-Geration.txt python3 ./building/dataset_geration.py --indir $DIR_ARQUIVO.csv --outdir $FILA_DE_BUILDING/Clean/ &
+            /usr/bin/time -f "$NOME_ARQUIVO Tempo decorrido do Tratamento e Geração do CSV (%%e) = %e segundos, Tempo (%%E) = %E segundos, CPU ((%%U + %%S) / %%E) = %P, CPU nível usuário (%%U) = %U segundos, CPU nível kernel (%%S) = %S segundos" -a -o $LOG_DIR/stats-$TS/stats-Geration.txt python3 ./building/dataset_geration.py --indir $DIR_ARQUIVO.csv --outdir $FILA_DE_BUILDING/Clean/ &
         else
             if [ -f $FILA_DE_BUILDING/$NOME_ARQUIVO.csv.labeled ] && [ ! -f $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv.cleaned ]
             then
                 #python3 ./building/concat_dataset.py --incsv $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv --inlabeled $FILA_DE_BUILDING/$NOME_ARQUIVO.csv.labeled --outdir $FILA_DE_BUILDING/Final/  &>> $LOG_DIR/stats-$TS/Concat-$TS.log
-                /usr/bin/time -f "$NOME_ARQUIVO Tempo decorrido da Concatenação do CSV = %e segundos, CPU = %P, Memoria = %M KiB" -a -o $LOG_DIR/stats-$TS/stats-Concat.txt python3 ./building/concat_dataset.py --incsv $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv --inlabeled $FILA_DE_BUILDING/$NOME_ARQUIVO.csv.labeled --outdir $FILA_DE_BUILDING/Final/ &
+                #/usr/bin/time -f "$NOME_ARQUIVO Tempo decorrido da Concatenação do CSV = %e segundos, CPU = %P, Memoria = %M KiB" -a -o $LOG_DIR/stats-$TS/stats-Concat.txt python3 ./building/concat_dataset.py --incsv $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv --inlabeled $FILA_DE_BUILDING/$NOME_ARQUIVO.csv.labeled --outdir $FILA_DE_BUILDING/Final/ &
+                /usr/bin/time -f "$NOME_ARQUIVO Tempo decorrido da Concatenação do CSV (%%e) = %e segundos, Tempo (%%E) = %E segundos, CPU ((%%U + %%S) / %%E) = %P, CPU nível usuário (%%U) = %U segundos, CPU nível kernel (%%S) = %S segundos" -a -o $LOG_DIR/stats-$TS/stats-Concat.txt python3 ./building/concat_dataset.py --incsv $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv --inlabeled $FILA_DE_BUILDING/$NOME_ARQUIVO.csv.labeled --outdir $FILA_DE_BUILDING/Final/ &
                 # PID do processo de concatenacao, para o building esperar esse PID para matar os processos
                 PID_CONCAT=$$
                 wait
@@ -60,7 +63,7 @@ do
     done
 
     # contagem de APKs processados
-    echo -e "\nNúmero de APKs já processados: $COUNTER / $N_APKS\n"
+    #echo -e "\nNúmero de APKs já processados: $COUNTER / $N_APKS\n"
 
     # verificar se todos os CSVs já foram processados
     if [ $N_APKS -eq $COUNTER ]

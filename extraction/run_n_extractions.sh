@@ -10,6 +10,8 @@ LOG_DIR=$4
 [ -d $LOG_DIR ] || { mkdir -p $LOG_DIR; }
 N_PARALLEL_EXTRACTORS=$1
 TS=$(date +%Y%m%d%H%M%S)
+
+
 for NEXT in $(seq 1 $N_PARALLEL_EXTRACTORS)
 do
     [ -d $LOG_DIR/stats-$TS-$CONTADOR ] || { mkdir -p $LOG_DIR/stats-$TS-$CONTADOR; }

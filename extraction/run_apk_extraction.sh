@@ -27,10 +27,11 @@ do
         APK_FILE_NAME=$(echo $APK_FILE | sed 's/^.*\///;s/\..*$//')
 
 
-
         # extrai as caracteristicas do APK e gera estatisticas
-        /usr/bin/time -f "$APK_FILE Tempo decorrido Extracao = %e segundos, CPU = %P, Memoria = %M KiB" -a -o $LOGS_DIR/stats-extraction-$CONTADOR.txt python3 extraction/apk_extract_features.py --apk $APK_FILE --outdir $BUILDING_QUEUE --logdir $LOGS_DIR
- 
+        #/usr/bin/time -f "$APK_FILE Tempo decorrido Extracao = %e segundos, CPU = %P, Memoria = %M KiB" -a -o $LOGS_DIR/stats-extraction-$CONTADOR.txt python3 extraction/apk_extract_features.py --apk $APK_FILE --outdir $BUILDING_QUEUE --logdir $LOGS_DIR
+        /usr/bin/time -f "$APK_FILE Tempo decorrido Extracao (%%e) = %e segundos, Tempo (%%E) = %E segundos, CPU ((%%U + %%S) / %%E) = %P, CPU nível usuário (%%U) = %U segundos, CPU nível kernel (%%S) = %S segundos" -a -o $LOGS_DIR/stats-extraction-$CONTADOR.txt python3 extraction/apk_extract_features.py --apk $APK_FILE --outdir $BUILDING_QUEUE --logdir $LOGS_DIR
+
+
         if [ -f $BUILDING_QUEUE/$APK_FILE_NAME.csv ]
         then
             # sinaliza os processos de building que o CSV ja foi todo gravado

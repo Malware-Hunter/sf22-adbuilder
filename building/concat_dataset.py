@@ -36,24 +36,24 @@ def main():
         moto_df = pd.read_csv(outdir + 'MotoDroid_dataset.csv')
 
 
-    start = time.time()
+    #start = time.time()
 
     # concatenando os arquivos de entrada
     dataset = pd.concat([moto_df, pd.read_csv(incsv)], ignore_index=True)
     dataset.loc[len(dataset)-1, 'CLASS'] = labeled['MALICIOUS'][0]
     dataset.fillna(0, inplace=True)
-    start_test = time.time()
+    #start_test = time.time()
     # transformar colunas float em int
     for col in dataset:
         if dataset[col].dtype == "float64":
             dataset[col] = dataset[col].astype(int)
 
-    end_test = time.time()
+    #end_test = time.time()
     #print("Tempo para transformar colunas em INT: ", end_test - start_test, " segundos")
     #dataset.to_csv(outdir+"MotoDroid_dataset.csv", index=False, encoding='utf-8-sig')
     dataset.to_csv(outdir + "MotoDroid_dataset.csv", index=False, encoding='utf-8-sig')
     
-    end = time.time()
+    #end = time.time()
     #print("Tempo de concatenação do CSV " + name + ": ", end - start, "segundos")
     #print("\n")
 main()
