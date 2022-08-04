@@ -65,20 +65,17 @@ def main():
     start = time.time()
 
     if args.download and args.n_download_queues:
-        os.system('./download/run_n_downloads.sh {} {} {} {} {}'.format(args.download, queues['download'], args.n_download_queues, queues['extraction'], logs['download']))
+        os.system('./download/run_n_downloads.sh {} {} {} {} {} &'.format(args.download, queues['download'], args.n_download_queues, queues['extraction'], logs['download']))
     
     if args.labelling and args.apikeys:
         os.system('./labelling/run_n_labellings.sh {} {} {} {} {}'.format(args.labelling, args.apikeys, queues['labelling'], queues['building'], logs['labelling']))
     
     if args.feature_extraction and args.n_feature_extraction_queues: 
-        os.system('./extraction/run_n_extractions.sh {} {} {} {}'.format(args.n_feature_extraction_queues, queues['extraction'], queues['building'], logs['extraction']))    
+        os.system('./extraction/run_n_extractions.sh {} {} {} {} {} &'.format(args.n_feature_extraction_queues, queues['download'], queues['extraction'], queues['building'], logs['extraction']))    
     
     if args.building and args.download:
-        os.system('./building/run_building.sh {} {} {} {} &'.format(var_APKs, queues['labelling'], queues['building'], logs['building']))
+        os.system('./building/run_building.sh {} {} {} &'.format(queues['labelling'], queues['building'], logs['building']))
     
-    elif args.building and args.labelling:
-            os.system('./building/run_building.sh {} {} {} {} &'.format(var_APKs_2, queues['labelling'], queues['building'], logs['building']))
-
 
     counter_while = 1
     while True:
@@ -114,15 +111,29 @@ def main():
         except:
             ''
 
+        building_count_OK = 0
+        dir_building_OK = "./queues/building"
+        try:
+            for path in os.listdir(dir_building_OK):
+                if os.path.isfile(os.path.join(dir_building_OK, path)):
+                    if path.endswith(".csv.OK"):
+                        building_count_OK += 1
+        except:
+            ''
+
         print("\n***** Status de Execução", counter_while,"*****\n")
         if args.download and args.n_download_queues:
             print("Download: {}/{}".format(download_count, var_APKs))
-        if args.labelling and args.apikeys:
-            print("Extraction: {}/{}".format(extraction_count, var_APKs))
         if args.feature_extraction and args.n_feature_extraction_queues:
+            print("Extraction: {}/{}".format(extraction_count, var_APKs))
+        if args.labelling and args.apikeys:
             print("Labelling: {}/{}".format(labelling_count, var_APKs_2))
-        if args.building:
+        if args.building and args.download:
             print("Building: {}/{}".format(building_count, var_APKs))
+        elif args.building and args.labelling:
+            print("Building: {}/{}".format(building_count, var_APKs_2))
+        elif args.building:
+            print("Building: {}/{}".format(building_count, building_count_OK))
 
         dir_dataset = "./queues/building/Final/MotoDroid_dataset.csv"
         try:
@@ -133,8 +144,26 @@ def main():
         except:
             pass
 
-        if building_count == var_APKs:
-            break
+        if args.download and args.building:
+            try:
+                if building_count == var_APKs:
+                    break
+            except:
+                pass
+        
+        elif args.labelling and args.building:
+            try:
+                if building_count == var_APKs_2:
+                    break
+            except:
+                pass
+
+        elif args.building:    
+            try:
+                if building_count_OK == building_count:
+                    break
+            except:
+                pass
         
         counter_while += 1
         time.sleep(10)

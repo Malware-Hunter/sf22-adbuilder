@@ -29,14 +29,29 @@ TS=$(date +%Y%m%d%H%M%S)
 COUNTER=1
 LOG_DIR=$5
 
-# número de linhas do arquivo de sha256
-N_LINES=$(wc -l "$1" | awk '{ print $1 }')
-
-
 [ -d $LOG_DIR ] || { mkdir -p $LOG_DIR; }
 for APK_LIST_FILE in $DOWNLOAD_QUEUE/moto_*
 do
     [ -d $LOG_DIR/stats-$TS-$COUNTER ] || { mkdir -p $LOG_DIR/stats-$TS-$COUNTER; }
     ./download/run_apk_download.sh $APK_LIST_FILE $DOWNLOAD_QUEUE $EXTRACTION_QUEUE $LOG_DIR/stats-$TS-$COUNTER &> $LOG_DIR/download-$TS-$COUNTER.log &
 	COUNTER=$((COUNTER+1))
+done
+
+while [ 1 ]
+do
+	# verificar se todos os APKs foram baixados
+	COUNTER_FINISHED=0
+	# verificar se existe arquivo .finished na pasta de download
+	for FINISHED in $(find $DOWNLOAD_QUEUE -type f -name \*.finished)
+	do
+		COUNTER_FINISHED=$((COUNTER_FINISHED+1))
+	done
+
+	if [ $COUNTER_FINISHED -eq $((COUNTER-1)) ]
+	then
+		touch $EXTRACTION_QUEUE/download.finished
+		exit
+	fi
+
+	sleep 10
 done

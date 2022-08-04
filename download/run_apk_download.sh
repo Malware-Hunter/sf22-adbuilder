@@ -1,9 +1,14 @@
 [ $1 ] && [ -f $1 ] && [ $2 ] && [ -d $2 ] && [ $3 ] && [ -d $3 ] && [ $4 ] && [ -d $4 ] || { echo "Usage: $0 <APK_SHA256_list.txt> <path_download_queue> <path_extraction_queue> <path_logs>"; exit; }
 
+SHA256_LIST=$1
 DOWNLOAD_QUEUE=$2
 EXTRACTION_QUEUE=$3
 LOG_DIR=$4
 APK_LIST_FILE=$(echo $1 | sed 's/^.*\///;s/\..*$//')
+
+# pegar última linha (sha256) do arquivo
+LAST_LINE=$(tail -n 1 $SHA256_LIST)
+
 while read SHA256
 do  
 	echo -n "Realizando o download do APK $SHA256 ... "
@@ -18,4 +23,10 @@ do
 	else
 	    echo "ERROR"
 	fi
-done < $1
+
+	# verificar se o último APK do arquivo já foi baixado
+	if [ -f $DOWNLOAD_QUEUE/$LAST_LINE.apk.downloaded ]
+	then
+		touch $DOWNLOAD_QUEUE/$LAST_LINE.apk.finished
+	fi
+done < $SHA256_LIST

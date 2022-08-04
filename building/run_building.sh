@@ -1,10 +1,9 @@
 #!/bin/bash
-[ $1 ] && [ $2 ] && [ -d $2 ] && [ $3 ] && [ -d $3 ] && [ $4 ] && [ -d $4 ] || { echo "Usage: <n_APKs> <path_labelling_queue> <path_building_queue> <path_logs_building>"; exit; }
+[ $1 ] && [ -d $1 ] && [ $2 ] && [ -d $2 ] && [ $3 ] && [ -d $3 ] || { echo "Usage: <path_labelling_queue> <path_building_queue> <path_logs_building>"; exit; }
 
-N_APKS=$1
-FILA_DE_LABELLING=$2
-FILA_DE_BUILDING=$3
-LOG_DIR=$4
+FILA_DE_LABELLING=$1
+FILA_DE_BUILDING=$2
+LOG_DIR=$3
 
 
 [ -d $FILA_DE_BUILDING/Clean ] || { mkdir -p $FILA_DE_BUILDING/Clean; }
@@ -59,16 +58,15 @@ do
                 COUNTER=$((COUNTER+1))               
             fi
         fi
-
     done
 
-    # contagem de APKs processados
-    #echo -e "\nNúmero de APKs já processados: $COUNTER / $N_APKS\n"
+    # contar quantos arquivos .extracted existem na fila de extração
+    EXT_COUNT=$(find $FILA_DE_EXTRACTION -type f -name \*.apk.extracted | wc -l)
 
     # verificar se todos os CSVs já foram processados
-    if [ $N_APKS -eq $COUNTER ]
+    if [ -f $FILA_DE_BUILDING/extraction.finished ] && [ $EXT_COUNT -eq $COUNTER ]
     then
-        echo -e "Esperando PID $PID_CONCAT para encerrar o programa..."
+        #echo -e "Esperando PID $PID_CONCAT para encerrar o programa..."
         #esperar o PID do processo atual
         wait $PID_CONCAT
         echo -e "\nTodos os CSVs já foram processados!\nDataset gerado!\n\nMatando todos os processos..."  
