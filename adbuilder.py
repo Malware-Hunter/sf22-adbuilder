@@ -1,9 +1,18 @@
 #!/usr/bin/python3
 import argparse
+from dataclasses import asdict
 import os
 from pathlib import Path
 import time
 import pandas as pd
+import sys
+
+from colorama import init
+init(strip=not sys.stdout.isatty()) # strip colors if stdout is redirected
+from termcolor import cprint 
+from pyfiglet import figlet_format
+
+cprint(figlet_format('AD Builder!', font='starwars'), 'cyan', attrs=['bold', 'dark','blink'])
 
 def create_directories(_dirs):
     for _dir in _dirs.keys():
@@ -27,8 +36,6 @@ def main():
     parser.add_argument('--labelling', type=str, default=False, help='Virus Total labelling. TXT file with a list of APKs SHA256 to download.')
     parser.add_argument('--apikeys', '-api', type=str, default=False, help='TXT file with a VirusTotal\'s list of API Keys to analysis.')
     parser.add_argument('--building', help='Building the dataset.', action="store_true")
-    parser.add_argument('--building_only', help='Only Building the dataset.', action="store_true")
-
 
     args = parser.parse_args()
     
@@ -76,9 +83,16 @@ def main():
     if args.building and args.download:
         os.system('./building/run_building.sh {} {} {} &'.format(queues['labelling'], queues['building'], logs['building']))
     
+    # remover arquivo de sinalização do building anterior
+    dir_finished = "./queues/building"
+    for path in os.listdir(dir_finished):
+        if os.path.isfile(os.path.join(dir_finished, path)):
+            if path.endswith("building.finished"):
+                os.remove(os.path.join(dir_finished, path))
 
     counter_while = 1
-    while True:
+    finished = 0
+    while finished == 0:
         # informações do módulo de download
         download_count = 0
         dir_download = "./queues/download"
@@ -144,26 +158,16 @@ def main():
         except:
             pass
 
-        if args.download and args.building:
-            try:
-                if building_count == var_APKs:
-                    break
-            except:
-                pass
-        
-        elif args.labelling and args.building:
-            try:
-                if building_count == var_APKs_2:
-                    break
-            except:
-                pass
-
-        elif args.building:    
-            try:
-                if building_count_OK == building_count:
-                    break
-            except:
-                pass
+        dir_building_finished = "./queues/building"
+        try:
+            for path in os.listdir(dir_building_finished):
+                if os.path.isfile(os.path.join(dir_building_finished, path)):
+                    if path.endswith("building.finished"):
+                        # matar todos os processos
+                        os.system('./scripts/kill_all.sh')
+                        finished = 1
+        except:
+            pass
         
         counter_while += 1
         time.sleep(10)

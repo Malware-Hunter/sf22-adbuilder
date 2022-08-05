@@ -13,22 +13,12 @@ LOG_DIR=$3
 TS=$(date +%Y%m%d%H%M%S)
 [ -d $LOG_DIR/stats-$TS ] || { mkdir -p $LOG_DIR/stats-$TS; }
 
-# verifica se existe arquivos antigos que já foram limpados
-for CLEANED in $(find $FILA_DE_BUILDING/Clean/ -type f -name \*.csv.cleaned)
-do
-    # splitar nome do arquivo
-    DIR_CLEANED=$(echo $CLEANED | cut -d'.' -f1)
-    NAME_CLEANED=$(echo $DIR_CLEANED | cut -d'/' -f4)
-    
-    # exclui arquivos antigos
-    if [ -f $FILA_DE_BUILDING/$NAME_CLEANED.csv.OK ]; then
-        rm -f $FILA_DE_BUILDING/$NAME_CLEANED.csv.OK
-        continue
-    fi
-done
-# excluir outros possíveis arquivos antigos
-#rm -f $FILA_DE_BUILDING/*.csv.OK
 
+# remover arquivos antigos .cleaned
+for FILE in $FILA_DE_BUILDING/Clean/*.cleaned
+do
+    rm $FILE
+done
 
 COUNTER=0
 while [ 1 ]
@@ -43,18 +33,18 @@ do
         if [ ! -f $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv ]
         then
             #python3 ./building/dataset_geration.py --indir $DIR_ARQUIVO.csv --outdir $FILA_DE_BUILDING/Clean/ &>> $LOG_DIR/stats-$TS/Geration-$TS.log
-            #/usr/bin/time -f "$NOME_ARQUIVO Tempo decorrido do Tratamento e Geração do CSV = %e segundos, CPU = %P, Memoria = %M KiB" -a -o $LOG_DIR/stats-$TS/stats-Geration.txt python3 ./building/dataset_geration.py --indir $DIR_ARQUIVO.csv --outdir $FILA_DE_BUILDING/Clean/ &
-            /usr/bin/time -f "$NOME_ARQUIVO Tempo decorrido do Tratamento e Geração do CSV (%%e) = %e segundos, Tempo (%%E) = %E segundos, CPU ((%%U + %%S) / %%E) = %P, CPU nível usuário (%%U) = %U segundos, CPU nível kernel (%%S) = %S segundos" -a -o $LOG_DIR/stats-$TS/stats-Geration.txt python3 ./building/dataset_geration.py --indir $DIR_ARQUIVO.csv --outdir $FILA_DE_BUILDING/Clean/ &
+            /usr/bin/time -f "$NOME_ARQUIVO Tempo decorrido do Tratamento e Geração do CSV = %e segundos, CPU = %P, Memoria = %M KiB" -a -o $LOG_DIR/stats-$TS/stats-Geration.txt python3 ./building/dataset_geration.py --indir $DIR_ARQUIVO.csv --outdir $FILA_DE_BUILDING/Clean/ &
         else
             if [ -f $FILA_DE_BUILDING/$NOME_ARQUIVO.csv.labeled ] && [ ! -f $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv.cleaned ]
             then
                 #python3 ./building/concat_dataset.py --incsv $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv --inlabeled $FILA_DE_BUILDING/$NOME_ARQUIVO.csv.labeled --outdir $FILA_DE_BUILDING/Final/  &>> $LOG_DIR/stats-$TS/Concat-$TS.log
-                #/usr/bin/time -f "$NOME_ARQUIVO Tempo decorrido da Concatenação do CSV = %e segundos, CPU = %P, Memoria = %M KiB" -a -o $LOG_DIR/stats-$TS/stats-Concat.txt python3 ./building/concat_dataset.py --incsv $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv --inlabeled $FILA_DE_BUILDING/$NOME_ARQUIVO.csv.labeled --outdir $FILA_DE_BUILDING/Final/ &
-                /usr/bin/time -f "$NOME_ARQUIVO Tempo decorrido da Concatenação do CSV (%%e) = %e segundos, Tempo (%%E) = %E segundos, CPU ((%%U + %%S) / %%E) = %P, CPU nível usuário (%%U) = %U segundos, CPU nível kernel (%%S) = %S segundos" -a -o $LOG_DIR/stats-$TS/stats-Concat.txt python3 ./building/concat_dataset.py --incsv $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv --inlabeled $FILA_DE_BUILDING/$NOME_ARQUIVO.csv.labeled --outdir $FILA_DE_BUILDING/Final/ &
+                /usr/bin/time -f "$NOME_ARQUIVO Tempo decorrido da Concatenação do CSV = %e segundos, CPU = %P, Memoria = %M KiB" -a -o $LOG_DIR/stats-$TS/stats-Concat.txt python3 ./building/concat_dataset.py --incsv $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv --inlabeled $FILA_DE_BUILDING/$NOME_ARQUIVO.csv.labeled --outdir $FILA_DE_BUILDING/Final/ &
                 # PID do processo de concatenacao, para o building esperar esse PID para matar os processos
                 PID_CONCAT=$$
                 wait
                 touch $FILA_DE_BUILDING/Clean/$NOME_ARQUIVO.csv.cleaned
+                # renomear arquivo de csv.OK para csv.OK.finished
+                mv $FILA_DE_BUILDING/$NOME_ARQUIVO.csv.OK $FILA_DE_BUILDING/$NOME_ARQUIVO.csv.OK.finished
                 COUNTER=$((COUNTER+1))               
             fi
         fi
@@ -69,8 +59,9 @@ do
         #echo -e "Esperando PID $PID_CONCAT para encerrar o programa..."
         #esperar o PID do processo atual
         wait $PID_CONCAT
-        echo -e "\nTodos os CSVs já foram processados!\nDataset gerado!\n\nMatando todos os processos..."  
-        ./scripts/kill_all.sh
+        echo -e "\nTodos os CSVs já foram processados!\nDataset gerado!\n"  
+        touch $FILA_DE_BUILDING/building.finished
+        #./scripts/kill_all.sh
         break
     fi
     sleep 10
