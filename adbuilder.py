@@ -135,7 +135,8 @@ def main():
         except:
             ''
 
-        print("\n***** Status de Execução", counter_while,"*****\n")
+        print("\n***** Status de Execução", counter_while,"*****")
+        print("Tempo decorrido: {} segundos".format(time.time() - start),"\n")
         if args.download and args.n_download_queues:
             print("Download: {}/{}".format(download_count, var_APKs))
         if args.feature_extraction and args.n_feature_extraction_queues:
