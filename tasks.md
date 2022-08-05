@@ -31,19 +31,13 @@
 
 ### Atividades Pendentes
  **PRIORIDADE**
-    - Fazer Lista de API Keys ser recebida de qualquer lugar sem nenhum problema;
-    - Gerar log usr/bin/time para concatenção. Falar sobre erro usr/bin/time; (Lucas)
     - Verificar os APKs corrompidos para matar processo, ao final; (Lucas e Vagner)
-    - Resolver FIXMEs e fazer testes; (Lucas, Vagner e Nicolas)
 
 **PRIORIDADE MENOR**
     - Fazer script.sh que liste todas as dependências atuais; (Lucas)
     - Configurar labelling para esperar por 24h???
-    - Criar um *--building_only* sem a variável vars_APKs; (Lucas)
     - Sinal de DEBUG; (Após tarefas prioritárias)
 
-**OPCIONAL**
-- Fazer letras personalizadas de tela inicial do MotoDroidBuilder;
 
 
 ### Atividades Realizadas
@@ -69,3 +63,9 @@
 - Resolver erro do APK não conter nenhuma características de um tipo, e.g., intents; (Lucas);
 - Teste de 100 APKs de 1MB >> 99% (1 APK corrompido);
 - Teste de 100 APKs de 5MB >> 100%;
+- Teste de 100 APKs de 10MB >> 100%;
+- Teste de 100 APKs de 10MB - 83MB >> 100%;
+- Fazer Lista de API Keys ser recebida de qualquer lugar sem nenhum problema; (Lucas)
+- Gerar log usr/bin/time para concatenção; (Lucas)
+- Resolver FIXMEs e fazer testes; (Lucas)
+- Fazer letras personalizadas de tela inicial do MotoDroidBuilder; (Lucas)
