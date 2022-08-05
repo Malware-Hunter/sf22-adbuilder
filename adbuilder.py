@@ -138,17 +138,35 @@ def main():
         print("\n***** Status de Execução", counter_while,"*****")
         print("Tempo decorrido: {} segundos".format(time.time() - start),"\n")
         if args.download and args.n_download_queues:
-            print("Download: {}/{}".format(download_count, var_APKs))
+            if download_count != var_APKs:
+                print("Download: {} APKs".format(download_count))
+            else:
+                cprint("Download: {}/{}".format(download_count, var_APKs), 'green', attrs=['bold'])
         if args.feature_extraction and args.n_feature_extraction_queues:
-            print("Extraction: {}/{}".format(extraction_count, var_APKs))
+            if extraction_count != var_APKs:
+                print("Extraction: {}/{}".format(extraction_count, var_APKs))
+            else:
+                cprint("Extraction: {}/{}".format(extraction_count, var_APKs), 'green', attrs=['bold'])
         if args.labelling and args.apikeys:
-            print("Labelling: {}/{}".format(labelling_count, var_APKs_2))
+            if labelling_count != var_APKs_2:
+                print("Labelling: {}/{}".format(labelling_count, var_APKs_2))
+            else:
+                cprint("Labelling: {}/{}".format(labelling_count, var_APKs_2), 'green', attrs=['bold'])
         if args.building and args.download:
-            print("Building: {}/{}".format(building_count, var_APKs))
+            if building_count != var_APKs:
+                print("Building: {}/{}".format(building_count, var_APKs))
+            else:
+                cprint("Building: {}/{}".format(building_count, var_APKs), 'green', attrs=['bold'])
         elif args.building and args.labelling:
-            print("Building: {}/{}".format(building_count, var_APKs_2))
+            if building_count_OK != var_APKs_2:
+                print("Building: {}/{}".format(building_count, var_APKs_2))
+            else:
+                cprint("Building: {}/{}".format(building_count, var_APKs_2), 'green', attrs=['bold'])
         elif args.building:
-            print("Building: {}/{}".format(building_count, building_count_OK))
+            if building_count != building_count_OK:
+                print("Building: {}/{}".format(building_count, building_count_OK))
+            else:
+                cprint("Building: {}/{}".format(building_count, building_count_OK), 'green', attrs=['bold'])
 
         dir_dataset = "./queues/building/Final/MotoDroid_dataset.csv"
         try:
@@ -174,7 +192,7 @@ def main():
         time.sleep(10)
 
     end = time.time()
-    print("\n***** ADBuilder *****\nExecutado em {} segundos.\n".format(end - start))
+    cprint("\n***** ADBuilder *****\nExecutado em {} segundos.\n".format(end - start), 'yellow', attrs=['bold'])
 
     ##############################################
 
