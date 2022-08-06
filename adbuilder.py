@@ -12,7 +12,7 @@ init(strip=not sys.stdout.isatty()) # strip colors if stdout is redirected
 from termcolor import cprint 
 from pyfiglet import figlet_format
 
-cprint(figlet_format('AD Builder!', font='starwars'), 'cyan', attrs=['bold', 'dark','blink'])
+cprint(figlet_format('AD Builder!', font='starwars'), 'yellow', attrs=['bold', 'dark','blink'])
 
 def create_directories(_dirs):
     for _dir in _dirs.keys():
@@ -135,11 +135,12 @@ def main():
         except:
             ''
 
-        print("\n***** Status de Execução", counter_while,"*****")
-        print("Tempo decorrido: {} segundos".format(time.time() - start),"\n")
+        cprint("\n***** Status de Execução {} *****".format(counter_while), 'yellow', attrs=['bold'])
+        cprint("Tempo decorrido: {} segundos".format(time.time() - start), 'yellow', attrs=['bold'])
+        print("\n")
         if args.download and args.n_download_queues:
             if download_count != var_APKs:
-                print("Download: {} APKs".format(download_count))
+                print("Download: {}/{}".format(download_count, var_APKs))
             else:
                 cprint("Download: {}/{}".format(download_count, var_APKs), 'green', attrs=['bold'])
         if args.feature_extraction and args.n_feature_extraction_queues:
@@ -182,8 +183,8 @@ def main():
             for path in os.listdir(dir_building_finished):
                 if os.path.isfile(os.path.join(dir_building_finished, path)):
                     if path.endswith("building.finished"):
-                        # matar todos os processos
-                        os.system('./scripts/kill_all.sh')
+                        # matar todos os processos sem aparecer na tela
+                        os.system('./scripts/kill_all.sh &> /dev/null &')
                         finished = 1
         except:
             pass
@@ -192,7 +193,7 @@ def main():
         time.sleep(10)
 
     end = time.time()
-    cprint("\n***** ADBuilder *****\nExecutado em {} segundos.\n".format(end - start), 'yellow', attrs=['bold'])
+    cprint("\n***** ADBuilder *****\nExecutado em {} segundos.\n".format(end - start), 'green', attrs=['bold'])
 
     ##############################################
 
