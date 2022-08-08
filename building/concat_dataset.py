@@ -27,13 +27,13 @@ def main():
     if os.path.isfile(inlabeled):
         labeled = pd.read_csv(inlabeled)
 
-   # verificando se existe MotoDroid_dataset.csv no diretório outdir
-    if not os.path.isfile(outdir + 'MotoDroid_dataset.csv'):
+   # verificando se existe ADBuilder_dataset.csv no diretório outdir
+    if not os.path.isfile(outdir + 'ADBuilder_dataset.csv'):
         # se não existir, cria o arquivo
         moto_df = pd.DataFrame(columns=['SHA256','NOME','PACOTE','API_MIN','API'])
-        moto_df.to_csv(outdir + 'MotoDroid_dataset.csv', index=False)
+        moto_df.to_csv(outdir + 'ADBuilder_dataset.csv', index=False)
     else:
-        moto_df = pd.read_csv(outdir + 'MotoDroid_dataset.csv')
+        moto_df = pd.read_csv(outdir + 'ADBuilder_dataset.csv')
 
 
     #start = time.time()
@@ -50,8 +50,8 @@ def main():
 
     #end_test = time.time()
     #print("Tempo para transformar colunas em INT: ", end_test - start_test, " segundos")
-    #dataset.to_csv(outdir+"MotoDroid_dataset.csv", index=False, encoding='utf-8-sig')
-    dataset.to_csv(outdir + "MotoDroid_dataset.csv", index=False, encoding='utf-8-sig')
+    #dataset.to_csv(outdir+"ADBuilder_dataset.csv", index=False, encoding='utf-8-sig')
+    dataset.to_csv(outdir + "ADBuilder_dataset.csv", index=False, encoding='utf-8-sig')
     
     #end = time.time()
     #print("Tempo de concatenação do CSV " + name + ": ", end - start, "segundos")

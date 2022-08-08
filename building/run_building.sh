@@ -17,7 +17,7 @@ TS=$(date +%Y%m%d%H%M%S)
 # remover arquivos antigos .cleaned
 for FILE in $FILA_DE_BUILDING/Clean/*.cleaned
 do
-    rm $FILE
+    rm $FILE > /dev/null 2>&1
 done
 
 COUNTER=0
@@ -58,7 +58,7 @@ do
     then
         #echo -e "Esperando PID $PID_CONCAT para encerrar o programa..."
         #esperar o PID do processo atual
-        wait $PID_CONCAT
+        wait $PID_CONCAT > /dev/null 2>&1
         echo -e "\nTodos os CSVs já foram processados!\nDataset gerado!\n"  
         touch $FILA_DE_BUILDING/building.finished
         #./scripts/kill_all.sh

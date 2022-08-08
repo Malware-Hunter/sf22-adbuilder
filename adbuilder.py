@@ -26,7 +26,6 @@ def create_queues(_queues):
 
 def main():
     
-    #print("\n***** MotoDroid Builder *****\n\nExecutando...")
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--download', type=str, default=False, help='TXT file with a list of APKs SHA256 to download.')
@@ -169,7 +168,7 @@ def main():
             else:
                 cprint("Building: {}/{}".format(building_count, building_count_OK), 'green', attrs=['bold'])
 
-        dir_dataset = "./queues/building/Final/MotoDroid_dataset.csv"
+        dir_dataset = "./queues/building/Final/ADBuilder_dataset.csv"
         try:
             if os.path.isfile(dir_dataset):
                 if os.path.getsize(dir_dataset) > 0:
@@ -184,7 +183,7 @@ def main():
                 if os.path.isfile(os.path.join(dir_building_finished, path)):
                     if path.endswith("building.finished"):
                         # matar todos os processos sem aparecer na tela
-                        os.system('./scripts/kill_all.sh &> /dev/null &')
+                        os.system('./scripts/kill_all.sh > /dev/null 2>&1')
                         finished = 1
         except:
             pass

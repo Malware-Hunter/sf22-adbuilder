@@ -1,4 +1,4 @@
-<h1 align="center"> MotoDroidBuilder </h1>
+<h1 align="center"> ADBuilder </h1>
 <h5 align="left"> Ferramenta automatizada para gerar um dataset de malwares em Android. A ferramenta passa por todas as etapas, incluíndo: </h5>
 
 
@@ -7,7 +7,7 @@
 - [x] Rotulação dos Aplicativos;
 - [x] Geração do Dataset.
 
-[//]: # (MotoDroidBuilder: implementação completa e totalmente integrada da ferramenta. Todas as etapas e "firulas" devem estar incorporadas na ferramenta.)
+[//]: # (ADBuilder: implementação completa e totalmente integrada da ferramenta. Todas as etapas e "firulas" devem estar incorporadas na ferramenta.)
 
 [//]: # ()
 [//]: # (### Ideias para a ferramenta)
@@ -114,11 +114,11 @@ Caso prefira, você pode instalar as dependências individualmente utilizando os
 --feature_extraction, -fe = extrai características dos aplicativos.
 -npe (processos) = insira um número inteiro (e.g., 5) de processos de extração (por padrão é 1). 
 --labelling (lista_de_sha256.txt) = realiza a rotulação dos aplicativos obtidos pelo arquivo .txt fornecido.
--api (lista_de_keys_virustotal) = insira um arquivo com API keys do VirusTotal.
+-api (lista_de_keys_virustotal.txt) = insira um arquivo com API keys do VirusTotal.
 --building = gera o dataset final.
 ```
 
-[//]: # (Os parâmetros *--download* e *--labelling* recebem uma lista.txt contendo os sha256 dos APKs que se deseja baixar. Esta lista pode estar em qualquer lugar.)
+[//]: # (Os parâmetros *--download* e *--labelling* recebem uma lista.txt contendo os sha256 dos APKs que se deseja baixar e rotular, respectivamente. Estas listas podem estar em qualquer lugar.)
 
 [//]: # ()
 [//]: # (O parâmetro *-api* recebe uma lista.txt contendo as API Keys do VirusTotal. Esta lista pode estar em qualquer lugar.)
@@ -137,27 +137,27 @@ cd sf22_motodroid
 ```
 O seguinte comando executa todos módulos integrados. Basta passar os parâmetros que preferir:
 ```
-python3 mdbuilder.py --download sha256.txt -npd 2 -fe -npe 2 --labelling sha256.txt -api ./labelling/virustotal/API_Keys.txt --building
+python3 mdbuilder.py --download inputs/androzoo/sha256_6_APKs_rand.txt -npd 2 -fe -npe 2 --labelling inputs/androzoo/sha256_6_APKs_rand.txt -api ./inputs/virustotal_api_keys.txt --building
 ```
 *OBS: o módulo building só pode ser executado com o download ou labelling, pois precisa saber do número da quantidade de APKs que serão processados.*
 Além da etapa de *building*, é possível executar cada módulo individualmente, conforme exemplos de uso:
 ```
-python3 mdbuilder.py --download sha256.txt
+python3 mdbuilder.py --download inputs/androzoo/sha256_6_APKs_rand.txt
 python3 mdbuilder.py -fe
-python3 mdbuilder.py --labelling sha256.txt -api ./labelling/virustotal/API_Keys.txt
+python3 mdbuilder.py --labelling inputs/androzoo/sha256_6_APKs_rand.txt -api ./inputs/virustotal_api_keys.txt
 ```
 Também é possível executar os módulos de download e extração com mais de um processo, por exemplo:
 ```
-python3 mdbuilder.py --download sha256.txt -npd 3 (download com três processos)
+python3 mdbuilder.py --download inputs/androzoo/sha256_6_APKs_rand.txt -npd 3 (download com três processos)
 python3 mdbuilder.py -fe -npe 3 (extração com três processos)
-python3 mdbuilder.py --download sha256.txt -npd 3 -fe -npe 2 (download com três processos e extração com dois processos)
+python3 mdbuilder.py --download inputs/androzoo/sha256_6_APKs_rand.txt -npd 3 -fe -npe 2 (download com três processos e extração com dois processos)
 
 ```
 Por fim, é possível executar módulos em conjunto, conforme exemplos:
 ```
-python3 mdbuilder.py --download sha256.txt -npd 3 -fe -npe 3 --building
-python3 mdbuilder.py --download sha256.txt -fe
-python3 mdbuilder.py -fe --labelling sha256.txt -api ./labelling/virustotal/API_Keys.txt
-python3 mdbuilder.py --download sha256.txt -fe --labelling sha256.txt -api ./labelling/virustotal/API_Keys.txt
-python3 mdbuilder.py  -fe --labelling sha256.txt -api ./labelling/virustotal/API_Keys.txt --building
+python3 mdbuilder.py --download inputs/androzoo/sha256_6_APKs_rand.txt -npd 3 -fe -npe 3 --building
+python3 mdbuilder.py --download inputs/androzoo/sha256_6_APKs_rand.txt -fe
+python3 mdbuilder.py -fe --labelling inputs/androzoo/sha256_6_APKs_rand.txt -api ./inputs/virustotal_api_keys.txt
+python3 mdbuilder.py --download inputs/androzoo/sha256_6_APKs_rand.txt -fe --labelling inputs/androzoo/sha256_6_APKs_rand.txt -api ./inputs/virustotal_api_keys.txt
+python3 mdbuilder.py  -fe --labelling inputs/androzoo/sha256_6_APKs_rand.txt -api ./inputs/virustotal_api_keys.txt --building
 ```

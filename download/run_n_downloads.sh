@@ -11,8 +11,7 @@ for MOTO in $DOWNLOAD_QUEUE/moto_*
 do
 	[ -f $MOTO ] && {
 		SHA256=$(cat $MOTO | awk '{print $1}')
-		echo "Excluindo $MOTO"
-		rm $MOTO
+		rm $MOTO > /dev/null 2>&1
 	}
 done
 
