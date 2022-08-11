@@ -137,27 +137,27 @@ cd sf22_motodroid
 ```
 O seguinte comando executa todos módulos integrados. Basta passar os parâmetros que preferir:
 ```
-python3 mdbuilder.py --download inputs/androzoo/sha256_6_APKs_rand.txt -npd 2 -fe -npe 2 --labelling inputs/androzoo/sha256_6_APKs_rand.txt -api ./inputs/virustotal_api_keys.txt --building
+python3 adbuilder.py --download inputs/androzoo/sha256_6_APKs_rand.txt -npd 2 -fe -npe 2 --labelling inputs/androzoo/sha256_6_APKs_rand.txt -api ./inputs/virustotal_api_keys.txt --building
 ```
 *OBS: o módulo building só pode ser executado com o download ou labelling, pois precisa saber do número da quantidade de APKs que serão processados.*
 Além da etapa de *building*, é possível executar cada módulo individualmente, conforme exemplos de uso:
 ```
-python3 mdbuilder.py --download inputs/androzoo/sha256_6_APKs_rand.txt
-python3 mdbuilder.py -fe
-python3 mdbuilder.py --labelling inputs/androzoo/sha256_6_APKs_rand.txt -api ./inputs/virustotal_api_keys.txt
+python3 adbuilder.py --download inputs/androzoo/sha256_6_APKs_rand.txt
+python3 adbuilder.py -fe
+python3 adbuilder.py --labelling inputs/androzoo/sha256_6_APKs_rand.txt -api ./inputs/virustotal_api_keys.txt
 ```
 Também é possível executar os módulos de download e extração com mais de um processo, por exemplo:
 ```
-python3 mdbuilder.py --download inputs/androzoo/sha256_6_APKs_rand.txt -npd 3 (download com três processos)
-python3 mdbuilder.py -fe -npe 3 (extração com três processos)
-python3 mdbuilder.py --download inputs/androzoo/sha256_6_APKs_rand.txt -npd 3 -fe -npe 2 (download com três processos e extração com dois processos)
+python3 adbuilder.py --download inputs/androzoo/sha256_6_APKs_rand.txt -npd 3 (download com três processos)
+python3 adbuilder.py -fe -npe 3 (extração com três processos)
+python3 adbuilder.py --download inputs/androzoo/sha256_6_APKs_rand.txt -npd 3 -fe -npe 2 (download com três processos e extração com dois processos)
 
 ```
 Por fim, é possível executar módulos em conjunto, conforme exemplos:
 ```
-python3 mdbuilder.py --download inputs/androzoo/sha256_6_APKs_rand.txt -npd 3 -fe -npe 3 --building
-python3 mdbuilder.py --download inputs/androzoo/sha256_6_APKs_rand.txt -fe
-python3 mdbuilder.py -fe --labelling inputs/androzoo/sha256_6_APKs_rand.txt -api ./inputs/virustotal_api_keys.txt
-python3 mdbuilder.py --download inputs/androzoo/sha256_6_APKs_rand.txt -fe --labelling inputs/androzoo/sha256_6_APKs_rand.txt -api ./inputs/virustotal_api_keys.txt
-python3 mdbuilder.py  -fe --labelling inputs/androzoo/sha256_6_APKs_rand.txt -api ./inputs/virustotal_api_keys.txt --building
+python3 adbuilder.py --download inputs/androzoo/sha256_6_APKs_rand.txt -npd 3 -fe -npe 3 --building
+python3 adbuilder.py --download inputs/androzoo/sha256_6_APKs_rand.txt -fe
+python3 adbuilder.py -fe --labelling inputs/androzoo/sha256_6_APKs_rand.txt -api ./inputs/virustotal_api_keys.txt
+python3 adbuilder.py --download inputs/androzoo/sha256_6_APKs_rand.txt -fe --labelling inputs/androzoo/sha256_6_APKs_rand.txt -api ./inputs/virustotal_api_keys.txt
+python3 adbuilder.py  -fe --labelling inputs/androzoo/sha256_6_APKs_rand.txt -api ./inputs/virustotal_api_keys.txt --building
 ```
