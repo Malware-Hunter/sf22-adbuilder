@@ -13,7 +13,6 @@ while read SHA256 || [ -n "$SHA256" ];
 do  
 	echo -n "Realizando o download do APK $SHA256 ... "
 	/usr/bin/time -f "$SHA256 Tempo decorrido Download = %e segundos, CPU = %P, Memoria = %M KiB" -a -o $LOG_DIR/stats-"$APK_LIST_FILE".txt curl -s -S -o $EXTRACTION_QUEUE/$SHA256.apk --remote-header-name -G -d apikey=44e1937815802c68ee461e4f186f388107ad2ac5f10d0a38f93de5d56a7420ec -d sha256=$SHA256 https://androzoo.uni.lu/api/download
-	#/usr/bin/time -f "$SHA256 Tempo decorrido Download (%%e) = %e segundos, Tempo (%%E) = %E segundos, CPU ((%%U + %%S) / %%E) = %P, CPU nível usuário (%%U) = %U segundos, CPU nível kernel (%%S) = %S segundos" -a -o $LOG_DIR/stats-"$APK_LIST_FILE".txt curl -s -S -o $EXTRACTION_QUEUE/$SHA256.apk --remote-header-name -G -d apikey=44e1937815802c68ee461e4f186f388107ad2ac5f10d0a38f93de5d56a7420ec -d sha256=$SHA256 https://androzoo.uni.lu/api/download
 	CURL_EXEC=$(echo $?)
 	if [ -f $EXTRACTION_QUEUE/$SHA256.apk ] && [ $CURL_EXEC -eq 0 ] 
 	then

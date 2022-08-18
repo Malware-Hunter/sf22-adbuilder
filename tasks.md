@@ -31,13 +31,11 @@
 
 ### Atividades Pendentes
  **PRIORIDADE**
-    - Verificar os APKs corrompidos para matar processo, ao final; (Lucas e Vagner)
+    - Fazer com que a extração execute normalmente sozinha; (Lucas)
+    - Realizar testes com filas já preenchidas de arquivos; (Lucas)
 
 **PRIORIDADE MENOR**
-    - Fazer script.sh que liste todas as dependências atuais; (Lucas)
-    - Configurar labelling para esperar por 24h???
     - Sinal de DEBUG; (Após tarefas prioritárias)
-
 
 
 ### Atividades Realizadas
@@ -68,4 +66,5 @@
 - Fazer Lista de API Keys ser recebida de qualquer lugar sem nenhum problema; (Lucas)
 - Gerar log usr/bin/time para concatenção; (Lucas)
 - Resolver FIXMEs e fazer testes; (Lucas)
-- Fazer letras personalizadas de tela inicial do MotoDroidBuilder; (Lucas)
+- Desenvolver uma interface personalizada entre o usuário e a ferramenta; (Lucas)
+- Fazer com que cada processo se encerre sozinho; (Lucas)

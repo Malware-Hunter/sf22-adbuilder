@@ -61,7 +61,6 @@ do
         wait $PID_CONCAT > /dev/null 2>&1
         echo -e "\nTodos os CSVs já foram processados!\nDataset gerado!\n"  
         touch $FILA_DE_BUILDING/building.finished
-        #./scripts/kill_all.sh
         break
     fi
     sleep 10

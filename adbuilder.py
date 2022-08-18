@@ -25,7 +25,6 @@ def create_queues(_queues):
     create_directories(_queues)
 
 def main():
-    
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--download', type=str, default=False, help='TXT file with a list of APKs SHA256 to download.')
@@ -91,6 +90,7 @@ def main():
 
     counter_while = 1
     finished = 0
+
     while finished == 0:
         # informações do módulo de download
         download_count = 0
@@ -142,11 +142,23 @@ def main():
                 print("Download: {}/{}".format(download_count, var_APKs))
             else:
                 cprint("Download: {}/{}".format(download_count, var_APKs), 'green', attrs=['bold'])
-        if args.feature_extraction and args.n_feature_extraction_queues:
+        if args.feature_extraction and args.n_feature_extraction_queues and args.download:
             if extraction_count != var_APKs:
                 print("Extraction: {}/{}".format(extraction_count, var_APKs))
             else:
                 cprint("Extraction: {}/{}".format(extraction_count, var_APKs), 'green', attrs=['bold'])
+        elif args.feature_extraction and args.n_feature_extraction_queues and not args.download:
+            # quantidade de arquivos apk.finished no diretório de download
+            download_finished_count = 0
+            dir_download = "./queues/download"
+            for path in os.listdir(dir_download):
+                if os.path.isfile(os.path.join(dir_download, path)):
+                    if path.endswith(".apk.finished"):
+                        download_finished_count += 1
+            if extraction_count != download_finished_count:
+                print("Extraction: {}/{}".format(extraction_count, download_finished_count))
+            else:
+                cprint("Extraction: {}/{}".format(extraction_count, download_finished_count), 'green', attrs=['bold'])
         if args.labelling and args.apikeys:
             if labelling_count != var_APKs_2:
                 print("Labelling: {}/{}".format(labelling_count, var_APKs_2))
@@ -182,12 +194,29 @@ def main():
             for path in os.listdir(dir_building_finished):
                 if os.path.isfile(os.path.join(dir_building_finished, path)):
                     if path.endswith("building.finished"):
-                        # matar todos os processos sem aparecer na tela
-                        os.system('./scripts/kill_all.sh > /dev/null 2>&1')
                         finished = 1
         except:
             pass
         
+        # verifica se apenas o download está em execução
+        if args.download and not args.feature_extraction and not args.labelling and not args.building:
+            if download_count == var_APKs:
+                finished = 1
+        # verifica se apenas a extração está em execução
+        elif args.feature_extraction and not args.download and not args.labelling and not args.building:
+            dir_building_finished = "./queues/building"
+            try:
+                for path in os.listdir(dir_building_finished):
+                    if os.path.isfile(os.path.join(dir_building_finished, path)):
+                        if path.endswith("extraction.finished"):
+                            finished = 1
+            except:
+                pass
+        # verifica se apenas a rotulação está em execução
+        elif args.labelling and not args.download and not args.feature_extraction and not args.building:
+            if labelling_count == var_APKs_2:
+                finished = 1
+
         counter_while += 1
         time.sleep(10)
 

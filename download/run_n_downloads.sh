@@ -49,6 +49,7 @@ do
 	if [ $COUNTER_FINISHED -eq $((COUNTER-1)) ]
 	then
 		touch $EXTRACTION_QUEUE/download.finished
+		kill `ps guaxwww | grep run_apk_download.sh | awk '{print $2}'` > /dev/null 2>&1
 		exit
 	fi
 

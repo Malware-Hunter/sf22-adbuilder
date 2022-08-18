@@ -30,14 +30,3 @@ else
 fi
 
 bash -x ./labelling/virustotal/run.sh $SHA256 $API_KEYS $FILA_DE_LABELLING $FILA_DE_BUILDING $LOG_DIR &> $LOG_DIR/stats-$TS-bash.log &
-
-#N_LABELLINGS=$2
-#TS=$(date +%Y%m%d%H%M%S)
-#for NEXT in $(seq 1 $N_LABELLINGS)
-#do
-#    [ -d $LOG_DIR/stats-$TS-$CONTADOR ] || { mkdir -p $LOG_DIR/stats-$TS-$CONTADOR; }
-#    ./virustotal/run.sh $0 ./virustotal/API_Keys.txt $FILA_DE_LABELLING $FILA_DE_BUILDING $LOG_DIR/stats-$TS-$CONTADOR &> $LOG_DIR/labelling-$TS-$CONTADOR/log &
-    #./extraction/run_apk_extraction.sh $FILA_DE_EXTRACTION $FILA_DE_BUILDING $LOG_DIR/stats-$TS-$CONTADOR &> $LOG_DIR/extraction-$TS-$CONTADOR.log &
-#    CONTADOR=$((CONTADOR+1))
-#done
-

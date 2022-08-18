@@ -29,6 +29,7 @@ do
     if [ -f $EXTRACTION_QUEUE/download.finished ] && [ $EXT_DOWNLOAD -eq $EXT_COUNT ]
     then
         touch $BUILDING_QUEUE/extraction.finished
+        kill `ps guaxwww | grep run_apk_extraction.sh | awk '{print $2}'` > /dev/null 2>&1
         break
     fi
 
