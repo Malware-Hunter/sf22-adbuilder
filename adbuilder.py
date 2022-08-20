@@ -78,7 +78,7 @@ def main():
     if args.feature_extraction and args.n_feature_extraction_queues: 
         os.system('./extraction/run_n_extractions.sh {} {} {} {} {} &'.format(args.n_feature_extraction_queues, queues['download'], queues['extraction'], queues['building'], logs['extraction']))    
     
-    if args.building and args.download:
+    if args.building:
         os.system('./building/run_building.sh {} {} {} &'.format(queues['labelling'], queues['building'], logs['building']))
     
     # remover arquivo de sinalização do building anterior
@@ -153,7 +153,7 @@ def main():
             dir_download = "./queues/download"
             for path in os.listdir(dir_download):
                 if os.path.isfile(os.path.join(dir_download, path)):
-                    if path.endswith(".apk.finished"):
+                    if path.endswith(".apk.downloaded"):
                         download_finished_count += 1
             if extraction_count != download_finished_count:
                 print("Extraction: {}/{}".format(extraction_count, download_finished_count))
@@ -221,7 +221,7 @@ def main():
         time.sleep(10)
 
     end = time.time()
-    cprint("\n***** ADBuilder *****\nExecutado em {} segundos.\n".format(end - start), 'green', attrs=['bold'])
+    cprint("\n\n***** ADBuilder *****\nExecutado em {} segundos.\n".format(end - start), 'green', attrs=['bold'])
 
     ##############################################
 
