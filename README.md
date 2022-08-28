@@ -1,5 +1,5 @@
 <h1 align="center"> ADBuilder </h1>
-<h5 align="left"> Ferramenta automatizada para gerar um dataset de malwares em Android. A ferramenta passa por todas as etapas, incluíndo: </h5>
+<h5 align="left"> Ferramenta automatizada para gerar um dataset de malwares em Android. A ferramenta passa por todas as etapas, incluindo: </h5>
 
 
 - [x] Download de Aplicativos;
@@ -86,12 +86,12 @@ sudo apt-get install git -y
 ```
 Clone o Repositório
 ```
-git clone https://github.com/Malware-Hunter/sf22_motodroid.git
+git clone https://github.com/Malware-Hunter/sf22-adbuilder.git
 ```
 Nós disponibilizamos um arquivo shell de setup que contém configurações de permissões e dependências necessárias. Portanto, para preparar o ambiente, basta executar o seguinte comando:
 ```
-cd sf22_motodroid
-./setup.sh
+cd sf22_adbuilder
+./scripts/setup.sh
 ```
 Caso prefira, você pode instalar as dependências individualmente utilizando os seguintes comandos:
 ```
@@ -126,25 +126,25 @@ Caso prefira, você pode instalar as dependências individualmente utilizando os
 [//]: # ()
 [//]: # (O parâmetro *-npd* e -*npe* recebe um número inteiro informando a quantidade de processos &#40;núcleos da máquina&#41; que serão utilizados para realizar a etapa de download e extração, respectivamente. Se não for definido esse parâmetro, o valor será setado em 1 processo, por padrão.)
 
-***É possível rodar cada etapa separadamente. Apenas o building precisa ser executado com o download ou labelling, pois é necessário obter o número de sha256 da lista para a parada do processo.***
+***É possível rodar cada etapa separadamente ou em conjunto.***
 
 <div id="exemplo-de-uso"/>
 
 ### 👨‍💻 Exemplo de uso
 Entre no diretório principal:
 ```
-cd sf22_motodroid
+cd sf22_adbuilder
 ```
 O seguinte comando executa todos módulos integrados. Basta passar os parâmetros que preferir:
 ```
 python3 adbuilder.py --download inputs/androzoo/sha256_6_APKs_rand.txt -npd 2 -fe -npe 2 --labelling inputs/androzoo/sha256_6_APKs_rand.txt -api ./inputs/virustotal_api_keys.txt --building
 ```
-*OBS: o módulo building só pode ser executado com o download ou labelling, pois precisa saber do número da quantidade de APKs que serão processados.*
-Além da etapa de *building*, é possível executar cada módulo individualmente, conforme exemplos de uso:
+É possível executar cada módulo individualmente, conforme exemplos de uso:
 ```
 python3 adbuilder.py --download inputs/androzoo/sha256_6_APKs_rand.txt
 python3 adbuilder.py -fe
 python3 adbuilder.py --labelling inputs/androzoo/sha256_6_APKs_rand.txt -api ./inputs/virustotal_api_keys.txt
+python3 adbuilder.py --building
 ```
 Também é possível executar os módulos de download e extração com mais de um processo, por exemplo:
 ```

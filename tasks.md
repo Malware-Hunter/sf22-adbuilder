@@ -31,11 +31,11 @@
 
 ### Atividades Pendentes
  **PRIORIDADE**
-    - Fazer com que a extração execute normalmente sozinha; (Lucas)
     - Realizar testes com filas já preenchidas de arquivos; (Lucas)
 
 **PRIORIDADE MENOR**
     - Sinal de DEBUG; (Após tarefas prioritárias)
+    - Diminuir o intervalo de tempo da análise do VT?
 
 
 ### Atividades Realizadas
@@ -68,3 +68,4 @@
 - Resolver FIXMEs e fazer testes; (Lucas)
 - Desenvolver uma interface personalizada entre o usuário e a ferramenta; (Lucas)
 - Fazer com que cada processo se encerre sozinho; (Lucas)
+- Fazer com que a extração execute normalmente sozinha; (Lucas)
