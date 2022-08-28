@@ -101,6 +101,8 @@ Caso prefira, você pode instalar as dependências individualmente utilizando os
 - python3 -m pip install androguard==3.3.5
 - python3 -m pip install networkx==2.2
 - python3 -m pip install pandas==1.3.5
+- python3 -m pip install termcolor
+- python3 -m pip install pyfiglet
 ```
 
 <div id="parametros-disponiveis"/>
