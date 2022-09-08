@@ -17,7 +17,7 @@ do
 
 	#curl  --request GET --url "https://www.virustotal.com/api/v3/files/"$SHA256 --header  'x-apikey:'$API_KEY > $SHA256".json" &
 
-	sleep 30
+	sleep 20
 	echo -e "Download finalizado!!!\n"
 
 	# verificando se o tamanho doa arquivo é menor que 1KB
