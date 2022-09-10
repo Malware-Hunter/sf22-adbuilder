@@ -163,3 +163,5 @@ python3 adbuilder.py -fe --labelling inputs/androzoo/sha256_6_APKs_rand.txt -api
 python3 adbuilder.py --download inputs/androzoo/sha256_6_APKs_rand.txt -fe --labelling inputs/androzoo/sha256_6_APKs_rand.txt -api ./inputs/virustotal_api_keys.txt
 python3 adbuilder.py  -fe --labelling inputs/androzoo/sha256_6_APKs_rand.txt -api ./inputs/virustotal_api_keys.txt --building
 ```
+
+***OBS: O dataset final é gerado na fila do módulo de geração, na pasta: queues/building/final.***
