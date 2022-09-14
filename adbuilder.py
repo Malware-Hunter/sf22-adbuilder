@@ -134,9 +134,8 @@ def main():
         except:
             ''
 
-        cprint("\n***** Status de Execução {} *****".format(counter_while), 'yellow', attrs=['bold'])
-        cprint("Tempo decorrido: {} segundos".format(time.time() - start), 'yellow', attrs=['bold'])
-        print("\n")
+        cprint("\n\n***** Status de Execução {} *****".format(counter_while), 'magenta', attrs=['bold'])
+        cprint("Tempo decorrido: {} segundos".format(time.time() - start), 'magenta', attrs=['bold'])
         if args.download and args.n_download_queues:
             if download_count != var_APKs:
                 print("Download: {}/{}".format(download_count, var_APKs))
