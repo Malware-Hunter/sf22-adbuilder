@@ -16,7 +16,7 @@ do
 done
 
 if [ $3 -gt 1 ]
-then	
+then
 	SIZE=$(wc -l "$1" | awk '{ print $1 }')
 	SIZE=$((SIZE/N_PARALLEL_DOWNLOADS+1))
 	split -l $SIZE $1 $DOWNLOAD_QUEUE/moto_
@@ -38,13 +38,7 @@ done
 
 while [ 1 ]
 do
-	# verificar se todos os APKs foram baixados
-	COUNTER_FINISHED=0
-	# verificar se existe arquivo .finished na pasta de download
-	for FINISHED in $(find $DOWNLOAD_QUEUE -type f -name \*.finished)
-	do
-		COUNTER_FINISHED=$((COUNTER_FINISHED+1))
-	done
+	COUNTER_FINISHED=$(find $DOWNLOAD_QUEUE -type f -name \*.finished | wc -l)
 
 	if [ $COUNTER_FINISHED -eq $((COUNTER-1)) ]
 	then

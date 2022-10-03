@@ -47,7 +47,7 @@ def treatment_data(df):
     #split_PROVIDER = ["Provider :: " + x for x in split_PROVIDER]
     #split_OPCODES = ["Opcode :: " + x for x in split_OPCODES]
     split_API = ["API Call :: " + x for x in split_API]
-    
+
     # nome de pacotes oficiais da Google Android
     #https://developer.android.com/reference/packages
     packages = ['Landroid/Laccessibilityservice',
@@ -212,7 +212,7 @@ def treatment_data(df):
             'Landroid/widget/inline',
             'Landroid/window'
         ]
-    
+
     intents_list = [
             'ACCEPT',
             'ACCOUNT_REMOVED',
@@ -1020,9 +1020,9 @@ def treatment_data(df):
                 API_vector.append(line)
 
     PERMISSOES=[]
-    for x in split_PERM: 
+    for x in split_PERM:
         PERMISSOES.append("Permission :: "+re.sub(r'.*\W+|[a-z]+|[1,3-9]+|^(?:[\t ]*(?:\r?\n|\r))+', '', x))
-    
+
     INTENTS=[]
     for x in split_INTENTS:
         intent = re.sub(r'.*\W+|[a-z]+|[1,3-9]+|^(?:[\t ]*(?:\r?\n|\r))+', '', x)
@@ -1044,6 +1044,7 @@ def treatment_data(df):
     #MotoDroid_PROVIDER = MotoDroid_PROVIDER.loc[:,~MotoDroid_PROVIDER.columns.duplicated()]
     #MotoDroid_OPCODES = pd.DataFrame(columns=[*split_OPCODES])
     #MotoDroid_OPCODES = MotoDroid_OPCODES.loc[:,~MotoDroid_OPCODES.columns.duplicated()]
+    MotoDroid_API = pd.DataFrame()
     if len(split_API) != 0:
         MotoDroid_API = pd.DataFrame(columns=[*API_vector])
         MotoDroid_API = MotoDroid_API.loc[:,~MotoDroid_API.columns.duplicated()]
@@ -1057,7 +1058,7 @@ def treatment_data(df):
                         ], axis =  1)
 
     # atribuindo valor 1 para todas as características que o APK contém
-    MotoDroid.loc[0] = 1
+    MotoDroid.loc[0,:] = 1
 
     MetaDados = pd.DataFrame()
 
@@ -1091,7 +1092,7 @@ def main():
 
     # realiza o tratamento dos dados no arquivo CSV
     df = pd.read_csv(indir)
-    
+
     split_PERM = re.sub(r'[\[\'\]\" ]', '', df["PERMISSOES"][0]).split(",")
     split_INTENTS = re.sub(r'[\[\'\]\"\{\} ]', '', df["INTENTS"][0]).split(",")
     split_API = re.sub(r'[\[\'\]\"\{\} ]', '', df["APICALLS"][0]).split(",")
