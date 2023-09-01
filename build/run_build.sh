@@ -11,11 +11,12 @@ TIME_STAMP=$(date +%Y%m%d%H%M%S)
 LOG_FILE=$(basename $1 | cut -d. -f1)
 LOG_FILE_PATH="$LOG_DIR/${TIME_STAMP}_${LOG_FILE}.log"
 APK_COUNTER=1
+JOB_COUNTER=0
 
 rm -rf $BUILD_DIR/*.builded
 rm -rf $BUILD_DIR/*.error
 [ -f $BUILD_DIR/build.finished ] && { rm $BUILD_DIR/build.finished; }
-# function to label using VirusTotal
+# function to build dataset
 dataset_concat() {
     SHA256=$1
     #echo "[$APK_COUNTER] Concatenating $SHA256 ..."
@@ -31,10 +32,20 @@ dataset_concat() {
 }
 
 while read SHA256; do
-  dataset_concat $SHA256
+  dataset_concat $SHA256 &
   ((APK_COUNTER++))
+  ((JOB_COUNTER++))
   sleep 1
+  while [ $JOB_COUNTER -ge 4 ]; do
+    wait -n
+    ((JOB_COUNTER--))
+  done
 done < $SHA256_LIST
+
+while [ $JOB_COUNTER -gt 0 ]; do
+  wait -n
+  ((JOB_COUNTER--))
+done
 
 touch $BUILD_DIR/build.finished
 #echo "Build Completed"
